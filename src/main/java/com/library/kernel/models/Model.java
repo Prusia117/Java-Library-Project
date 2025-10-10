@@ -1,49 +1,51 @@
 package com.library.kernel.models;
 
-public class Model {
+import java.lang.reflect.Field;
+
+import com.library.kernel.orm.ORM;
+
+
+import java.sql.*;
+
+public class Model extends ORM{
 
     protected String tableName;
 
+    protected String primaryKey;
 
-    public Model(String name){
+    protected String[] excluedFields;
+
+    protected Model(String name){
         super();
+    }
+
+    protected void findById(int id) throws SQLException
+    {
+        String sql = "SELECT * FROM " + tableName + " WHERE " + primaryKey + " = " + id;
+        this.query(tableName);
+    }
+
+    // TODO: Agregar funcionamineto para buscar por cierta columna y valor
+    protected void findByField() throws SQLException
+    {
+        
+    }
+
+    protected void save()
+    {
+
+        Class<?> clss = this.getClass();
+
+        Field[] publicFields = clss.getFields();
+
+        StringBuilder sql = new StringBuilder("INSERT INTO " + tableName + " (");
+
+        for (Field field : publicFields) sql.append(field + ", ");
+
+        sql.append(") VALUES(");
+
         
     }
 
 
-    public String query(String sqlStatment ){
-    
-        return sqlStatment; 
-    }
-
-
-    public String select(String sqlStatment ){
-
-        if(sqlStatment == null) return this.query("SELECT * FROM" + this.tableName);
-    
-        return this.query(sqlStatment);
-    }
-
-    public String insert(String sqlStatment ){
-
-        if(sqlStatment == null) return "Error";
-    
-        return "INSERT * FROM" + this.tableName + "WHERE " + sqlStatment; 
-    }
-
-    public String update(String filters ){
-
-        if(filters == null) return "SELECT * FROM" + this.tableName;
-    
-        return "SELECT * FROM" + this.tableName + "WHERE " + filters; 
-    }
-
-    public String where(String filters ){
-
-        if(filters == null) return "SELECT * FROM" + this.tableName;
-    
-        return "SELECT * FROM" + this.tableName + "WHERE " + filters; 
-    }
-
-    
 }
