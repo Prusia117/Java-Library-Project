@@ -4,45 +4,53 @@ import com.library.kernel.classes.DatabaseParameters;
 import com.library.kernel.enums.SQLDriver;
 
 import java.sql.*;
+import java.util.Properties;
 
-public class ORM {
+class ORM {
 
     private final SQLDriver driver = SQLDriver.MYSQL;
 
     private final DatabaseParameters databaseParameters = null;
 
-    private Connection getConnection() throws SQLException
-    {
-        try{
+    private static Properties getDataBaseProperties() {
+        Properties p = new Properties();
+        p.setProperty("user", null);
+        p.setProperty("password", null);
+        return p;
+    }
+
+    protected Connection getConnection() throws SQLException {
+        try {
+
+            Properties dataBaseProperties = getDataBaseProperties();
 
             String stringConnection = "jdbc:" + driver.getDriver() + "://";
-            Connection connection = DriverManager.getConnection(stringConnection, null, null);
+            Connection connection = DriverManager.getConnection(stringConnection, dataBaseProperties);
 
             return connection;
 
-        }catch(SQLException error){
-            
+        } catch (SQLException error) {
+
             System.out.println("SQL Error Connection:" + error);
             throw error;
         }
     }
 
-    public ResultSet query(String sql) throws SQLException
-    {
+    public ResultSet getQuery(String sql) throws SQLException {
 
-        try
-        {
-            Connection connection = this.getConnection();
+        try(
+            Connection connection = getConnection();
             Statement stmt = connection.createStatement();
             ResultSet resultSet = stmt.executeQuery(sql);
+        ) 
+        {
             return resultSet;
 
-        }catch(SQLException error){
+        } catch (SQLException error) {
+
+            System.out.println("SQL Error Query Execution:" + error);
             throw error;
         }
-    
     }
-
-
 
 }

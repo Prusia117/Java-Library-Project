@@ -44,6 +44,12 @@ public class Model extends ORM{
 
         sql.append(") VALUES(");
 
+
+        for (Field field : publicFields) {
+            Class<?> propertyField = field.get(clss);
+            sql.append("");
+        }
+
         
     }
 
