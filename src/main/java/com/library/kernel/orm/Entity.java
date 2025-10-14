@@ -1,5 +1,8 @@
 package com.library.kernel.orm;
 
-public class Entity {
+public abstract interface Entity {
     
+    public abstract String getPrimaryKey();
+
+    public abstract String getTableName();
 }

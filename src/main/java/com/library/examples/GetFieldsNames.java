@@ -60,9 +60,12 @@ public class GetFieldsNames extends Colors {
             System.out.println("Field: " + field); // <-- Toda la informacion del objeto
         }
 
+        Test t = new Test();
+
         System.out.println(GREEN +"Solo el nombre de los matributos" + RESET);
         for (Field field : publicFields) {
             System.out.println("FieldName: " + field.getName()); // <-- Solo el nombre
+            Object value = field.get(t);
         }
     }
 

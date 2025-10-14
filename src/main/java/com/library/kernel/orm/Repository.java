@@ -1,12 +1,13 @@
 package com.library.kernel.orm;
 
+import java.sql.SQLException;
 import java.util.List;
 
-public abstract class Model<T>
+public abstract class Repository<T extends Entity> extends ORM
 {
     
-    public abstract List<T> getAll();
-/* 
+    public abstract List<T> getAll() throws SQLException;
+/*
     public abstract T getById();
 
     public abstract T getByName();
