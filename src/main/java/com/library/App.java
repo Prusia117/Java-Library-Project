@@ -8,10 +8,17 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+import com.library.kernel.orm.ORM;
+import com.library.kernel.orm.SQLDriver;
+
 /**
  * JavaFX App
  */
 public class App extends Application {
+
+    {
+        
+    }
 
     private static Scene scene;
 

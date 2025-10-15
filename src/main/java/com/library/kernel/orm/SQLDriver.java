@@ -1,21 +1,24 @@
-package com.library.kernel.enums;
+package com.library.kernel.orm;
 
 public enum SQLDriver {
     
+    GENERIC(
+        ""
+    ),
     MYSQL(
         "mysql"
     ),
     SQLITE(
-        "mysql"
+        "sqlite"
     ),
     ORACLESQL(
-        "mysql"
+        "oraclesql"
     ),
     MARIADB(
-        "mysql"
+        "mariadb"
     ),
     SQLSERVER(
-        "mysql"
+        "sqlserver"
     );
 
     private final String driverName;

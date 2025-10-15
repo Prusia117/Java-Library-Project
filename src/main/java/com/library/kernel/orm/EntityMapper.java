@@ -6,7 +6,7 @@ import java.util.HashMap;
 public final class EntityMapper<T extends Entity> {
 
     public static<T extends Entity> HashMap<String, String> entityMapper(T entity) 
-    throws ORMException
+    throws IllegalArgumentException, IllegalAccessException
     {
         try {
             HashMap<String, String> map = new HashMap<>();
