@@ -3,10 +3,19 @@ package com.library.kernel.orm;
 import java.sql.SQLException;
 import java.util.List;
 
-public abstract class Repository<T extends Entity> extends ORM
+public final class Repository<T extends Entity> 
 {
+
+    private ORM orm;
+
+    Repository(){
+        orm = new ORM();
+    }
     
-    public abstract List<T> getAll() throws SQLException;
+    public /*List<T>*/ void getAll()
+    {
+        orm.selectQuery(null, null);
+    }
 /*
     public abstract T getById();
 
