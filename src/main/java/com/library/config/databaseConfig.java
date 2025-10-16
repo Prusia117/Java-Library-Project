@@ -3,16 +3,16 @@ package com.library.config;
 import com.library.kernel.orm.SQLDriver;
 import com.library.kernel.orm.DatabaseProperties;
 
-public class databaseConfig extends DatabaseProperties {
+public class DatabaseConfig extends DatabaseProperties {
 
 
-    private String driver = "postgresql";
-    private String host = "localhost";
-    private String port = "5432";
-    private String dataBaseName = "postgres";
-    private String dataBaseUser = "";
-    private String dataBasePassword = "";
-    private SQLDriver sqlDriver = SQLDriver.MARIADB;
+    private static String driver = "postgresql";
+    private static String host = "localhost";
+    private static String port = "5432";
+    private static String dataBaseName = "postgres";
+    private static String dataBaseUser = "";
+    private static String dataBasePassword = "";
+    private static SQLDriver sqlDriver = SQLDriver.MARIADB;
 
     @Override
     public String getDriver() {

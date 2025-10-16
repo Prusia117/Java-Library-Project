@@ -1,28 +1,23 @@
 package com.library.kernel.orm;
 
 import java.sql.*;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Properties;
 
 public class ORM {
 
     private static SQLDriver sqlDriver = SQLDriver.GENERIC;
 
-    protected static DatabaseProperties databaseProperties = null;
-
-    private static Properties getDataBaseProperties() {
-        Properties p = new Properties();
-        p.setProperty("user", null);
-        p.setProperty("password", null);
-        return p;
-    }
+    private static DatabaseProperties databaseProperties = null;
 
     private Connection getConnection() throws SQLException {
         try {
 
-            Properties dataBaseProperties = getDataBaseProperties();
+            DatabaseProperties databaseProperties = this.databaseProperties;
 
             String stringConnection = "jdbc:" + sqlDriver.getDriver() + "://";
-            Connection connection = DriverManager.getConnection(stringConnection, dataBaseProperties);
+            Connection connection = DriverManager.getConnection(stringConnection, databaseProperties.getDataBaseUser(), databaseProperties.getDataBasePassword());
 
             return connection;
 
@@ -33,7 +28,13 @@ public class ORM {
         }
     }
 
-    public ResultSet selectQuery(String sql) throws SQLException {
+    public ResultSet selectQuery(Entity entity) throws SQLException {
+
+        HashMap<String, String> map = EntityMapper.entityMapper(entity);
+
+        for(Map.Entry<String, String> entry : map.entrySet()){
+            
+        }
 
         try(
             Connection connection = getConnection();

@@ -8,6 +8,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+import com.library.config.DatabaseConfig;
 import com.library.kernel.orm.ORM;
 import com.library.kernel.orm.SQLDriver;
 
@@ -16,8 +17,8 @@ import com.library.kernel.orm.SQLDriver;
  */
 public class App extends Application {
 
-    {
-        
+    static {
+        ORM.setDatabaseProperties(new DatabaseConfig());
     }
 
     private static Scene scene;

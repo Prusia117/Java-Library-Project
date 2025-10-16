@@ -1,5 +1,4 @@
 package com.library.kernel.orm;
-import java.lang.reflect.Field;
 
 public abstract class DatabaseProperties {
     public abstract String getDriver();
