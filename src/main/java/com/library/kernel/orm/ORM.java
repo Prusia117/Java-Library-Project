@@ -1,12 +1,14 @@
 package com.library.kernel.orm;
 
+import java.lang.reflect.InvocationTargetException;
 import java.nio.channels.NetworkChannel;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
-public final class ORM {
+public final class ORM{
 
     private static SQLDriver sqlDriver = SQLDriver.GENERIC;
 
@@ -28,7 +30,7 @@ public final class ORM {
         }
     }
 
-    public ResultSet selectQuery(Entity entity, String id) throws SQLException {
+    public ResultSet selectQuery(Entity entity, String id) throws SQLException, InstantiationException, InvocationTargetException, NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException {
 
         StringBuilder sqlStmt = new StringBuilder("SELECT * FROM " + entity.getTableName());
 
@@ -38,25 +40,41 @@ public final class ORM {
         try (
                 Connection connection = getConnection();
                 Statement stmt = connection.createStatement();
-                ResultSet resultSet = stmt.executeQuery(sqlStmt.toString());) {
-            return resultSet;
+                ResultSet resultSet = stmt.executeQuery(sqlStmt.toString());
+            ) 
+        {
+            
+            ArrayList<Entity> entityArray = new ArrayList<Entity>();
+            
+            while (resultSet.next()) {
+                Entity newEntity = EntityFactory.createEntity(entity.getClass());
+
+                
+
+                HashMap<String, String> map = EntityFactory.entityMapper(entity);
+                
+
+                
+            }
+
+            return null;
 
         } catch (SQLException error) {
 
             System.out.println("SQL Error Query Execution:" + error);
-            throw error;
+            return null;
         }
     }
 
     public int updateQuery(Entity entity, String id) throws SQLException {
 
-        StringBuilder sqlStmt = new StringBuilder();
-        
+        StringBuilder sqlStmt = new StringBuilder();        
+
         try {
             if (id == null) {
                 sqlStmt.append("INSERT INTO " + entity.getTableName() + " (");
 
-                HashMap<String, String> map = EntityMapper.entityMapper(entity);
+                HashMap<String, String> map = EntityFactory.entityMapper(entity);
 
                 StringBuilder sqlColumns = new StringBuilder();
                 StringBuilder sqlValues = new StringBuilder();
@@ -71,12 +89,13 @@ public final class ORM {
                                 + ") VALUES ("
                                 + sqlValues.substring(0, sqlValues.length() - 2));
             } else if (entity == null) {
+                // TODO: Failure implementation method
                 sqlStmt.append(
                         "DELETE FROM " + entity.getTableName() + " WHERE " + entity.getPrimaryKey() + " = " + id);
             } else if (id != null && entity != null) {
                 sqlStmt.append("UPDATE " + entity.getTableName() + " SET ");
 
-                HashMap<String, String> map = EntityMapper.entityMapper(entity);
+                HashMap<String, String> map = EntityFactory.entityMapper(entity);
 
                 StringBuilder sqlColumnsAndValues = new StringBuilder();
                 for (Map.Entry<String, String> entry : map.entrySet()) {
@@ -93,7 +112,7 @@ public final class ORM {
             } else {
                 throw new SQLException("Invalid Query Statment");
             }
-        } catch (SQLException | IllegalArgumentException | IllegalAccessException   error) {
+        } catch (SQLException | IllegalArgumentException | IllegalAccessException error) {
             System.out.println("SQL Error Query Execution:" + error);
         }
 
@@ -103,7 +122,7 @@ public final class ORM {
             int result = stmt.executeUpdate(sqlStmt.toString());
             return result;
 
-        } catch (SQLException  error) {
+        } catch (SQLException error) {
 
             System.out.println("SQL Error Query Execution:" + error);
             throw error;
