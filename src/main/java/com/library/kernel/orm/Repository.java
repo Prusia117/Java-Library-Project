@@ -11,27 +11,24 @@ public final class Repository<T extends Entity>
 
     private ORM orm;
 
-    Repository(){
+    private Class<T> type;
+
+    Repository(Class<T> type){
         orm = new ORM();
+
+        this.type = type;
     }
     
-    public List<T> getAll() throws SQLException
+    public List<T> getAll()
     {
         try {
+            ArrayList<T> rs = orm.selectQuery(EntityFactory.createEntity(type),null);
             
-            ResultSet rs = orm.selectQuery(null, null);
-            
-            ArrayList<Entity> entityArray = new ArrayList<Entity>();
-
-            while(rs.next()){
-                
-                Entity newEntity = new Entity();
-            
-            }
-
+            return rs;
 
         } catch (Exception e) {
             // TODO: handle exception
+            return null;
         }
     }
 /*

@@ -1,5 +1,6 @@
 package com.library.kernel.orm;
 
+import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.nio.channels.NetworkChannel;
 import java.sql.*;
@@ -8,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
-public final class ORM{
+public final class ORM<T extends Entity>  {
 
     private static SQLDriver sqlDriver = SQLDriver.GENERIC;
 
@@ -30,7 +31,9 @@ public final class ORM{
         }
     }
 
-    public ResultSet selectQuery(Entity entity, String id) throws SQLException, InstantiationException, InvocationTargetException, NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException {
+    public ArrayList<T> selectQuery(T entity, String id)
+            throws SQLException, InstantiationException, InvocationTargetException, NoSuchMethodException,
+            SecurityException, IllegalAccessException, IllegalArgumentException {
 
         StringBuilder sqlStmt = new StringBuilder("SELECT * FROM " + entity.getTableName());
 
@@ -41,23 +44,27 @@ public final class ORM{
                 Connection connection = getConnection();
                 Statement stmt = connection.createStatement();
                 ResultSet resultSet = stmt.executeQuery(sqlStmt.toString());
-            ) 
-        {
-            
-            ArrayList<Entity> entityArray = new ArrayList<Entity>();
-            
+
+        ) {
+
+            ArrayList<T> entityArray = new ArrayList<T>();
+
+            Class<?> entityClass = entity.getClass();
+        
+            Field[] entityFields = entityClass.getFields();
+
             while (resultSet.next()) {
-                Entity newEntity = EntityFactory.createEntity(entity.getClass());
 
-                
+                T newEntity = EntityFactory.createEntity(entity.getClass());
+                for (int i = 0; i < entityFields.length; i++) {
+                    entityFields[i].set(newEntity, resultSet.getObject(i));
+                }
 
-                HashMap<String, String> map = EntityFactory.entityMapper(entity);
-                
+                entityArray.add(newEntity);
 
-                
             }
 
-            return null;
+            return entityArray;
 
         } catch (SQLException error) {
 
@@ -66,9 +73,9 @@ public final class ORM{
         }
     }
 
-    public int updateQuery(Entity entity, String id) throws SQLException {
+    public int updateQuery(T entity, String id) throws SQLException {
 
-        StringBuilder sqlStmt = new StringBuilder();        
+        StringBuilder sqlStmt = new StringBuilder();
 
         try {
             if (id == null) {
@@ -114,6 +121,7 @@ public final class ORM{
             }
         } catch (SQLException | IllegalArgumentException | IllegalAccessException error) {
             System.out.println("SQL Error Query Execution:" + error);
+            return 0;
         }
 
         try (
@@ -125,7 +133,7 @@ public final class ORM{
         } catch (SQLException error) {
 
             System.out.println("SQL Error Query Execution:" + error);
-            throw error;
+            return 0;
         }
     }
 
