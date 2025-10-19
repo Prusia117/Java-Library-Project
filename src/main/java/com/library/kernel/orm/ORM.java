@@ -2,14 +2,12 @@ package com.library.kernel.orm;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
-import java.nio.channels.NetworkChannel;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Properties;
 
-public final class ORM<T extends Entity>  {
+public final class ORM<T extends Entity> {
 
     private static SQLDriver sqlDriver = SQLDriver.GENERIC;
 
@@ -50,7 +48,7 @@ public final class ORM<T extends Entity>  {
             ArrayList<T> entityArray = new ArrayList<T>();
 
             Class<?> entityClass = entity.getClass();
-        
+
             Field[] entityFields = entityClass.getFields();
 
             while (resultSet.next()) {
@@ -95,10 +93,6 @@ public final class ORM<T extends Entity>  {
                         sqlColumns.substring(0, sqlColumns.length() - 2)
                                 + ") VALUES ("
                                 + sqlValues.substring(0, sqlValues.length() - 2));
-            } else if (entity == null) {
-                // TODO: Failure implementation method
-                sqlStmt.append(
-                        "DELETE FROM " + entity.getTableName() + " WHERE " + entity.getPrimaryKey() + " = " + id);
             } else if (id != null && entity != null) {
                 sqlStmt.append("UPDATE " + entity.getTableName() + " SET ");
 
@@ -123,6 +117,24 @@ public final class ORM<T extends Entity>  {
             System.out.println("SQL Error Query Execution:" + error);
             return 0;
         }
+
+        try (
+                Connection connection = getConnection();
+                Statement stmt = connection.createStatement();) {
+            int result = stmt.executeUpdate(sqlStmt.toString());
+            return result;
+
+        } catch (SQLException error) {
+
+            System.out.println("SQL Error Query Execution:" + error);
+            return 0;
+        }
+    }
+
+    public int deleteQuery(T entity, String id) throws SQLException {
+
+        StringBuilder sqlStmt = new StringBuilder(
+                "DELETE FROM " + entity.getTableName() + " WHERE " + entity.getPrimaryKey() + " = " + id);
 
         try (
                 Connection connection = getConnection();

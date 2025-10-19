@@ -1,8 +1,5 @@
 package com.library.kernel.orm;
 
-import java.lang.reflect.Array;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,14 +28,57 @@ public final class Repository<T extends Entity>
             return null;
         }
     }
-/*
-    public abstract T getById();
+    
+    public List<T> getById(String id)
+    {
+        try {
+            ArrayList<T> rs = orm.selectQuery(EntityFactory.createEntity(type),id);
+            
+            return rs;
 
-    public abstract T getByName();
+        } catch (Exception e) {
+            // TODO: handle exception
+            return null;
+        }
+    }
+    
+    public boolean save(T entity)
+    {
+        try {
+            int rs = orm.updateQuery(entity, null);
+            
+            return rs == 1 ? true : false;
 
-    public abstract boolean save(T object);
+        } catch (Exception e) {
+            // TODO: handle exception
+            return false;
+        }
+    }
+    
+    public boolean update(T entity, String id)
+    {
+        try {
+            int rs = orm.updateQuery(entity, id);
+            
+            return rs == 1 ? true : false;
 
-    public abstract boolean update(T object, int id);
+        } catch (Exception e) {
+            // TODO: handle exception
+            return false;
+        }
+    }
 
-    public abstract boolean delete(int id);*/
+    public boolean delete(T entity, String id)
+    {
+        try {
+            int rs = orm.deleteQuery(entity, id);
+            
+            return rs == 1 ? true : false;
+
+        } catch (Exception e) {
+            // TODO: handle exception
+            return false;
+        }
+    }
+
 }
