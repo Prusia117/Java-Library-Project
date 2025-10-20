@@ -6,18 +6,12 @@ import com.library.kernel.orm.DatabaseProperties;
 public class DatabaseConfig extends DatabaseProperties {
 
 
-    private static String driver = "postgresql";
     private static String host = "localhost";
-    private static String port = "5432";
-    private static String dataBaseName = "postgres";
-    private static String dataBaseUser = "";
-    private static String dataBasePassword = "";
-    private static SQLDriver sqlDriver = SQLDriver.MARIADB;
-
-    @Override
-    public String getDriver() {
-        return driver;
-    }
+    private static String port = "5420";
+    private static String dataBaseName = "mydatabase";
+    private static String dataBaseUser = "admin";
+    private static String dataBasePassword = "admin123";
+    private static SQLDriver sqlDriver = SQLDriver.POSTGRESQL;
 
     @Override
     public String getHost() {
@@ -45,8 +39,8 @@ public class DatabaseConfig extends DatabaseProperties {
     }
 
     @Override
-    public SQLDriver getSQLDriver() {
-        return sqlDriver;
+    public String getSQLDriver() {
+        return sqlDriver.getDriver();
     }
     
 }

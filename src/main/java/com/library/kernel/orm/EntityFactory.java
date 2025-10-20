@@ -2,8 +2,8 @@ package com.library.kernel.orm;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
-import java.sql.ResultSetMetaData;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 public final class EntityFactory<T extends Entity> {
 
@@ -11,13 +11,15 @@ public final class EntityFactory<T extends Entity> {
     throws IllegalArgumentException, IllegalAccessException
     {
         try {
-            HashMap<String, String> map = new HashMap<>();
+            LinkedHashMap<String, String> map = new LinkedHashMap<>();
 
             Class<?> entityClass = entity.getClass();
         
             Field[] entityFields = entityClass.getFields();
         
-            for (Field field : entityFields)  map.put(field.getName(), (String) field.get(entity));
+            for (Field field : entityFields) {
+                map.put(field.getName(), (String) field.get(entity));
+            }
         
             return map;
 
@@ -40,6 +42,8 @@ public final class EntityFactory<T extends Entity> {
 
         } catch ( IllegalAccessException | IllegalArgumentException | InstantiationException | InvocationTargetException | NoSuchMethodException | SecurityException e) {
             // TODO: implemtar logger
+
+            System.out.println(e);
 
             return null;
 

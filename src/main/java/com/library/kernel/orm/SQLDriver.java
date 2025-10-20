@@ -5,6 +5,9 @@ public enum SQLDriver {
     GENERIC(
         ""
     ),
+    POSTGRESQL(
+        "postgresql"
+    ),
     MYSQL(
         "mysql"
     ),

@@ -3,15 +3,17 @@ package com.library.kernel.orm;
 import java.util.ArrayList;
 import java.util.List;
 
-public final class Repository<T extends Entity> 
+import com.library.kernel.classes.Colors;
+
+public final class Repository<T extends Entity> implements Colors
 {
 
-    private ORM orm;
+    private ORM<T> orm;
 
     private Class<T> type;
 
-    Repository(Class<T> type){
-        orm = new ORM();
+    public Repository(Class<T> type){
+        orm = new ORM<T>();
 
         this.type = type;
     }
@@ -19,12 +21,16 @@ public final class Repository<T extends Entity>
     public List<T> getAll()
     {
         try {
+
+            T ca = EntityFactory.createEntity(type);
+
             ArrayList<T> rs = orm.selectQuery(EntityFactory.createEntity(type),null);
             
             return rs;
 
         } catch (Exception e) {
             // TODO: handle exception
+            System.out.println(RED + e + RESET);
             return null;
         }
     }
@@ -68,15 +74,16 @@ public final class Repository<T extends Entity>
         }
     }
 
-    public boolean delete(T entity, String id)
+    public boolean delete(String id)
     {
         try {
-            int rs = orm.deleteQuery(entity, id);
+            int rs = orm.deleteQuery(EntityFactory.createEntity(type), id);
             
             return rs == 1 ? true : false;
 
         } catch (Exception e) {
-            // TODO: handle exception
+            // TODO: Logger implementation
+            System.out.println(RED + "SQL Error Query Execution:" + e + RESET);
             return false;
         }
     }

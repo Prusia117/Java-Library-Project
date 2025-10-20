@@ -1,8 +1,5 @@
-package com.library.examples;
-
-import java.lang.reflect.Field;
-
-public class Colors {
+package com.library.kernel.classes;
+public interface Colors {
     
     // Colores
     public static final String RESET = "\u001B[0m";

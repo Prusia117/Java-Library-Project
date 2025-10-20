@@ -2,6 +2,8 @@ package com.library.examples;
 
 import java.lang.reflect.Field;
 
+import com.library.kernel.classes.Colors;
+
 /*
  *  Ejemplo para obtener los nombres de los atributos de un objeto en Java.
  *  Referencias: https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html
@@ -14,7 +16,7 @@ class Test {
     protected String fieldC = "Hallo!!";
 }
 
-public class GetFieldsNames extends Colors {
+public class GetFieldsNames implements Colors {
     public static void main(String[] args) {
 
 

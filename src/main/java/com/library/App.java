@@ -17,9 +17,9 @@ import com.library.kernel.orm.SQLDriver;
  */
 public class App extends Application {
 
-    static {
+    /*static {
         ORM.setDatabaseProperties(new DatabaseConfig());
-    }
+    }*/
 
     private static Scene scene;
 
