@@ -10,80 +10,97 @@ public final class Repository<T extends Entity> implements Colors
 
     private ORM<T> orm;
 
-    private Class<T> type;
+    private Class<T> entityType;
 
-    public Repository(Class<T> type){
+    public Repository(Class<T> type) throws ORMException
+    {
         orm = new ORM<T>();
 
-        this.type = type;
+        this.entityType = type;
     }
     
     public List<T> getAll()
     {
         try {
 
-            T ca = EntityFactory.createEntity(type);
-
-            ArrayList<T> rs = orm.selectQuery(EntityFactory.createEntity(type),null);
+            ArrayList<T> entityArrayList = orm.selectQuery(EntityFactory.createEntity(entityType),null);
             
-            return rs;
+            return entityArrayList;
 
         } catch (Exception e) {
-            // TODO: handle exception
-            System.out.println(RED + e + RESET);
+            System.out.println("[" + RED + "ERROR" + RESET + "]: " + RED + "Repository Error: " + e);
             return null;
         }
     }
     
-    public List<T> getById(String id)
+    public List<T> getById(String id) throws ORMException
     {
         try {
-            ArrayList<T> rs = orm.selectQuery(EntityFactory.createEntity(type),id);
             
-            return rs;
+            if(id == null){
+                throw new ORMException("Invalid values provided");
+            }
+
+            ArrayList<T> entityArrayList = orm.selectQuery(EntityFactory.createEntity(entityType),id);
+            
+            return entityArrayList;
 
         } catch (Exception e) {
-            // TODO: handle exception
+            System.out.println("[" + RED + "ERROR" + RESET + "]: " + RED + "Repository Error: " + e);
             return null;
         }
     }
     
-    public boolean save(T entity)
+    public boolean save(T entity) throws ORMException
     {
         try {
-            int rs = orm.updateQuery(entity, null);
+
+            if(entity == null){
+                throw new ORMException("Invalid values provided");
+            }
+
+            int result = orm.updateQuery(entity, null);
             
-            return rs == 1 ? true : false;
+            return result == 1 ? true : false;
 
         } catch (Exception e) {
-            // TODO: handle exception
+            System.out.println("[" + RED + "ERROR" + RESET + "]: " + RED + "Repository Error: " + e);
             return false;
         }
     }
     
-    public boolean update(T entity, String id)
+    public boolean update(T entity, String id) throws ORMException
     {
         try {
-            int rs = orm.updateQuery(entity, id);
+
+            if(id == null || entity == null){
+                throw new ORMException("Invalid values provided");
+            }
+
+            int result = orm.updateQuery(entity, id);
             
-            return rs == 1 ? true : false;
+            return result == 1 ? true : false;
 
         } catch (Exception e) {
-            // TODO: handle exception
+            System.out.println("[" + RED + "ERROR" + RESET + "]: " + RED + "Repository Error: " + e);
             return false;
         }
     }
 
-    public boolean delete(String id)
+    public boolean delete(String id) throws ORMException
     {
         try {
-            int rs = orm.deleteQuery(EntityFactory.createEntity(type), id);
+
+            if(id == null){
+                throw new ORMException("Invalid values provided");
+            }
+
+            int result = orm.deleteQuery(EntityFactory.createEntity(entityType), id);
             
-            return rs == 1 ? true : false;
+            return result == 1 ? true : false;
 
         } catch (Exception e) {
-            // TODO: Logger implementation
-            System.out.println(RED + "SQL Error Query Execution:" + e + RESET);
+            System.out.println("[" + RED + "ERROR" + RESET + "]: " + RED + "Repository Error: " + e);
             return false;
         }
     }

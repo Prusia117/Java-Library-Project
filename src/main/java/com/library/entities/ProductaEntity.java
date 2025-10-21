@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 import java.util.HashMap;
 
-public final class ProductoEntity implements Entity {
+public final class ProductaEntity implements Entity {
 
 	private String tableName = "";
 	private String primaryKey = "";

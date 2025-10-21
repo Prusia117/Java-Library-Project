@@ -1,5 +1,7 @@
 package com.library.kernel.orm;
-
+/*
+ * ENUM destinado a alamcenar los diferentes drivers de base de datos SQL
+ */
 public enum SQLDriver {
     
     GENERIC(
