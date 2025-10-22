@@ -14,7 +14,7 @@ public class FilesGenerator implements Colors  {
             output.close();
             return file.exists();
         } catch (Exception e) {
-            System.out.println(RED + "Jartisan Exception: " + e + RESET);
+            System.out.println("[" + RED + "ERROR" + RESET + "]: " + RED + "Jartisan Exception: " + e + RESET);
             return false;
         }
     }

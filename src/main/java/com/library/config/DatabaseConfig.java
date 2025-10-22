@@ -1,7 +1,7 @@
 package com.library.config;
 
-import com.library.kernel.orm.SQLDriver;
 import com.library.kernel.orm.DatabaseProperties;
+import com.library.kernel.orm.SQLDriver;
 
 public class DatabaseConfig extends DatabaseProperties {
 

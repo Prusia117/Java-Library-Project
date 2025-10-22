@@ -1,8 +1,8 @@
 version: '3.9'
 
 services:
-  database:
-    container_name: database
+  postgres:
+    container_name: library-postgres-database
     image: postgres:latest
     environment:
       POSTGRES_USER: admin
@@ -12,9 +12,10 @@ services:
       - "5420:5432"
     networks:
       - network_library
+
   pgadmin:
-    container_name: panel
-    image: dpage/pgadmin4
+    container_name: library-postgres-panel
+    image: dpage/pgadmin4:latest
     environment:
       PGADMIN_DEFAULT_EMAIL: admin@admin.com
       PGADMIN_DEFAULT_PASSWORD: admin123
@@ -22,6 +23,34 @@ services:
       - "5050:80"
     networks:
       - network_library
+    depends_on:
+    - postgres
+
+  mongo:
+    container_name: library-mongo-database
+    image: mongo:latest
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin123
+    ports:
+      - "5421:27017"
+    networks:
+      - network_library
+
+  mongo-express:
+    container_name: library-mongo-panel
+    image: mongo-express:latest
+    ports:
+      - "5051:8081"
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: admin
+      ME_CONFIG_MONGODB_ADMINPASSWORD: admin123
+      ME_CONFIG_MONGODB_SERVER: mongo
+    networks:
+      - network_library
+    depends_on:
+      - mongo
+
 
 networks:
   network_library:
