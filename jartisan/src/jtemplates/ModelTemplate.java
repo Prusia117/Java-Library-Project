@@ -1,0 +1,39 @@
+package src.jtemplates;
+
+public class ModelTemplate {
+    public static String getTemplate(String className) {
+
+        return "package com.library.models;\n\n" +
+                "import java.util.List;\n\n" +
+                "import com.library.kernel.orm.Repository;\n\n" +
+                "import com.library.entities." + className + "Entity;\n\n" +
+                "import com.library.kernel.framework.Model;\n\n" +
+                "public final class " + className + "Model implements Model{\n" +
+                "\n" +
+                "\tRepository<" + className + "Entity> " + className.toLowerCase() + "Repositrory = new Repository<" + className + "Entity>(" + className + "Entity.class);\n" +
+                "\n" +
+                "\tpublic List<" + className + "Entity> getAll(){\n" +
+                "\t\tList<" + className + "Entity> entityList = " + className.toLowerCase() + "Repositrory.getAll();\n" +
+                "\t\treturn entityList;\n" +
+                "\t}\n\n" +
+                "\tpublic List<" + className + "Entity> getById(String id){\n" +
+                "\t\tList<" + className + "Entity> entityList = " + className.toLowerCase() + "Repositrory.getById(id);\n" +
+                "\t\treturn entityList;\n" +
+                "\t}\n\n" +
+                "\tpublic boolean save(){\n" +
+                "\t\t" + className + "Entity entity = new " + className + "Entity();\n" +
+                "\t\treturn " + className.toLowerCase() + "Repositrory" + ".save(entity)" + ";\n" +
+                "\t}\n\n" +
+                "\tpublic boolean update(String id){\n" +
+                "\t\t" + className + "Entity entity = new " + className + "Entity();\n" +
+                "\t\treturn " + className.toLowerCase() + "Repositrory" + ".update(entity, id)" + ";\n" +
+                "\t}\n\n" +
+                "\tpublic boolean delete(String id){\n" +
+                "\t\treturn " + className.toLowerCase() + "Repositrory" + ".delete(id)" + ";\n" +
+                "\t}\n\n" +
+                "}\n";
+
+    }
+}
+
+

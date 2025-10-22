@@ -21,7 +21,7 @@ public abstract interface Entity {
     public abstract  HashMap<Class<?>, String> getRelationships();
 
 
-    // Método para obtener anadir las entity's relacionadas a la principal
+    // Método para obtener anadir las entities relacionadas a la principal
     public abstract  void setEntityRelationships(ArrayList<Entity> entities);
 
 }

@@ -1,14 +1,9 @@
 package com.library.examples;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import com.library.config.DatabaseConfig;
-import com.library.kernel.orm.Entity;
 import com.library.kernel.orm.ORM;
-import com.library.kernel.orm.ORMException;
 import com.library.kernel.orm.Repository;
 
 public class ModelExample

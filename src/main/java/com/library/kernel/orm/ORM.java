@@ -183,10 +183,10 @@ public final class ORM<T extends Entity> implements Colors {
                 // Se crea una nueva entity de tipo T consulta para mas información la clase EntityFactory
                 T newEntity = EntityFactory.createEntity(entity.getClass());
 
-                // Se obtienen las entity's relacionadas con la entity actual
+                // Se obtienen las entities relacionadas con la entity actual
                 HashMap<Class<?>, String> relationshipsEntities = newEntity.getRelationships();
 
-                // Se crea un arraylist que almacenera las entity's relacionadas con la entity actual
+                // Se crea un arraylist que almacenera las entities relacionadas con la entity actual
                 ArrayList<Entity> relationshipEntities = new ArrayList<Entity>();
 
                 /*
@@ -238,10 +238,10 @@ public final class ORM<T extends Entity> implements Colors {
                         // Se gaurda la entity relacionada con la nueva entity actual en el array anteriormente creado
                         relationshipEntities.add(newRelationshipEntity);
                     }
-                    // Se agregan las entity's relacionadas con la nueva entity 
+                    // Se agregan las entities relacionadas con la nueva entity 
                     newEntity.setEntityRelationships(relationshipEntities);
                 }
-                // Se agrega la nueva entity al array de nuevas entity's
+                // Se agrega la nueva entity al array de nuevas entities
                 entityArray.add(newEntity);
 
             }

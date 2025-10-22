@@ -1,4 +1,4 @@
-package src.templates;
+package src.jtemplates;
 
 public final class EntityTemplate {
 
@@ -10,10 +10,10 @@ public final class EntityTemplate {
                 "import java.util.HashMap;\n\n" +
                 "public final class " + className + "Entity implements Entity {\n" +
                 "\n" +
-                "\tprivate String tableName = \"\";\n" +
-                "\tprivate String primaryKey = \"\";\n" +
-                "\tprivate boolean hasAutoIncrement = true; \n" +
-                "\tprivate HashMap<Class<?>, String> relationships = null /*new HashMap<Class<?>, String>() {{}}*/;\n" +
+                "\tprivate String tableName = \"\";\n\n" +
+                "\tprivate String primaryKey = \"\";\n\n" +
+                "\tprivate boolean hasAutoIncrement = true; \n\n" +
+                "\tprivate HashMap<Class<?>, String> relationships = null /*new HashMap<Class<?>, String>() {{}}*/;\n\n" +
                 "\n\n" +
                 "\tpublic ArrayList<Entity> entityRelationships;\n" +
                 "\n" +
