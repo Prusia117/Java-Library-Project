@@ -5,7 +5,7 @@ public final class EntityTemplate {
     public static String getTemplate(String className) {
 
         return "package com.library.entities;\n\n" +
-                "import com.library.kernel.orm.Entity;\n\n" +
+                "import com.library.kernel.orm.entity.Entity;\n\n" +
                 "import java.util.ArrayList;\n\n" +
                 "import java.util.HashMap;\n\n" +
                 "public final class " + className + "Entity implements Entity {\n" +
@@ -17,22 +17,27 @@ public final class EntityTemplate {
                 "\n\n" +
                 "\tpublic ArrayList<Entity> entityRelationships;\n" +
                 "\n" +
+                "\t@Override\n" +
                 "\tpublic String getPrimaryKey() {\n" +
                 "\t\treturn primaryKey;\n" +
                 "\t}\n" +
                 "\n" +
+                "\t@Override\n" +
                 "\tpublic String getTableName() {\n" +
                 "\t\treturn tableName;\n" +
                 "\t}\n" +
                 "\n" +
+                "\t@Override\n" +
                 "\tpublic boolean getAutoIncrement() {\n" +
                 "\t\treturn hasAutoIncrement;\n" +
                 "\t}\n" +
                 "\n" +
+                "\t@Override\n" +
                 "\tpublic HashMap<Class<?>, String> getRelationships(){\n" +
                 "\t\treturn relationships;\n" +
                 "\t}\n" +
                 "\n" +
+                "\t@Override\n" +
                 "\tpublic void setEntityRelationships(ArrayList<Entity> entities){\n" +
                 "\t\tthis.entityRelationships = entities;\n" +
                 "\t}\n" +

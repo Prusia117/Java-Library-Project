@@ -5,7 +5,7 @@ public class ModelTemplate {
 
         return "package com.library.models;\n\n" +
                 "import java.util.List;\n\n" +
-                "import com.library.kernel.orm.Repository;\n\n" +
+                "import com.library.kernel.orm.repository.Repository;\n\n" +
                 "import com.library.entities." + className + "Entity;\n\n" +
                 "import com.library.kernel.framework.Model;\n\n" +
                 "public final class " + className + "Model implements Model{\n" +
@@ -16,18 +16,22 @@ public class ModelTemplate {
                 "\t\tList<" + className + "Entity> entityList = " + className.toLowerCase() + "Repositrory.getAll();\n" +
                 "\t\treturn entityList;\n" +
                 "\t}\n\n" +
+                "\t@Override\n" +
                 "\tpublic List<" + className + "Entity> getById(String id){\n" +
                 "\t\tList<" + className + "Entity> entityList = " + className.toLowerCase() + "Repositrory.getById(id);\n" +
                 "\t\treturn entityList;\n" +
                 "\t}\n\n" +
+                "\t@Override\n" +
                 "\tpublic boolean save(){\n" +
                 "\t\t" + className + "Entity entity = new " + className + "Entity();\n" +
                 "\t\treturn " + className.toLowerCase() + "Repositrory" + ".save(entity)" + ";\n" +
                 "\t}\n\n" +
+                "\t@Override\n" +
                 "\tpublic boolean update(String id){\n" +
                 "\t\t" + className + "Entity entity = new " + className + "Entity();\n" +
                 "\t\treturn " + className.toLowerCase() + "Repositrory" + ".update(entity, id)" + ";\n" +
                 "\t}\n\n" +
+                "\t@Override\n" +
                 "\tpublic boolean delete(String id){\n" +
                 "\t\treturn " + className.toLowerCase() + "Repositrory" + ".delete(id)" + ";\n" +
                 "\t}\n\n" +

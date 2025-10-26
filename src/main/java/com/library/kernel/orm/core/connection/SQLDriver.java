@@ -1,4 +1,4 @@
-package com.library.kernel.orm;
+package com.library.kernel.orm.core.connection;
 /*
  * ENUM destinado a alamcenar los diferentes drivers de base de datos SQL
  */
