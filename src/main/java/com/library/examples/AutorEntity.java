@@ -3,7 +3,7 @@ package com.library.examples;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import com.library.kernel.orm.Entity;
+import com.library.kernel.orm.entity.Entity;
 
 public class AutorEntity implements Entity
 {

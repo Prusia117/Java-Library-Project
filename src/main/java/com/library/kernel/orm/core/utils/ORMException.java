@@ -1,4 +1,4 @@
-package com.library.kernel.orm;
+package com.library.kernel.orm.core.utils;
 
 public class ORMException extends Exception 
 {

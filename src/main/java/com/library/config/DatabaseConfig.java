@@ -1,17 +1,17 @@
 package com.library.config;
 
-import com.library.kernel.orm.DatabaseProperties;
-import com.library.kernel.orm.SQLDriver;
+import com.library.kernel.orm.core.connection.DatabaseProperties;
+import com.library.kernel.orm.core.connection.SQLDriver;
 
 public class DatabaseConfig extends DatabaseProperties {
 
 
-    private static String host = "localhost";
-    private static String port = "5420";
-    private static String dataBaseName = "mydatabase";
-    private static String dataBaseUser = "admin";
-    private static String dataBasePassword = "admin123";
-    private static SQLDriver sqlDriver = SQLDriver.POSTGRESQL;
+    private String host = "localhost";
+    private String port = "5420";
+    private String dataBaseName = "mydatabase";
+    private String dataBaseUser = "admin";
+    private String dataBasePassword = "admin123";
+    private SQLDriver sqlDriver = SQLDriver.POSTGRESQL;
 
     @Override
     public String getHost() {

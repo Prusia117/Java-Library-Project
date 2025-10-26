@@ -1,4 +1,4 @@
-package com.library.kernel.orm;
+package com.library.kernel.orm.core.connection;
 /*
  * Clase abstracta que define los métodos que tiene que tener la clase que extiende de esta
  */

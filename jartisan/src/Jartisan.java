@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 
 import src.jtemplates.EntityTemplate;
 import src.jtemplates.ModelTemplate;
+import src.jtemplates.ControllerTemplate;
 
 public final class Jartisan implements Colors {
 
@@ -15,6 +16,7 @@ public final class Jartisan implements Colors {
             switch (args[0]) {
                 case "Entity":
                 case "Model":
+                case "Controller":
                     StringBuilder filePath = new StringBuilder("src/main/java/com/library/");
                     String fileTemplate = null;
                     switch (args[0]) {
@@ -25,6 +27,10 @@ public final class Jartisan implements Colors {
                         case "Model":
                             filePath.append("models/" + args[1] + "Model.java");
                             fileTemplate = ModelTemplate.getTemplate(args[1]);
+                            break;
+                        case "Controller":
+                            filePath.append("controllers/" + args[1] + "Controller.java");
+                            fileTemplate = ControllerTemplate.getTemplate(args[1]);
                             break;
 
                         default:

@@ -1,7 +1,8 @@
-package com.library.kernel.auth;
+package com.library.kernel.framework.auth;
 
-public interface Session {
-
+public interface Session
+{
+    
     public Session getInstance();
     
     public Session getLifeTime();
