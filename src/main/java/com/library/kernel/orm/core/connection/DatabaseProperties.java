@@ -2,7 +2,7 @@ package com.library.kernel.orm.core.connection;
 /*
  * Clase abstracta que define los métodos que tiene que tener la clase que extiende de esta
  */
-public abstract class DatabaseProperties {
+public abstract interface DatabaseProperties {
     public abstract String getSQLDriver(); // Driver de la base de datos (SQLSERVER, ORACLESQL)
     public abstract String getHost(); // Dirección donde la base de datos esta almacenada
     public abstract String getPort(); // Puerto dentro del host donde la base de datos esta expuesta
