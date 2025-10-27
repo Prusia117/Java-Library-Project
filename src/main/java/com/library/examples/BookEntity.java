@@ -2,10 +2,8 @@ package com.library.examples;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map;
 
-import com.library.kernel.orm.entity.Entity;
+import com.library.kernel.kernelSql.orm.entity.Entity;
 
 public class BookEntity implements Entity
 {

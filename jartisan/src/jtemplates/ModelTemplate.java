@@ -5,7 +5,7 @@ public class ModelTemplate {
 
         return "package com.library.models;\n\n" +
                 "import java.util.List;\n\n" +
-                "import com.library.kernel.orm.repository.Repository;\n\n" +
+                "import com.library.kernel.database.orm.repository.Repository;\n\n" +
                 "import com.library.entities." + className + "Entity;\n\n" +
                 "import com.library.kernel.framework.Model;\n\n" +
                 "public final class " + className + "Model implements Model{\n" +

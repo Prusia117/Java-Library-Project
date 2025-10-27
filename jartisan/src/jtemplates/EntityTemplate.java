@@ -5,7 +5,7 @@ public final class EntityTemplate {
     public static String getTemplate(String className) {
 
         return "package com.library.entities;\n\n" +
-                "import com.library.kernel.orm.entity.Entity;\n\n" +
+                "import com.library.kernel.database.orm.entity.Entity;\n\n" +
                 "import java.util.ArrayList;\n\n" +
                 "import java.util.HashMap;\n\n" +
                 "public final class " + className + "Entity implements Entity {\n" +
