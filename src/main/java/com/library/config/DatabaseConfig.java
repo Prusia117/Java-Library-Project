@@ -3,7 +3,7 @@ package com.library.config;
 import com.library.kernel.orm.core.connection.DatabaseProperties;
 import com.library.kernel.orm.core.connection.SQLDriver;
 
-public class DatabaseConfig extends DatabaseProperties {
+public class DatabaseConfig implements DatabaseProperties {
 
 
     private String host = "localhost";
