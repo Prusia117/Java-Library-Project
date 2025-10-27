@@ -7,9 +7,9 @@ public final class MigrationTemplate {
         return "package com.library.database.migrations;\n\n" +
                 "import java.util.ArrayList;\n" +
                 "import java.util.List;\n" +
-                "import com.library.kernel.migrator.Migrator;\n" +
-                "import com.library.kernel.migrator.core.ddl.table.Schema;\n\n" +
-                "public class " + className + "Migration implements Migrator {\n" +
+                "import com.library.kernel.kernelSql.migrator.Migrator;\n" +
+                "import com.library.kernel.kernelSql.migrator.core.ddl.table.Schema;\n\n" +
+                "public class " + className + "Migration extends Migrator {\n" +
                 "\n" +
                 "\t@Override\n" +
                 "\tpublic ArrayList<Schema> up() {\n" +

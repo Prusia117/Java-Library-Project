@@ -9,8 +9,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 import com.library.config.DatabaseConfig;
-import com.library.kernel.orm.core.ORM;
-import com.library.kernel.orm.core.connection.SQLDriver;
+import com.library.kernel.kernelSql.orm.core.ORM;
 
 /**
  * JavaFX App

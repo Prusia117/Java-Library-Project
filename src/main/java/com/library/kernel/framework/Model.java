@@ -1,6 +1,6 @@
 package com.library.kernel.framework;
 
-import com.library.kernel.orm.entity.Entity;
+import com.library.kernel.kernelSql.orm.entity.Entity;
 
 import java.util.List;
 

@@ -3,8 +3,8 @@ package com.library.examples;
 import java.util.List;
 
 import com.library.config.DatabaseConfig;
-import com.library.kernel.orm.core.ORM;
-import com.library.kernel.orm.repository.Repository;
+import com.library.kernel.kernelSql.orm.core.ORM;
+import com.library.kernel.kernelSql.orm.repository.Repository;
 
 public class ModelExample
 {
