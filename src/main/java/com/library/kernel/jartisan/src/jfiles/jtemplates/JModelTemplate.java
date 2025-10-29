@@ -1,11 +1,11 @@
-package src.jtemplates;
+package com.library.kernel.jartisan.src.jfiles.jtemplates;
 
-public class ModelTemplate {
-    public static String getTemplate(String className) {
+public final class JModelTemplate implements IJTemplate  {
+    public String getTemplate(String className) {
 
         return "package com.library.models;\n\n" +
                 "import java.util.List;\n\n" +
-                "import com.library.kernel.database.orm.repository.Repository;\n\n" +
+                "com.library.kernel.kernelSql.orm.repository.Repository;\n\n" +
                 "import com.library.entities." + className + "Entity;\n\n" +
                 "import com.library.kernel.framework.Model;\n\n" +
                 "public final class " + className + "Model implements Model{\n" +

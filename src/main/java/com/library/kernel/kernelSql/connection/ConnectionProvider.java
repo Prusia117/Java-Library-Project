@@ -8,8 +8,7 @@ import com.library.kernel.classes.Colors;
 import com.library.kernel.logger.Logger;
 
 
-final class ConnectionProvider  implements Colors, KernelConnection
-{
+final class ConnectionProvider  implements Colors {
     
     // Object tipo DatabaseProperties consulta su interfaz par mas información
     private static DatabaseProperties databaseProperties = null;
@@ -39,7 +38,7 @@ final class ConnectionProvider  implements Colors, KernelConnection
 
         } catch (SQLException error) {
             Logger.errorLog("SQL Connection Provider Error", error.getMessage());
-            return null;
+            throw new SQLException("SQL Connection Provider Error: " + error.getMessage());
         }
     }
 }

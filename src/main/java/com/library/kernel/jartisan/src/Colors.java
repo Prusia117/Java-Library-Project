@@ -1,4 +1,4 @@
-package src;
+package com.library.kernel.jartisan.src;
 
 public interface Colors {
     
