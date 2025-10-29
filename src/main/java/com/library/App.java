@@ -16,10 +16,6 @@ import com.library.kernel.kernelSql.orm.core.ORM;
  */
 public class App extends Application {
 
-    {
-        ORM.setDatabaseProperties(new DatabaseConfig());
-    }
-
     private static Scene scene;
 
     @Override

@@ -1,11 +1,11 @@
-package src.jtemplates;
+package com.library.kernel.jartisan.src.jfiles.jtemplates;
 
-public final class EntityTemplate {
+public final class JEntityTemplate implements IJTemplate {
 
-    public static String getTemplate(String className) {
 
+    public String getTemplate(String className) {
         return "package com.library.entities;\n\n" +
-                "import com.library.kernel.database.orm.entity.Entity;\n\n" +
+                "import com.library.kernel.kernelSql.orm.entity.Entity;\n\n" +
                 "import java.util.ArrayList;\n\n" +
                 "import java.util.HashMap;\n\n" +
                 "public final class " + className + "Entity implements Entity {\n" +

@@ -9,7 +9,7 @@ import com.library.kernel.kernelSql.orm.repository.Repository;
 public class ModelExample
 {
     static {
-        ORM.setDatabaseProperties(new DatabaseConfig());
+        //ORM.setDatabaseProperties(new DatabaseConfig());
     }
     Repository<BookEntity> br;
 

@@ -1,8 +1,8 @@
-package src.jtemplates;
+package com.library.kernel.jartisan.src.jfiles.jtemplates;
 
-public final class ControllerTemplate {
+public final class JControllerTemplate implements IJTemplate {
 
-    public static String getTemplate(String className) {
+    public String getTemplate(String className) {
 
         return "package com.library.controllers;\n\n" +
                 "import javafx.fxml.FXML;\n\n" +

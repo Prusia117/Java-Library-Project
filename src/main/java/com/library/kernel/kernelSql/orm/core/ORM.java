@@ -7,9 +7,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.library.kernel.classes.Colors;
-import com.library.kernel.kernelSql.u;
+import com.library.kernel.kernelSql.connection.ConnectionManagar;
+import com.library.kernel.kernelSql.connection.utils.ConnectionManagerException;
 import com.library.kernel.logger.Logger;
-import com.library.kernel.kernelSql.connection.DatabaseProperties;
 import com.library.kernel.kernelSql.orm.core.sql.SQLBuilder;
 import com.library.kernel.kernelSql.orm.core.utils.ORMException;
 import com.library.kernel.kernelSql.orm.entity.Entity;
@@ -27,15 +27,14 @@ import com.library.kernel.kernelSql.orm.entity.utils.EntityPopulatorException;
  */
 public final class ORM<T extends Entity> implements Colors {
 
-    // Constante para definir si el ORM activa el modo DEBUG en el cual lanzara mensajes de información
-    private static final boolean DEBUG_MODE = true;
-
-    private static ConnectionProvider connectionProvider = null;
 
     // Método para setear los parametros de la base de datos
-    public static void setDatabaseProperties(DatabaseProperties properties) {
-        if (connectionProvider == null){
-            connectionProvider = new ConnectionProvider(properties);
+    private static Connection getConnection() throws ORMException {
+        try {
+            return ConnectionManagar.getConnection();
+        } catch (ConnectionManagerException error) {
+            Logger.errorLog("ORM Exception", error.getMessage());
+            throw new ORMException("ORM Exception: " + error.getMessage());
         }
     }
 
@@ -62,25 +61,21 @@ public final class ORM<T extends Entity> implements Colors {
              */
             try (
                     // Se obtiene una conexión
-                    Connection connection = connectionProvider.getConnection();
+                    Connection connection = getConnection();
                     Statement stmt = connection.createStatement();
                     // Se ejecuta el sql statment
                     ResultSet resultSet = stmt.executeQuery(sqlStmt);
 
             ) {
 
-                if (DEBUG_MODE) {
-                    Logger.infoLog("SQL Query", sqlStmt);
-                }
+                Logger.infoLog("SQL Query", sqlStmt);
 
                 // Se crea un arraylist de tipo T consulta mas del tipo T al principio del archivo
                 ArrayList<T> entityArray = new ArrayList<T>();
 
                 Field[] entityFields = EntityMapper.mapEntityAttributes(entity.getClass());
 
-                if (DEBUG_MODE) {
-                    Logger.infoLog(GREEN + "Fields from Entity", String.valueOf(entityFields.length));
-                }
+                Logger.infoLog(GREEN + "Fields from Entity", String.valueOf(entityFields.length));
 
                 // Se crea un while que dice mientras existe un resultado en el resultSet continua
                 while (resultSet.next()) {
@@ -100,13 +95,11 @@ public final class ORM<T extends Entity> implements Colors {
                      * y la llenara con los datos obteneidos de la base de datos
                      */
                     for (int i = 0; i < entityFields.length - 1; i++) {
-                        if (DEBUG_MODE) {
-                            Logger.infoLog(
-                                    YELLOW + "Entity Info",
-                                    "Entity Field => " + entityFields[i].getName() + RESET + " | " + PURPLE
-                                            + "Entity Value => " + resultSet.getObject(i + 1)
-                            );
-                        }
+                        Logger.infoLog(
+                                YELLOW + "Entity Info",
+                                "Entity Field => " + entityFields[i].getName() + RESET + " | " + PURPLE
+                                        + "Entity Value => " + resultSet.getObject(i + 1)
+                        );
                         // Se setea los valores de las filas en el objeto
                         EntityPopulator.populateEntity(newEntity, entityFields[i], resultSet.getObject(i + 1));
                     }
@@ -131,15 +124,13 @@ public final class ORM<T extends Entity> implements Colors {
                             T newRelationshipEntity = EntityFactory.createEntity(newClassEntity);
 
                             for (int j = 0; j < relationshipEntityFields.length - 1; j++) {
-                                if (DEBUG_MODE) {
-                                    Logger.infoLog(
-                                            YELLOW + "Entity Field",
-                                            relationshipEntityFields[j].getName() + RESET
-                                                    + " | "
-                                                    + PURPLE
-                                                    + "Entity Value => " + resultSet.getObject(j + 1)
-                                    );
-                                }
+                                Logger.infoLog(
+                                        YELLOW + "Entity Field",
+                                        relationshipEntityFields[j].getName() + RESET
+                                                + " | "
+                                                + PURPLE
+                                                + "Entity Value => " + resultSet.getObject(j + 1)
+                                );
                                 EntityPopulator.populateEntity(newRelationshipEntity, relationshipEntityFields[j], resultSet.getObject(auxiliar++));
                             }
                             // Se gaurda la entity relacionada con la nueva entity actual en el array anteriormente creado
@@ -188,9 +179,7 @@ public final class ORM<T extends Entity> implements Colors {
                 throw new ORMException("Invalid Values Provided");
             }
 
-            if (DEBUG_MODE) {
-                Logger.infoLog("SQL Query", sqlStmt);
-            }
+            Logger.infoLog("SQL Query", sqlStmt);
 
             /*
              * Se crea un denominado 'try with resources' se denomina de esta manera ya que cierra por ti
@@ -199,7 +188,7 @@ public final class ORM<T extends Entity> implements Colors {
              * try de esta manera ejecuta el close al final por ti
              */
             try (
-                    Connection connection = connectionProvider.getConnection();
+                    Connection connection = getConnection();
                     Statement stmt = connection.createStatement();) {
                 // Se ejecuta el sqlstatment
                 int result = stmt.executeUpdate(sqlStmt);
@@ -239,15 +228,13 @@ public final class ORM<T extends Entity> implements Colors {
             * try de esta manera ejecuta el close al final por ti
             */
             try (
-                    Connection connection = connectionProvider.getConnection();
+                    Connection connection = getConnection();
                     Statement stmt = connection.createStatement();) {
                 
                 // Se ejecuta el sql statment
                 int result = stmt.executeUpdate(sqlStmt);
 
-                if (DEBUG_MODE) {
-                    Logger.infoLog("SQL Query", sqlStmt);
-                }
+                Logger.infoLog("SQL Query", sqlStmt);
                 return result;
 
             } catch (SQLException error) {
