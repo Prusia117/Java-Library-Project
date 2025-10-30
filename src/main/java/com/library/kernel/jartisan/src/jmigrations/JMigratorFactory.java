@@ -11,13 +11,11 @@ import java.lang.reflect.InvocationTargetException;
 public final class JMigratorFactory implements Colors {
 
     // Método para crear una entity de tipo T
-    public static Migration createEntity(Class<?> migrationClass)
+    public static<T extends Migration> T createEntity(Class<?> migrationClass)
             throws JMigratorFactoryException
     {
         try {
-            // Se crea una entity
-            Migration newMigration = (Migration) migrationClass.getDeclaredConstructor().newInstance();
-            System.out.println(GREEN + "New Migration Created: " + newMigration.up() + RESET);
+            T newMigration = (T) migrationClass.getDeclaredConstructor().newInstance();
             return newMigration;
 
         } catch (InstantiationException | InvocationTargetException | NoSuchMethodException |

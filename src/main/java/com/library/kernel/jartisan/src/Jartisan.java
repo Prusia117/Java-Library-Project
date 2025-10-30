@@ -1,5 +1,6 @@
 package com.library.kernel.jartisan.src;
 
+import com.library.kernel.classes.Colors;
 import com.library.kernel.jartisan.src.jfiles.JFilesGenerator;
 
 import java.util.List;

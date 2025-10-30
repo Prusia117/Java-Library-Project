@@ -12,25 +12,28 @@ import com.library.kernel.kernelSql.migrator.core.ddl.table.Schema;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 
 public final class JMigrator {
 
-    public static<T extends Migration> boolean startMigrations() throws ConnectionManagerException, JMigratorReaderException, ClassNotFoundException, JMigratorFactoryException {
+    public static<T extends Migration> boolean runMigrations() throws ConnectionManagerException, JMigratorReaderException, ClassNotFoundException, JMigratorFactoryException {
 
-//KernelConfiguration.setKernelConfiguration(new DatabaseConfig(), true);
 
-        ArrayList<String> cla = JMigratorReader.readMigrations();
-        ArrayList<T> A = new ArrayList<>();
+        ArrayList<String> migrationClasses = JMigratorReader.readMigrations();
+        ArrayList<T> migrationInstances = new ArrayList<T>();
+        ArrayList<Schema> schemasArray = null;
+        LinkedHashMap<String, T> migrationMap = new LinkedHashMap<String, T>();
 
-        for (String string : cla) {
-            A.add((T) JMigratorFactory.createEntity(Class.forName("com.library.database.migrations." + string.toString())));
+        for (String migrationClass : migrationClasses) {
+            migrationMap.put(migrationClass, JMigratorFactory.createEntity(Class.forName("com.library.database.migrations." + migrationClass)));
         }
-        ArrayList<Schema> ad = new ArrayList<Schema>();
-        for (int i = 0; i < A.size()-1; i++) {
-            ad = A.get(i).up();
-            System.out.println(A.get(i).toString());
-            for (int j = 0; j < ad.size()-1; j++) {
-                ad.get(j).toString();
+
+
+
+        for (int i = 0; i < migrationInstances.size(); i++) {
+            schemasArray = migrationInstances.get(i).up();
+            for (int j = 0; j < schemasArray.size(); j++) {
+                System.out.println(schemasArray.get(j).toString());
             }
         }
 
@@ -41,7 +44,7 @@ public final class JMigrator {
     }
 
     public static void main(String[] args) throws ConnectionManagerException, InterruptedException, IOException, JMigratorReaderException, JMigratorFactoryException, ClassNotFoundException {
-        JMigrator.startMigrations();
+        JMigrator.runMigrations();
 
 
     }

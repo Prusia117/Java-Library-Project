@@ -82,7 +82,6 @@ public final class Schema {
         }
 
         sqlStmt.append(");");
-        System.out.println(sqlStmt.toString());
         return sqlStmt.toString();
     }
 }

@@ -1,6 +1,6 @@
 package com.library.kernel.jartisan.src.jfiles;
 
-import com.library.kernel.jartisan.src.Colors;
+import com.library.kernel.classes.Colors;
 import com.library.kernel.jartisan.src.jfiles.jtemplates.*;
 
 import java.io.File;
