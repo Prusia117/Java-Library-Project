@@ -4,6 +4,7 @@ import java.time.LocalDate;
 
 public final class JMigrationTemplate implements IJTemplate {
 
+    @Override
     public String getTemplate(String className) {
 
         return "package com.library.database.migrations;\n\n" +

@@ -35,7 +35,7 @@ public final class Schema {
     public Schema primaryKey(){
         String columnName = columnArray.get(columnArray.size() - 1).getColumName();
         PrimaryKey newPrimaryKey = new PrimaryKey(columnName);
-        newPrimaryKey.setConstraintName(tableName.toLowerCase(Locale.ROOT) + "_" + columnName + "___pk");
+        newPrimaryKey.setConstraintName(tableName.toLowerCase() + "_" + columnName.toLowerCase() + "___pk");
         constraintArray.add(newPrimaryKey);
         return this;
     }
@@ -44,7 +44,7 @@ public final class Schema {
     public Schema foreignKey(String externalTableName, String externalTableAttribute){
         String columnName = columnArray.get(columnArray.size() - 1).getColumName();
         ForeignKey newForeignKey = new ForeignKey(columnName, externalTableName, externalTableAttribute);
-        newForeignKey.setConstraintName(tableName.toLowerCase(Locale.ROOT) + "_" + columnName + "___fk");
+        newForeignKey.setConstraintName(tableName.toLowerCase() + "_" + columnName.toLowerCase() + "___fk");
         constraintArray.add(newForeignKey);
         return this;
     }
@@ -52,7 +52,7 @@ public final class Schema {
     public Schema uniqueKey(){
         String columnName = columnArray.get(columnArray.size() - 1).getColumName();
         UniqueKey newUniqueKey = new UniqueKey(columnName);
-        newUniqueKey.setConstraintName(tableName.toLowerCase(Locale.ROOT) + "_" + columnName + "___uk");
+        newUniqueKey.setConstraintName(tableName.toLowerCase() + "_" + columnName.toLowerCase() + "___uk");
         constraintArray.add(newUniqueKey);
         return this;
     }
@@ -60,7 +60,7 @@ public final class Schema {
     public Schema addCheck(SQLCheckOperators operator, String predicate){
         String columnName = columnArray.get(columnArray.size() - 1).getColumName();
         Check newCheck = new Check(columnName, operator ,predicate);
-        newCheck.setConstraintName(tableName.toLowerCase(Locale.ROOT) + "_" + columnName + "___ck");
+        newCheck.setConstraintName(tableName.toLowerCase() + "_" + columnName.toLowerCase() + "___ck");
         constraintArray.add(newCheck);
         return this;
     }

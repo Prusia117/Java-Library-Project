@@ -12,25 +12,18 @@ public final class Jartisan implements Colors {
     public static void main(String[] args) {
 
         try {
-            boolean result = false;
 
             if(args[0].equals("Make")){
                 if(J_SUPPORTED_FILE_TYPES.contains(args[1])){
-                    result = JFilesGenerator.generateNewFile(args[1], args[2]);
+                    JFilesGenerator.generateNewFile(args[1], args[2]);
                 }
             }
             else if(args[0].equals("Migrations")){
                 if(J_SUPPORTED_MIGRATIONS_ACTIONS.contains(args[1])){
-                    result = JMigrator.runMigrationsCommand(args[1]);
+                    JMigrator.runMigrationsCommand(args[1]);
                 }
             }
 
-
-
-            if (result) {
-                System.out.println("[" + BLUE + "INFO" + RESET + "]: " + GREEN + "Jartisan Created " + BLUE + args[0]
-                        + GREEN + " Successfully" + RESET);
-            }
         } catch (Exception e) {
             System.out.println("[" + RED + "ERROR" + RESET + "]: " + RED + "Jartisan Exception: " + e + RESET);
         }

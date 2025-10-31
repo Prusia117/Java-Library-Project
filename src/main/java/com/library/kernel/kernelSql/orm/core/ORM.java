@@ -10,7 +10,6 @@ import com.library.kernel.classes.Colors;
 import com.library.kernel.kernelSql.connection.ConnectionManagar;
 import com.library.kernel.kernelSql.connection.utils.ConnectionManagerException;
 import com.library.kernel.logger.Logger;
-import com.library.kernel.kernelSql.orm.core.sql.SQLBuilder;
 import com.library.kernel.kernelSql.orm.core.utils.ORMException;
 import com.library.kernel.kernelSql.orm.entity.Entity;
 import com.library.kernel.kernelSql.orm.entity.EntityFactory;

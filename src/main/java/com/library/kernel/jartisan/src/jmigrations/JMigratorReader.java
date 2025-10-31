@@ -8,7 +8,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.stream.Stream;
 
 final class JMigratorReader {
@@ -32,8 +31,8 @@ final class JMigratorReader {
             return migrationClasses;
 
         }catch(IOException error){
-            Logger.errorLog("Error Reading Migrations", error.getMessage());
-            throw new JMigratorReaderException(error.getMessage());
+            Logger.errorLog("Jartisan Migrator Reader Exception", error.getMessage());
+            throw new JMigratorReaderException("Jartisan Migrator Reader Exception: " + error.getMessage());
         }
     }
 }

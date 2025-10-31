@@ -19,29 +19,8 @@ final class JMigratorFactory implements Colors {
 
         } catch (InstantiationException | InvocationTargetException | NoSuchMethodException | SecurityException |
                  IllegalAccessException | IllegalArgumentException | ClassNotFoundException error) {
-            Logger.errorLog("Entity Populator Exception", error.getMessage());
-            throw new JMigratorFactoryException("Entity Populator Exception: " + error.getMessage());
+            Logger.errorLog("Jartisan Migrator Factory Exception", error.getMessage());
+            throw new JMigratorFactoryException("Jartisan Migrator Factory Exception: " + error.getMessage());
         }
     }
 }
-/*
-*     @Override
-    public ArrayList<Schema> up() {
-        return new ArrayList<Schema>(List.of(
-                new Schema("T_MIGRATIONS")
-                        .addColumn("mig_id", SQLDataTypes.SERIAL)
-                        .nullable(false)
-                        .primaryKey()
-                        .addColumn("mig_name", SQLDataTypes.VARCHAR)
-                        .size(50)
-                        .nullable(false)
-
-        ));
-    }
-
-    @Override
-    public ArrayList<String> rollback() {
-        return new ArrayList<String>(List.of(
-                "productsB"
-        ));
-    }*/
