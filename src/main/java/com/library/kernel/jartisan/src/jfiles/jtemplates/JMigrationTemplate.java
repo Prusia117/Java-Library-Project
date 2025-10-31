@@ -1,5 +1,7 @@
 package com.library.kernel.jartisan.src.jfiles.jtemplates;
 
+import java.time.LocalDate;
+
 public final class JMigrationTemplate implements IJTemplate {
 
     public String getTemplate(String className) {
@@ -21,8 +23,12 @@ public final class JMigrationTemplate implements IJTemplate {
                 "\t}\n" +
                 "\n" +
                 "\t@Override\n" +
-                "\tpublic void rollback() {\n" +
+                "\tpublic ArrayList<String> rollback() {\n" +
+                "\t\treturn new ArrayList<String>(List.of(" +
                 "\t\t\n" +
+                "\t\t\n" +
+                "\t\t\n" +
+                "\t\t));\n" +
                 "\t}\n" +
                 "}\n";
 

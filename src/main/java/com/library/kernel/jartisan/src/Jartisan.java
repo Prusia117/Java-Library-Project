@@ -2,14 +2,12 @@ package com.library.kernel.jartisan.src;
 
 import com.library.kernel.classes.Colors;
 import com.library.kernel.jartisan.src.jfiles.JFilesGenerator;
-
-import java.util.List;
+import com.library.kernel.jartisan.src.jmigrations.JMigrator;
 
 import static com.library.kernel.jartisan.src.jfiles.JFilesGenerator.J_SUPPORTED_FILE_TYPES;
+import static com.library.kernel.jartisan.src.jmigrations.JMigrator.J_SUPPORTED_MIGRATIONS_ACTIONS;
 
 public final class Jartisan implements Colors {
-
-    private static final String[] SUPPORTED_COMMANDS = new String[] {"Make", "Execute"};
 
     public static void main(String[] args) {
 
@@ -21,8 +19,10 @@ public final class Jartisan implements Colors {
                     result = JFilesGenerator.generateNewFile(args[1], args[2]);
                 }
             }
-            else if(args[0].equals("Execute")){
-
+            else if(args[0].equals("Migrations")){
+                if(J_SUPPORTED_MIGRATIONS_ACTIONS.contains(args[1])){
+                    result = JMigrator.runMigrationsCommand(args[1]);
+                }
             }
 
 

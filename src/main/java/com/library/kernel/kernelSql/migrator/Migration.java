@@ -7,5 +7,5 @@ import java.util.ArrayList;
 public abstract class Migration {
 
     public abstract ArrayList<Schema> up();
-    public abstract void rollback();
+    public abstract ArrayList<String> rollback();
 }

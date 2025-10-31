@@ -1,0 +1,1394 @@
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::staticFieldBase has been called by com.google.inject.internal.aop.HiddenClassDefiner (file:/usr/share/java/maven/lib/guice-5.1.0-classes.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.inject.internal.aop.HiddenClassDefiner
+WARNING: sun.misc.Unsafe::staticFieldBase will be removed in a future release
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::staticFieldBase has been called by com.google.inject.internal.aop.HiddenClassDefiner (file:/usr/share/java/maven/lib/guice-5.1.0-classes.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.inject.internal.aop.HiddenClassDefiner
+WARNING: sun.misc.Unsafe::staticFieldBase will be removed in a future release
+[INFO] Scanning for projects...
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------------------< com.library:devapp >-------------------------
+[INFO] Building devapp 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ devapp ---
+[INFO] Deleting /home/prusia117/Dev/Java/poo/devapp/target
+[INFO] 
+[INFO] -------------------------< com.library:devapp >-------------------------
+[INFO] Building devapp 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ devapp ---
+[INFO] 
+[INFO] --- dependency:3.7.0:copy-dependencies (default-cli) @ devapp ---
+[INFO] Copying 2 resources from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.8.0:compile (default-compile) @ devapp ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 64 source files to /home/prusia117/Dev/Java/poo/devapp/target/classes
+[INFO] Copying artifact 'org.openjfx:javafx-controls:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-controls/13/javafx-controls-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-controls-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-controls:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-controls/13/javafx-controls-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-controls-13-linux.jar
+[INFO] Copying artifact 'org.openjfx:javafx-graphics:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-graphics/13/javafx-graphics-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-graphics-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-graphics:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-graphics/13/javafx-graphics-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-graphics-13-linux.jar
+[INFO] Copying artifact 'org.openjfx:javafx-base:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-base/13/javafx-base-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-base-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-base:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-base/13/javafx-base-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-base-13-linux.jar
+[INFO] Copying artifact 'org.openjfx:javafx-fxml:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-fxml/13/javafx-fxml-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-fxml-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-fxml:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-fxml/13/javafx-fxml-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-fxml-13-linux.jar
+[INFO] Copying artifact 'org.postgresql:postgresql:jar:42.7.8:compile' (/home/prusia117/.m2/repository/org/postgresql/postgresql/42.7.8/postgresql-42.7.8.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/postgresql-42.7.8.jar
+[INFO] Copying artifact 'org.checkerframework:checker-qual:jar:3.49.5:runtime' (/home/prusia117/.m2/repository/org/checkerframework/checker-qual/3.49.5/checker-qual-3.49.5.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/checker-qual-3.49.5.jar
+[INFO] Copying artifact 'org.mongodb:mongodb-driver-sync:jar:5.5.0:compile' (/home/prusia117/.m2/repository/org/mongodb/mongodb-driver-sync/5.5.0/mongodb-driver-sync-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/mongodb-driver-sync-5.5.0.jar
+[INFO] Copying artifact 'org.mongodb:bson:jar:5.5.0:compile' (/home/prusia117/.m2/repository/org/mongodb/bson/5.5.0/bson-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/bson-5.5.0.jar
+[INFO] Copying artifact 'org.mongodb:mongodb-driver-core:jar:5.5.0:compile' (/home/prusia117/.m2/repository/org/mongodb/mongodb-driver-core/5.5.0/mongodb-driver-core-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/mongodb-driver-core-5.5.0.jar
+[INFO] Copying artifact 'org.mongodb:bson-record-codec:jar:5.5.0:runtime' (/home/prusia117/.m2/repository/org/mongodb/bson-record-codec/5.5.0/bson-record-codec-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/bson-record-codec-5.5.0.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.894 s
+[INFO] Finished at: 2025-10-31T00:47:56-06:00
+[INFO] ------------------------------------------------------------------------
+[INFO] /home/prusia117/Dev/Java/poo/devapp/src/main/java/com/library/kernel/jartisan/src/jmigrations/JMigratorFactory.java: Some input files use unchecked or unsafe operations.
+[INFO] /home/prusia117/Dev/Java/poo/devapp/src/main/java/com/library/kernel/jartisan/src/jmigrations/JMigratorFactory.java: Recompile with -Xlint:unchecked for details.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.583 s
+[INFO] Finished at: 2025-10-31T00:47:57-06:00
+[INFO] ------------------------------------------------------------------------
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::staticFieldBase has been called by com.google.inject.internal.aop.HiddenClassDefiner (file:/usr/share/java/maven/lib/guice-5.1.0-classes.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.inject.internal.aop.HiddenClassDefiner
+WARNING: sun.misc.Unsafe::staticFieldBase will be removed in a future release
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::staticFieldBase has been called by com.google.inject.internal.aop.HiddenClassDefiner (file:/usr/share/java/maven/lib/guice-5.1.0-classes.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.inject.internal.aop.HiddenClassDefiner
+WARNING: sun.misc.Unsafe::staticFieldBase will be removed in a future release
+[INFO] Scanning for projects...
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------------------< com.library:devapp >-------------------------
+[INFO] Building devapp 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] -------------------------< com.library:devapp >-------------------------
+[INFO] Building devapp 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ devapp ---
+[INFO] 
+[INFO] --- dependency:3.7.0:copy-dependencies (default-cli) @ devapp ---
+[INFO] Deleting /home/prusia117/Dev/Java/poo/devapp/target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ devapp ---
+[INFO] Copying 2 resources from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.8.0:compile (default-compile) @ devapp ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 64 source files to /home/prusia117/Dev/Java/poo/devapp/target/classes
+[INFO] Copying artifact 'org.openjfx:javafx-controls:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-controls/13/javafx-controls-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-controls-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-controls:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-controls/13/javafx-controls-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-controls-13-linux.jar
+[INFO] Copying artifact 'org.openjfx:javafx-graphics:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-graphics/13/javafx-graphics-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-graphics-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-graphics:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-graphics/13/javafx-graphics-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-graphics-13-linux.jar
+[INFO] Copying artifact 'org.openjfx:javafx-base:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-base/13/javafx-base-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-base-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-base:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-base/13/javafx-base-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-base-13-linux.jar
+[INFO] Copying artifact 'org.openjfx:javafx-fxml:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-fxml/13/javafx-fxml-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-fxml-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-fxml:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-fxml/13/javafx-fxml-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-fxml-13-linux.jar
+[INFO] Copying artifact 'org.postgresql:postgresql:jar:42.7.8:compile' (/home/prusia117/.m2/repository/org/postgresql/postgresql/42.7.8/postgresql-42.7.8.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/postgresql-42.7.8.jar
+[INFO] Copying artifact 'org.checkerframework:checker-qual:jar:3.49.5:runtime' (/home/prusia117/.m2/repository/org/checkerframework/checker-qual/3.49.5/checker-qual-3.49.5.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/checker-qual-3.49.5.jar
+[INFO] Copying artifact 'org.mongodb:mongodb-driver-sync:jar:5.5.0:compile' (/home/prusia117/.m2/repository/org/mongodb/mongodb-driver-sync/5.5.0/mongodb-driver-sync-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/mongodb-driver-sync-5.5.0.jar
+[INFO] Copying artifact 'org.mongodb:bson:jar:5.5.0:compile' (/home/prusia117/.m2/repository/org/mongodb/bson/5.5.0/bson-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/bson-5.5.0.jar
+[INFO] Copying artifact 'org.mongodb:mongodb-driver-core:jar:5.5.0:compile' (/home/prusia117/.m2/repository/org/mongodb/mongodb-driver-core/5.5.0/mongodb-driver-core-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/mongodb-driver-core-5.5.0.jar
+[INFO] Copying artifact 'org.mongodb:bson-record-codec:jar:5.5.0:runtime' (/home/prusia117/.m2/repository/org/mongodb/bson-record-codec/5.5.0/bson-record-codec-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/bson-record-codec-5.5.0.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.901 s
+[INFO] Finished at: 2025-10-31T00:48:03-06:00
+[INFO] ------------------------------------------------------------------------
+[INFO] /home/prusia117/Dev/Java/poo/devapp/src/main/java/com/library/kernel/jartisan/src/jmigrations/JMigratorFactory.java: Some input files use unchecked or unsafe operations.
+[INFO] /home/prusia117/Dev/Java/poo/devapp/src/main/java/com/library/kernel/jartisan/src/jmigrations/JMigratorFactory.java: Recompile with -Xlint:unchecked for details.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.482 s
+[INFO] Finished at: 2025-10-31T00:48:03-06:00
+[INFO] ------------------------------------------------------------------------
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::staticFieldBase has been called by com.google.inject.internal.aop.HiddenClassDefiner (file:/usr/share/java/maven/lib/guice-5.1.0-classes.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.inject.internal.aop.HiddenClassDefiner
+WARNING: sun.misc.Unsafe::staticFieldBase will be removed in a future release
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::staticFieldBase has been called by com.google.inject.internal.aop.HiddenClassDefiner (file:/usr/share/java/maven/lib/guice-5.1.0-classes.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.inject.internal.aop.HiddenClassDefiner
+WARNING: sun.misc.Unsafe::staticFieldBase will be removed in a future release
+[INFO] Scanning for projects...
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------------------< com.library:devapp >-------------------------
+[INFO] Building devapp 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ devapp ---
+[INFO] 
+[INFO] -------------------------< com.library:devapp >-------------------------
+[INFO] Building devapp 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- dependency:3.7.0:copy-dependencies (default-cli) @ devapp ---
+[INFO] Deleting /home/prusia117/Dev/Java/poo/devapp/target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ devapp ---
+[INFO] Copying 2 resources from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.8.0:compile (default-compile) @ devapp ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 64 source files to /home/prusia117/Dev/Java/poo/devapp/target/classes
+[INFO] Copying artifact 'org.openjfx:javafx-controls:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-controls/13/javafx-controls-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-controls-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-controls:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-controls/13/javafx-controls-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-controls-13-linux.jar
+[INFO] Copying artifact 'org.openjfx:javafx-graphics:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-graphics/13/javafx-graphics-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-graphics-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-graphics:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-graphics/13/javafx-graphics-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-graphics-13-linux.jar
+[INFO] Copying artifact 'org.openjfx:javafx-base:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-base/13/javafx-base-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-base-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-base:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-base/13/javafx-base-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-base-13-linux.jar
+[INFO] Copying artifact 'org.openjfx:javafx-fxml:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-fxml/13/javafx-fxml-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-fxml-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-fxml:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-fxml/13/javafx-fxml-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-fxml-13-linux.jar
+[INFO] Copying artifact 'org.postgresql:postgresql:jar:42.7.8:compile' (/home/prusia117/.m2/repository/org/postgresql/postgresql/42.7.8/postgresql-42.7.8.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/postgresql-42.7.8.jar
+[INFO] Copying artifact 'org.checkerframework:checker-qual:jar:3.49.5:runtime' (/home/prusia117/.m2/repository/org/checkerframework/checker-qual/3.49.5/checker-qual-3.49.5.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/checker-qual-3.49.5.jar
+[INFO] Copying artifact 'org.mongodb:mongodb-driver-sync:jar:5.5.0:compile' (/home/prusia117/.m2/repository/org/mongodb/mongodb-driver-sync/5.5.0/mongodb-driver-sync-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/mongodb-driver-sync-5.5.0.jar
+[INFO] Copying artifact 'org.mongodb:bson:jar:5.5.0:compile' (/home/prusia117/.m2/repository/org/mongodb/bson/5.5.0/bson-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/bson-5.5.0.jar
+[INFO] Copying artifact 'org.mongodb:mongodb-driver-core:jar:5.5.0:compile' (/home/prusia117/.m2/repository/org/mongodb/mongodb-driver-core/5.5.0/mongodb-driver-core-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/mongodb-driver-core-5.5.0.jar
+[INFO] Copying artifact 'org.mongodb:bson-record-codec:jar:5.5.0:runtime' (/home/prusia117/.m2/repository/org/mongodb/bson-record-codec/5.5.0/bson-record-codec-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/bson-record-codec-5.5.0.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.875 s
+[INFO] Finished at: 2025-10-31T00:49:48-06:00
+[INFO] ------------------------------------------------------------------------
+[INFO] /home/prusia117/Dev/Java/poo/devapp/src/main/java/com/library/kernel/jartisan/src/jmigrations/JMigratorFactory.java: Some input files use unchecked or unsafe operations.
+[INFO] /home/prusia117/Dev/Java/poo/devapp/src/main/java/com/library/kernel/jartisan/src/jmigrations/JMigratorFactory.java: Recompile with -Xlint:unchecked for details.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.585 s
+[INFO] Finished at: 2025-10-31T00:49:49-06:00
+[INFO] ------------------------------------------------------------------------
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::staticFieldBase has been called by com.google.inject.internal.aop.HiddenClassDefiner (file:/usr/share/java/maven/lib/guice-5.1.0-classes.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.inject.internal.aop.HiddenClassDefiner
+WARNING: sun.misc.Unsafe::staticFieldBase will be removed in a future release
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::staticFieldBase has been called by com.google.inject.internal.aop.HiddenClassDefiner (file:/usr/share/java/maven/lib/guice-5.1.0-classes.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.inject.internal.aop.HiddenClassDefiner
+WARNING: sun.misc.Unsafe::staticFieldBase will be removed in a future release
+[INFO] Scanning for projects...
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------------------< com.library:devapp >-------------------------
+[INFO] Building devapp 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ devapp ---
+[INFO] 
+[INFO] -------------------------< com.library:devapp >-------------------------
+[INFO] Building devapp 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] Deleting /home/prusia117/Dev/Java/poo/devapp/target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ devapp ---
+[INFO] 
+[INFO] --- dependency:3.7.0:copy-dependencies (default-cli) @ devapp ---
+[INFO] Copying 2 resources from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.8.0:compile (default-compile) @ devapp ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 65 source files to /home/prusia117/Dev/Java/poo/devapp/target/classes
+[INFO] Copying artifact 'org.openjfx:javafx-controls:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-controls/13/javafx-controls-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-controls-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-controls:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-controls/13/javafx-controls-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-controls-13-linux.jar
+[INFO] Copying artifact 'org.openjfx:javafx-graphics:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-graphics/13/javafx-graphics-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-graphics-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-graphics:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-graphics/13/javafx-graphics-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-graphics-13-linux.jar
+[INFO] Copying artifact 'org.openjfx:javafx-base:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-base/13/javafx-base-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-base-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-base:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-base/13/javafx-base-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-base-13-linux.jar
+[INFO] Copying artifact 'org.openjfx:javafx-fxml:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-fxml/13/javafx-fxml-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-fxml-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-fxml:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-fxml/13/javafx-fxml-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-fxml-13-linux.jar
+[INFO] Copying artifact 'org.postgresql:postgresql:jar:42.7.8:compile' (/home/prusia117/.m2/repository/org/postgresql/postgresql/42.7.8/postgresql-42.7.8.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/postgresql-42.7.8.jar
+[INFO] Copying artifact 'org.checkerframework:checker-qual:jar:3.49.5:runtime' (/home/prusia117/.m2/repository/org/checkerframework/checker-qual/3.49.5/checker-qual-3.49.5.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/checker-qual-3.49.5.jar
+[INFO] Copying artifact 'org.mongodb:mongodb-driver-sync:jar:5.5.0:compile' (/home/prusia117/.m2/repository/org/mongodb/mongodb-driver-sync/5.5.0/mongodb-driver-sync-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/mongodb-driver-sync-5.5.0.jar
+[INFO] Copying artifact 'org.mongodb:bson:jar:5.5.0:compile' (/home/prusia117/.m2/repository/org/mongodb/bson/5.5.0/bson-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/bson-5.5.0.jar
+[INFO] Copying artifact 'org.mongodb:mongodb-driver-core:jar:5.5.0:compile' (/home/prusia117/.m2/repository/org/mongodb/mongodb-driver-core/5.5.0/mongodb-driver-core-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/mongodb-driver-core-5.5.0.jar
+[INFO] Copying artifact 'org.mongodb:bson-record-codec:jar:5.5.0:runtime' (/home/prusia117/.m2/repository/org/mongodb/bson-record-codec/5.5.0/bson-record-codec-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/bson-record-codec-5.5.0.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.903 s
+[INFO] Finished at: 2025-10-31T00:50:24-06:00
+[INFO] ------------------------------------------------------------------------
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /home/prusia117/Dev/Java/poo/devapp/src/main/java/module-info.java:[6,17] cyclic dependence involving com.library
+[INFO] 1 error
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.090 s
+[INFO] Finished at: 2025-10-31T00:50:24-06:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.0:compile (default-compile) on project devapp: Compilation failure
+[ERROR] /home/prusia117/Dev/Java/poo/devapp/src/main/java/module-info.java:[6,17] cyclic dependence involving com.library
+[ERROR] 
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::staticFieldBase has been called by com.google.inject.internal.aop.HiddenClassDefiner (file:/usr/share/java/maven/lib/guice-5.1.0-classes.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.inject.internal.aop.HiddenClassDefiner
+WARNING: sun.misc.Unsafe::staticFieldBase will be removed in a future release
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::staticFieldBase has been called by com.google.inject.internal.aop.HiddenClassDefiner (file:/usr/share/java/maven/lib/guice-5.1.0-classes.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.inject.internal.aop.HiddenClassDefiner
+WARNING: sun.misc.Unsafe::staticFieldBase will be removed in a future release
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------------------< com.library:devapp >-------------------------
+[INFO] Building devapp 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ devapp ---
+[INFO] Deleting /home/prusia117/Dev/Java/poo/devapp/target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ devapp ---
+[INFO] 
+[INFO] -------------------------< com.library:devapp >-------------------------
+[INFO] Building devapp 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] Copying 2 resources from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.8.0:compile (default-compile) @ devapp ---
+[INFO] 
+[INFO] --- dependency:3.7.0:copy-dependencies (default-cli) @ devapp ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 65 source files to /home/prusia117/Dev/Java/poo/devapp/target/classes
+[INFO] Copying artifact 'org.openjfx:javafx-controls:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-controls/13/javafx-controls-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-controls-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-controls:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-controls/13/javafx-controls-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-controls-13-linux.jar
+[INFO] Copying artifact 'org.openjfx:javafx-graphics:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-graphics/13/javafx-graphics-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-graphics-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-graphics:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-graphics/13/javafx-graphics-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-graphics-13-linux.jar
+[INFO] Copying artifact 'org.openjfx:javafx-base:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-base/13/javafx-base-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-base-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-base:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-base/13/javafx-base-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-base-13-linux.jar
+[INFO] Copying artifact 'org.openjfx:javafx-fxml:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-fxml/13/javafx-fxml-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-fxml-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-fxml:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-fxml/13/javafx-fxml-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-fxml-13-linux.jar
+[INFO] Copying artifact 'org.postgresql:postgresql:jar:42.7.8:compile' (/home/prusia117/.m2/repository/org/postgresql/postgresql/42.7.8/postgresql-42.7.8.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/postgresql-42.7.8.jar
+[INFO] Copying artifact 'org.checkerframework:checker-qual:jar:3.49.5:runtime' (/home/prusia117/.m2/repository/org/checkerframework/checker-qual/3.49.5/checker-qual-3.49.5.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/checker-qual-3.49.5.jar
+[INFO] Copying artifact 'org.mongodb:mongodb-driver-sync:jar:5.5.0:compile' (/home/prusia117/.m2/repository/org/mongodb/mongodb-driver-sync/5.5.0/mongodb-driver-sync-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/mongodb-driver-sync-5.5.0.jar
+[INFO] Copying artifact 'org.mongodb:bson:jar:5.5.0:compile' (/home/prusia117/.m2/repository/org/mongodb/bson/5.5.0/bson-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/bson-5.5.0.jar
+[INFO] Copying artifact 'org.mongodb:mongodb-driver-core:jar:5.5.0:compile' (/home/prusia117/.m2/repository/org/mongodb/mongodb-driver-core/5.5.0/mongodb-driver-core-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/mongodb-driver-core-5.5.0.jar
+[INFO] Copying artifact 'org.mongodb:bson-record-codec:jar:5.5.0:runtime' (/home/prusia117/.m2/repository/org/mongodb/bson-record-codec/5.5.0/bson-record-codec-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/bson-record-codec-5.5.0.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.865 s
+[INFO] Finished at: 2025-10-31T00:51:04-06:00
+[INFO] ------------------------------------------------------------------------
+[INFO] /home/prusia117/Dev/Java/poo/devapp/src/main/java/com/library/kernel/jartisan/src/jmigrations/JMigratorFactory.java: Some input files use unchecked or unsafe operations.
+[INFO] /home/prusia117/Dev/Java/poo/devapp/src/main/java/com/library/kernel/jartisan/src/jmigrations/JMigratorFactory.java: Recompile with -Xlint:unchecked for details.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.518 s
+[INFO] Finished at: 2025-10-31T00:51:05-06:00
+[INFO] ------------------------------------------------------------------------
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::staticFieldBase has been called by com.google.inject.internal.aop.HiddenClassDefiner (file:/usr/share/java/maven/lib/guice-5.1.0-classes.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.inject.internal.aop.HiddenClassDefiner
+WARNING: sun.misc.Unsafe::staticFieldBase will be removed in a future release
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::staticFieldBase has been called by com.google.inject.internal.aop.HiddenClassDefiner (file:/usr/share/java/maven/lib/guice-5.1.0-classes.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.inject.internal.aop.HiddenClassDefiner
+WARNING: sun.misc.Unsafe::staticFieldBase will be removed in a future release
+[INFO] Scanning for projects...
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------------------< com.library:devapp >-------------------------
+[INFO] Building devapp 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ devapp ---
+[INFO] Deleting /home/prusia117/Dev/Java/poo/devapp/target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ devapp ---
+[INFO] 
+[INFO] -------------------------< com.library:devapp >-------------------------
+[INFO] Building devapp 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] Copying 2 resources from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.8.0:compile (default-compile) @ devapp ---
+[INFO] 
+[INFO] --- dependency:3.7.0:copy-dependencies (default-cli) @ devapp ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 65 source files to /home/prusia117/Dev/Java/poo/devapp/target/classes
+[INFO] Copying artifact 'org.openjfx:javafx-controls:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-controls/13/javafx-controls-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-controls-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-controls:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-controls/13/javafx-controls-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-controls-13-linux.jar
+[INFO] Copying artifact 'org.openjfx:javafx-graphics:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-graphics/13/javafx-graphics-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-graphics-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-graphics:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-graphics/13/javafx-graphics-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-graphics-13-linux.jar
+[INFO] Copying artifact 'org.openjfx:javafx-base:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-base/13/javafx-base-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-base-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-base:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-base/13/javafx-base-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-base-13-linux.jar
+[INFO] Copying artifact 'org.openjfx:javafx-fxml:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-fxml/13/javafx-fxml-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-fxml-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-fxml:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-fxml/13/javafx-fxml-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-fxml-13-linux.jar
+[INFO] Copying artifact 'org.postgresql:postgresql:jar:42.7.8:compile' (/home/prusia117/.m2/repository/org/postgresql/postgresql/42.7.8/postgresql-42.7.8.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/postgresql-42.7.8.jar
+[INFO] Copying artifact 'org.checkerframework:checker-qual:jar:3.49.5:runtime' (/home/prusia117/.m2/repository/org/checkerframework/checker-qual/3.49.5/checker-qual-3.49.5.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/checker-qual-3.49.5.jar
+[INFO] Copying artifact 'org.mongodb:mongodb-driver-sync:jar:5.5.0:compile' (/home/prusia117/.m2/repository/org/mongodb/mongodb-driver-sync/5.5.0/mongodb-driver-sync-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/mongodb-driver-sync-5.5.0.jar
+[INFO] Copying artifact 'org.mongodb:bson:jar:5.5.0:compile' (/home/prusia117/.m2/repository/org/mongodb/bson/5.5.0/bson-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/bson-5.5.0.jar
+[INFO] Copying artifact 'org.mongodb:mongodb-driver-core:jar:5.5.0:compile' (/home/prusia117/.m2/repository/org/mongodb/mongodb-driver-core/5.5.0/mongodb-driver-core-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/mongodb-driver-core-5.5.0.jar
+[INFO] Copying artifact 'org.mongodb:bson-record-codec:jar:5.5.0:runtime' (/home/prusia117/.m2/repository/org/mongodb/bson-record-codec/5.5.0/bson-record-codec-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/bson-record-codec-5.5.0.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.844 s
+[INFO] Finished at: 2025-10-31T00:51:11-06:00
+[INFO] ------------------------------------------------------------------------
+[INFO] /home/prusia117/Dev/Java/poo/devapp/src/main/java/com/library/kernel/jartisan/src/jmigrations/JMigratorFactory.java: Some input files use unchecked or unsafe operations.
+[INFO] /home/prusia117/Dev/Java/poo/devapp/src/main/java/com/library/kernel/jartisan/src/jmigrations/JMigratorFactory.java: Recompile with -Xlint:unchecked for details.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.475 s
+[INFO] Finished at: 2025-10-31T00:51:12-06:00
+[INFO] ------------------------------------------------------------------------
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::staticFieldBase has been called by com.google.inject.internal.aop.HiddenClassDefiner (file:/usr/share/java/maven/lib/guice-5.1.0-classes.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.inject.internal.aop.HiddenClassDefiner
+WARNING: sun.misc.Unsafe::staticFieldBase will be removed in a future release
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::staticFieldBase has been called by com.google.inject.internal.aop.HiddenClassDefiner (file:/usr/share/java/maven/lib/guice-5.1.0-classes.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.inject.internal.aop.HiddenClassDefiner
+WARNING: sun.misc.Unsafe::staticFieldBase will be removed in a future release
+[INFO] Scanning for projects...
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------------------< com.library:devapp >-------------------------
+[INFO] Building devapp 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ devapp ---
+[INFO] Deleting /home/prusia117/Dev/Java/poo/devapp/target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ devapp ---
+[INFO] 
+[INFO] -------------------------< com.library:devapp >-------------------------
+[INFO] Building devapp 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] Copying 2 resources from src/main/resources to target/classes[INFO] 
+
+[INFO] --- dependency:3.7.0:copy-dependencies (default-cli) @ devapp ---
+[INFO] 
+[INFO] --- compiler:3.8.0:compile (default-compile) @ devapp ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 65 source files to /home/prusia117/Dev/Java/poo/devapp/target/classes
+[INFO] Copying artifact 'org.openjfx:javafx-controls:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-controls/13/javafx-controls-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-controls-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-controls:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-controls/13/javafx-controls-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-controls-13-linux.jar
+[INFO] Copying artifact 'org.openjfx:javafx-graphics:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-graphics/13/javafx-graphics-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-graphics-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-graphics:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-graphics/13/javafx-graphics-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-graphics-13-linux.jar
+[INFO] Copying artifact 'org.openjfx:javafx-base:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-base/13/javafx-base-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-base-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-base:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-base/13/javafx-base-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-base-13-linux.jar
+[INFO] Copying artifact 'org.openjfx:javafx-fxml:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-fxml/13/javafx-fxml-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-fxml-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-fxml:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-fxml/13/javafx-fxml-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-fxml-13-linux.jar
+[INFO] Copying artifact 'org.postgresql:postgresql:jar:42.7.8:compile' (/home/prusia117/.m2/repository/org/postgresql/postgresql/42.7.8/postgresql-42.7.8.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/postgresql-42.7.8.jar
+[INFO] Copying artifact 'org.checkerframework:checker-qual:jar:3.49.5:runtime' (/home/prusia117/.m2/repository/org/checkerframework/checker-qual/3.49.5/checker-qual-3.49.5.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/checker-qual-3.49.5.jar
+[INFO] Copying artifact 'org.mongodb:mongodb-driver-sync:jar:5.5.0:compile' (/home/prusia117/.m2/repository/org/mongodb/mongodb-driver-sync/5.5.0/mongodb-driver-sync-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/mongodb-driver-sync-5.5.0.jar
+[INFO] Copying artifact 'org.mongodb:bson:jar:5.5.0:compile' (/home/prusia117/.m2/repository/org/mongodb/bson/5.5.0/bson-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/bson-5.5.0.jar
+[INFO] Copying artifact 'org.mongodb:mongodb-driver-core:jar:5.5.0:compile' (/home/prusia117/.m2/repository/org/mongodb/mongodb-driver-core/5.5.0/mongodb-driver-core-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/mongodb-driver-core-5.5.0.jar
+[INFO] Copying artifact 'org.mongodb:bson-record-codec:jar:5.5.0:runtime' (/home/prusia117/.m2/repository/org/mongodb/bson-record-codec/5.5.0/bson-record-codec-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/bson-record-codec-5.5.0.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.879 s
+[INFO] Finished at: 2025-10-31T00:51:26-06:00
+[INFO] ------------------------------------------------------------------------
+[INFO] /home/prusia117/Dev/Java/poo/devapp/src/main/java/com/library/kernel/jartisan/src/jmigrations/JMigratorFactory.java: Some input files use unchecked or unsafe operations.
+[INFO] /home/prusia117/Dev/Java/poo/devapp/src/main/java/com/library/kernel/jartisan/src/jmigrations/JMigratorFactory.java: Recompile with -Xlint:unchecked for details.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.470 s
+[INFO] Finished at: 2025-10-31T00:51:27-06:00
+[INFO] ------------------------------------------------------------------------
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::staticFieldBase has been called by com.google.inject.internal.aop.HiddenClassDefiner (file:/usr/share/java/maven/lib/guice-5.1.0-classes.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.inject.internal.aop.HiddenClassDefiner
+WARNING: sun.misc.Unsafe::staticFieldBase will be removed in a future release
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::staticFieldBase has been called by com.google.inject.internal.aop.HiddenClassDefiner (file:/usr/share/java/maven/lib/guice-5.1.0-classes.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.inject.internal.aop.HiddenClassDefiner
+WARNING: sun.misc.Unsafe::staticFieldBase will be removed in a future release
+[INFO] Scanning for projects...
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------------------< com.library:devapp >-------------------------
+[INFO] Building devapp 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ devapp ---
+[INFO] 
+[INFO] -------------------------< com.library:devapp >-------------------------
+[INFO] Building devapp 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- dependency:3.7.0:copy-dependencies (default-cli) @ devapp ---
+[INFO] Deleting /home/prusia117/Dev/Java/poo/devapp/target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ devapp ---
+[INFO] Copying 2 resources from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.8.0:compile (default-compile) @ devapp ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 65 source files to /home/prusia117/Dev/Java/poo/devapp/target/classes
+[INFO] Copying artifact 'org.openjfx:javafx-controls:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-controls/13/javafx-controls-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-controls-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-controls:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-controls/13/javafx-controls-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-controls-13-linux.jar
+[INFO] Copying artifact 'org.openjfx:javafx-graphics:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-graphics/13/javafx-graphics-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-graphics-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-graphics:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-graphics/13/javafx-graphics-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-graphics-13-linux.jar
+[INFO] Copying artifact 'org.openjfx:javafx-base:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-base/13/javafx-base-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-base-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-base:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-base/13/javafx-base-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-base-13-linux.jar
+[INFO] Copying artifact 'org.openjfx:javafx-fxml:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-fxml/13/javafx-fxml-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-fxml-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-fxml:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-fxml/13/javafx-fxml-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-fxml-13-linux.jar
+[INFO] Copying artifact 'org.postgresql:postgresql:jar:42.7.8:compile' (/home/prusia117/.m2/repository/org/postgresql/postgresql/42.7.8/postgresql-42.7.8.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/postgresql-42.7.8.jar
+[INFO] Copying artifact 'org.checkerframework:checker-qual:jar:3.49.5:runtime' (/home/prusia117/.m2/repository/org/checkerframework/checker-qual/3.49.5/checker-qual-3.49.5.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/checker-qual-3.49.5.jar
+[INFO] Copying artifact 'org.mongodb:mongodb-driver-sync:jar:5.5.0:compile' (/home/prusia117/.m2/repository/org/mongodb/mongodb-driver-sync/5.5.0/mongodb-driver-sync-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/mongodb-driver-sync-5.5.0.jar
+[INFO] Copying artifact 'org.mongodb:bson:jar:5.5.0:compile' (/home/prusia117/.m2/repository/org/mongodb/bson/5.5.0/bson-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/bson-5.5.0.jar
+[INFO] Copying artifact 'org.mongodb:mongodb-driver-core:jar:5.5.0:compile' (/home/prusia117/.m2/repository/org/mongodb/mongodb-driver-core/5.5.0/mongodb-driver-core-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/mongodb-driver-core-5.5.0.jar
+[INFO] Copying artifact 'org.mongodb:bson-record-codec:jar:5.5.0:runtime' (/home/prusia117/.m2/repository/org/mongodb/bson-record-codec/5.5.0/bson-record-codec-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/bson-record-codec-5.5.0.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.847 s
+[INFO] Finished at: 2025-10-31T00:52:46-06:00
+[INFO] ------------------------------------------------------------------------
+[INFO] /home/prusia117/Dev/Java/poo/devapp/src/main/java/com/library/kernel/jartisan/src/jmigrations/JMigratorFactory.java: Some input files use unchecked or unsafe operations.
+[INFO] /home/prusia117/Dev/Java/poo/devapp/src/main/java/com/library/kernel/jartisan/src/jmigrations/JMigratorFactory.java: Recompile with -Xlint:unchecked for details.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.487 s
+[INFO] Finished at: 2025-10-31T00:52:47-06:00
+[INFO] ------------------------------------------------------------------------
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::staticFieldBase has been called by com.google.inject.internal.aop.HiddenClassDefiner (file:/usr/share/java/maven/lib/guice-5.1.0-classes.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.inject.internal.aop.HiddenClassDefiner
+WARNING: sun.misc.Unsafe::staticFieldBase will be removed in a future release
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::staticFieldBase has been called by com.google.inject.internal.aop.HiddenClassDefiner (file:/usr/share/java/maven/lib/guice-5.1.0-classes.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.inject.internal.aop.HiddenClassDefiner
+WARNING: sun.misc.Unsafe::staticFieldBase will be removed in a future release
+[INFO] Scanning for projects...
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------------------< com.library:devapp >-------------------------
+[INFO] Building devapp 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ devapp ---
+[INFO] 
+[INFO] -------------------------< com.library:devapp >-------------------------
+[INFO] Building devapp 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] Deleting /home/prusia117/Dev/Java/poo/devapp/target
+[INFO] 
+[INFO] --- dependency:3.7.0:copy-dependencies (default-cli) @ devapp ---
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ devapp ---
+[INFO] Copying 2 resources from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.8.0:compile (default-compile) @ devapp ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 65 source files to /home/prusia117/Dev/Java/poo/devapp/target/classes
+[INFO] Copying artifact 'org.openjfx:javafx-controls:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-controls/13/javafx-controls-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-controls-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-controls:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-controls/13/javafx-controls-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-controls-13-linux.jar
+[INFO] Copying artifact 'org.openjfx:javafx-graphics:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-graphics/13/javafx-graphics-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-graphics-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-graphics:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-graphics/13/javafx-graphics-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-graphics-13-linux.jar
+[INFO] Copying artifact 'org.openjfx:javafx-base:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-base/13/javafx-base-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-base-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-base:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-base/13/javafx-base-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-base-13-linux.jar
+[INFO] Copying artifact 'org.openjfx:javafx-fxml:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-fxml/13/javafx-fxml-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-fxml-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-fxml:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-fxml/13/javafx-fxml-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-fxml-13-linux.jar
+[INFO] Copying artifact 'org.postgresql:postgresql:jar:42.7.8:compile' (/home/prusia117/.m2/repository/org/postgresql/postgresql/42.7.8/postgresql-42.7.8.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/postgresql-42.7.8.jar
+[INFO] Copying artifact 'org.checkerframework:checker-qual:jar:3.49.5:runtime' (/home/prusia117/.m2/repository/org/checkerframework/checker-qual/3.49.5/checker-qual-3.49.5.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/checker-qual-3.49.5.jar
+[INFO] Copying artifact 'org.mongodb:mongodb-driver-sync:jar:5.5.0:compile' (/home/prusia117/.m2/repository/org/mongodb/mongodb-driver-sync/5.5.0/mongodb-driver-sync-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/mongodb-driver-sync-5.5.0.jar
+[INFO] Copying artifact 'org.mongodb:bson:jar:5.5.0:compile' (/home/prusia117/.m2/repository/org/mongodb/bson/5.5.0/bson-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/bson-5.5.0.jar
+[INFO] Copying artifact 'org.mongodb:mongodb-driver-core:jar:5.5.0:compile' (/home/prusia117/.m2/repository/org/mongodb/mongodb-driver-core/5.5.0/mongodb-driver-core-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/mongodb-driver-core-5.5.0.jar
+[INFO] Copying artifact 'org.mongodb:bson-record-codec:jar:5.5.0:runtime' (/home/prusia117/.m2/repository/org/mongodb/bson-record-codec/5.5.0/bson-record-codec-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/bson-record-codec-5.5.0.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.871 s
+[INFO] Finished at: 2025-10-31T00:52:52-06:00
+[INFO] ------------------------------------------------------------------------
+[INFO] /home/prusia117/Dev/Java/poo/devapp/src/main/java/com/library/kernel/jartisan/src/jmigrations/JMigratorFactory.java: Some input files use unchecked or unsafe operations.
+[INFO] /home/prusia117/Dev/Java/poo/devapp/src/main/java/com/library/kernel/jartisan/src/jmigrations/JMigratorFactory.java: Recompile with -Xlint:unchecked for details.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.517 s
+[INFO] Finished at: 2025-10-31T00:52:53-06:00
+[INFO] ------------------------------------------------------------------------
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::staticFieldBase has been called by com.google.inject.internal.aop.HiddenClassDefiner (file:/usr/share/java/maven/lib/guice-5.1.0-classes.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.inject.internal.aop.HiddenClassDefiner
+WARNING: sun.misc.Unsafe::staticFieldBase will be removed in a future release
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::staticFieldBase has been called by com.google.inject.internal.aop.HiddenClassDefiner (file:/usr/share/java/maven/lib/guice-5.1.0-classes.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.inject.internal.aop.HiddenClassDefiner
+WARNING: sun.misc.Unsafe::staticFieldBase will be removed in a future release
+[INFO] Scanning for projects...
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------------------< com.library:devapp >-------------------------
+[INFO] Building devapp 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ devapp ---
+[INFO] 
+[INFO] -------------------------< com.library:devapp >-------------------------
+[INFO] Building devapp 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] Deleting /home/prusia117/Dev/Java/poo/devapp/target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ devapp ---
+[INFO] 
+[INFO] --- dependency:3.7.0:copy-dependencies (default-cli) @ devapp ---
+[INFO] Copying 2 resources from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.8.0:compile (default-compile) @ devapp ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 65 source files to /home/prusia117/Dev/Java/poo/devapp/target/classes
+[INFO] Copying artifact 'org.openjfx:javafx-controls:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-controls/13/javafx-controls-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-controls-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-controls:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-controls/13/javafx-controls-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-controls-13-linux.jar
+[INFO] Copying artifact 'org.openjfx:javafx-graphics:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-graphics/13/javafx-graphics-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-graphics-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-graphics:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-graphics/13/javafx-graphics-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-graphics-13-linux.jar
+[INFO] Copying artifact 'org.openjfx:javafx-base:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-base/13/javafx-base-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-base-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-base:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-base/13/javafx-base-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-base-13-linux.jar
+[INFO] Copying artifact 'org.openjfx:javafx-fxml:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-fxml/13/javafx-fxml-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-fxml-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-fxml:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-fxml/13/javafx-fxml-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-fxml-13-linux.jar
+[INFO] Copying artifact 'org.postgresql:postgresql:jar:42.7.8:compile' (/home/prusia117/.m2/repository/org/postgresql/postgresql/42.7.8/postgresql-42.7.8.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/postgresql-42.7.8.jar
+[INFO] Copying artifact 'org.checkerframework:checker-qual:jar:3.49.5:runtime' (/home/prusia117/.m2/repository/org/checkerframework/checker-qual/3.49.5/checker-qual-3.49.5.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/checker-qual-3.49.5.jar
+[INFO] Copying artifact 'org.mongodb:mongodb-driver-sync:jar:5.5.0:compile' (/home/prusia117/.m2/repository/org/mongodb/mongodb-driver-sync/5.5.0/mongodb-driver-sync-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/mongodb-driver-sync-5.5.0.jar
+[INFO] Copying artifact 'org.mongodb:bson:jar:5.5.0:compile' (/home/prusia117/.m2/repository/org/mongodb/bson/5.5.0/bson-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/bson-5.5.0.jar
+[INFO] Copying artifact 'org.mongodb:mongodb-driver-core:jar:5.5.0:compile' (/home/prusia117/.m2/repository/org/mongodb/mongodb-driver-core/5.5.0/mongodb-driver-core-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/mongodb-driver-core-5.5.0.jar
+[INFO] Copying artifact 'org.mongodb:bson-record-codec:jar:5.5.0:runtime' (/home/prusia117/.m2/repository/org/mongodb/bson-record-codec/5.5.0/bson-record-codec-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/bson-record-codec-5.5.0.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.883 s
+[INFO] Finished at: 2025-10-31T00:53:09-06:00
+[INFO] ------------------------------------------------------------------------
+[INFO] /home/prusia117/Dev/Java/poo/devapp/src/main/java/com/library/kernel/jartisan/src/jmigrations/JMigratorFactory.java: Some input files use unchecked or unsafe operations.
+[INFO] /home/prusia117/Dev/Java/poo/devapp/src/main/java/com/library/kernel/jartisan/src/jmigrations/JMigratorFactory.java: Recompile with -Xlint:unchecked for details.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.534 s
+[INFO] Finished at: 2025-10-31T00:53:10-06:00
+[INFO] ------------------------------------------------------------------------
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::staticFieldBase has been called by com.google.inject.internal.aop.HiddenClassDefiner (file:/usr/share/java/maven/lib/guice-5.1.0-classes.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.inject.internal.aop.HiddenClassDefiner
+WARNING: sun.misc.Unsafe::staticFieldBase will be removed in a future release
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::staticFieldBase has been called by com.google.inject.internal.aop.HiddenClassDefiner (file:/usr/share/java/maven/lib/guice-5.1.0-classes.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.inject.internal.aop.HiddenClassDefiner
+WARNING: sun.misc.Unsafe::staticFieldBase will be removed in a future release
+[INFO] Scanning for projects...
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------------------< com.library:devapp >-------------------------
+[INFO] Building devapp 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] -------------------------< com.library:devapp >-------------------------
+[INFO] Building devapp 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ devapp ---
+[INFO] 
+[INFO] --- dependency:3.7.0:copy-dependencies (default-cli) @ devapp ---
+[INFO] Deleting /home/prusia117/Dev/Java/poo/devapp/target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ devapp ---
+[INFO] Copying 2 resources from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.8.0:compile (default-compile) @ devapp ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 65 source files to /home/prusia117/Dev/Java/poo/devapp/target/classes
+[INFO] Copying artifact 'org.openjfx:javafx-controls:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-controls/13/javafx-controls-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-controls-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-controls:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-controls/13/javafx-controls-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-controls-13-linux.jar
+[INFO] Copying artifact 'org.openjfx:javafx-graphics:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-graphics/13/javafx-graphics-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-graphics-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-graphics:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-graphics/13/javafx-graphics-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-graphics-13-linux.jar
+[INFO] Copying artifact 'org.openjfx:javafx-base:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-base/13/javafx-base-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-base-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-base:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-base/13/javafx-base-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-base-13-linux.jar
+[INFO] Copying artifact 'org.openjfx:javafx-fxml:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-fxml/13/javafx-fxml-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-fxml-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-fxml:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-fxml/13/javafx-fxml-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-fxml-13-linux.jar
+[INFO] Copying artifact 'org.postgresql:postgresql:jar:42.7.8:compile' (/home/prusia117/.m2/repository/org/postgresql/postgresql/42.7.8/postgresql-42.7.8.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/postgresql-42.7.8.jar
+[INFO] Copying artifact 'org.checkerframework:checker-qual:jar:3.49.5:runtime' (/home/prusia117/.m2/repository/org/checkerframework/checker-qual/3.49.5/checker-qual-3.49.5.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/checker-qual-3.49.5.jar
+[INFO] Copying artifact 'org.mongodb:mongodb-driver-sync:jar:5.5.0:compile' (/home/prusia117/.m2/repository/org/mongodb/mongodb-driver-sync/5.5.0/mongodb-driver-sync-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/mongodb-driver-sync-5.5.0.jar
+[INFO] Copying artifact 'org.mongodb:bson:jar:5.5.0:compile' (/home/prusia117/.m2/repository/org/mongodb/bson/5.5.0/bson-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/bson-5.5.0.jar
+[INFO] Copying artifact 'org.mongodb:mongodb-driver-core:jar:5.5.0:compile' (/home/prusia117/.m2/repository/org/mongodb/mongodb-driver-core/5.5.0/mongodb-driver-core-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/mongodb-driver-core-5.5.0.jar
+[INFO] Copying artifact 'org.mongodb:bson-record-codec:jar:5.5.0:runtime' (/home/prusia117/.m2/repository/org/mongodb/bson-record-codec/5.5.0/bson-record-codec-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/bson-record-codec-5.5.0.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.836 s
+[INFO] Finished at: 2025-10-31T00:53:16-06:00
+[INFO] ------------------------------------------------------------------------
+[INFO] /home/prusia117/Dev/Java/poo/devapp/src/main/java/com/library/kernel/jartisan/src/jmigrations/JMigratorFactory.java: Some input files use unchecked or unsafe operations.
+[INFO] /home/prusia117/Dev/Java/poo/devapp/src/main/java/com/library/kernel/jartisan/src/jmigrations/JMigratorFactory.java: Recompile with -Xlint:unchecked for details.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.506 s
+[INFO] Finished at: 2025-10-31T00:53:16-06:00
+[INFO] ------------------------------------------------------------------------
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::staticFieldBase has been called by com.google.inject.internal.aop.HiddenClassDefiner (file:/usr/share/java/maven/lib/guice-5.1.0-classes.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.inject.internal.aop.HiddenClassDefiner
+WARNING: sun.misc.Unsafe::staticFieldBase will be removed in a future release
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::staticFieldBase has been called by com.google.inject.internal.aop.HiddenClassDefiner (file:/usr/share/java/maven/lib/guice-5.1.0-classes.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.inject.internal.aop.HiddenClassDefiner
+WARNING: sun.misc.Unsafe::staticFieldBase will be removed in a future release
+[INFO] Scanning for projects...
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------------------< com.library:devapp >-------------------------
+[INFO] Building devapp 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ devapp ---
+[INFO] 
+[INFO] -------------------------< com.library:devapp >-------------------------
+[INFO] Building devapp 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- dependency:3.7.0:copy-dependencies (default-cli) @ devapp ---
+[INFO] Deleting /home/prusia117/Dev/Java/poo/devapp/target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ devapp ---
+[INFO] Copying 2 resources from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.8.0:compile (default-compile) @ devapp ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 65 source files to /home/prusia117/Dev/Java/poo/devapp/target/classes
+[INFO] Copying artifact 'org.openjfx:javafx-controls:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-controls/13/javafx-controls-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-controls-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-controls:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-controls/13/javafx-controls-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-controls-13-linux.jar
+[INFO] Copying artifact 'org.openjfx:javafx-graphics:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-graphics/13/javafx-graphics-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-graphics-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-graphics:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-graphics/13/javafx-graphics-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-graphics-13-linux.jar
+[INFO] Copying artifact 'org.openjfx:javafx-base:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-base/13/javafx-base-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-base-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-base:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-base/13/javafx-base-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-base-13-linux.jar
+[INFO] Copying artifact 'org.openjfx:javafx-fxml:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-fxml/13/javafx-fxml-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-fxml-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-fxml:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-fxml/13/javafx-fxml-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-fxml-13-linux.jar
+[INFO] Copying artifact 'org.postgresql:postgresql:jar:42.7.8:compile' (/home/prusia117/.m2/repository/org/postgresql/postgresql/42.7.8/postgresql-42.7.8.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/postgresql-42.7.8.jar
+[INFO] Copying artifact 'org.checkerframework:checker-qual:jar:3.49.5:runtime' (/home/prusia117/.m2/repository/org/checkerframework/checker-qual/3.49.5/checker-qual-3.49.5.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/checker-qual-3.49.5.jar
+[INFO] Copying artifact 'org.mongodb:mongodb-driver-sync:jar:5.5.0:compile' (/home/prusia117/.m2/repository/org/mongodb/mongodb-driver-sync/5.5.0/mongodb-driver-sync-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/mongodb-driver-sync-5.5.0.jar
+[INFO] Copying artifact 'org.mongodb:bson:jar:5.5.0:compile' (/home/prusia117/.m2/repository/org/mongodb/bson/5.5.0/bson-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/bson-5.5.0.jar
+[INFO] Copying artifact 'org.mongodb:mongodb-driver-core:jar:5.5.0:compile' (/home/prusia117/.m2/repository/org/mongodb/mongodb-driver-core/5.5.0/mongodb-driver-core-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/mongodb-driver-core-5.5.0.jar
+[INFO] Copying artifact 'org.mongodb:bson-record-codec:jar:5.5.0:runtime' (/home/prusia117/.m2/repository/org/mongodb/bson-record-codec/5.5.0/bson-record-codec-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/bson-record-codec-5.5.0.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.872 s
+[INFO] Finished at: 2025-10-31T00:53:45-06:00
+[INFO] ------------------------------------------------------------------------
+[INFO] /home/prusia117/Dev/Java/poo/devapp/src/main/java/com/library/kernel/jartisan/src/jmigrations/JMigratorFactory.java: Some input files use unchecked or unsafe operations.
+[INFO] /home/prusia117/Dev/Java/poo/devapp/src/main/java/com/library/kernel/jartisan/src/jmigrations/JMigratorFactory.java: Recompile with -Xlint:unchecked for details.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.523 s
+[INFO] Finished at: 2025-10-31T00:53:46-06:00
+[INFO] ------------------------------------------------------------------------
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::staticFieldBase has been called by com.google.inject.internal.aop.HiddenClassDefiner (file:/usr/share/java/maven/lib/guice-5.1.0-classes.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.inject.internal.aop.HiddenClassDefiner
+WARNING: sun.misc.Unsafe::staticFieldBase will be removed in a future release
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::staticFieldBase has been called by com.google.inject.internal.aop.HiddenClassDefiner (file:/usr/share/java/maven/lib/guice-5.1.0-classes.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.inject.internal.aop.HiddenClassDefiner
+WARNING: sun.misc.Unsafe::staticFieldBase will be removed in a future release
+[INFO] Scanning for projects...
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------------------< com.library:devapp >-------------------------
+[INFO] Building devapp 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ devapp ---
+[INFO] Deleting /home/prusia117/Dev/Java/poo/devapp/target
+[INFO] 
+[INFO] -------------------------< com.library:devapp >-------------------------
+[INFO] Building devapp 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ devapp ---
+[INFO] 
+[INFO] --- dependency:3.7.0:copy-dependencies (default-cli) @ devapp ---
+[INFO] Copying 2 resources from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.8.0:compile (default-compile) @ devapp ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 65 source files to /home/prusia117/Dev/Java/poo/devapp/target/classes
+[INFO] Copying artifact 'org.openjfx:javafx-controls:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-controls/13/javafx-controls-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-controls-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-controls:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-controls/13/javafx-controls-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-controls-13-linux.jar
+[INFO] Copying artifact 'org.openjfx:javafx-graphics:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-graphics/13/javafx-graphics-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-graphics-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-graphics:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-graphics/13/javafx-graphics-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-graphics-13-linux.jar
+[INFO] Copying artifact 'org.openjfx:javafx-base:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-base/13/javafx-base-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-base-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-base:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-base/13/javafx-base-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-base-13-linux.jar
+[INFO] Copying artifact 'org.openjfx:javafx-fxml:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-fxml/13/javafx-fxml-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-fxml-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-fxml:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-fxml/13/javafx-fxml-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-fxml-13-linux.jar
+[INFO] Copying artifact 'org.postgresql:postgresql:jar:42.7.8:compile' (/home/prusia117/.m2/repository/org/postgresql/postgresql/42.7.8/postgresql-42.7.8.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/postgresql-42.7.8.jar
+[INFO] Copying artifact 'org.checkerframework:checker-qual:jar:3.49.5:runtime' (/home/prusia117/.m2/repository/org/checkerframework/checker-qual/3.49.5/checker-qual-3.49.5.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/checker-qual-3.49.5.jar
+[INFO] Copying artifact 'org.mongodb:mongodb-driver-sync:jar:5.5.0:compile' (/home/prusia117/.m2/repository/org/mongodb/mongodb-driver-sync/5.5.0/mongodb-driver-sync-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/mongodb-driver-sync-5.5.0.jar
+[INFO] Copying artifact 'org.mongodb:bson:jar:5.5.0:compile' (/home/prusia117/.m2/repository/org/mongodb/bson/5.5.0/bson-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/bson-5.5.0.jar
+[INFO] Copying artifact 'org.mongodb:mongodb-driver-core:jar:5.5.0:compile' (/home/prusia117/.m2/repository/org/mongodb/mongodb-driver-core/5.5.0/mongodb-driver-core-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/mongodb-driver-core-5.5.0.jar
+[INFO] Copying artifact 'org.mongodb:bson-record-codec:jar:5.5.0:runtime' (/home/prusia117/.m2/repository/org/mongodb/bson-record-codec/5.5.0/bson-record-codec-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/bson-record-codec-5.5.0.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.888 s
+[INFO] Finished at: 2025-10-31T00:53:50-06:00
+[INFO] ------------------------------------------------------------------------
+[INFO] /home/prusia117/Dev/Java/poo/devapp/src/main/java/com/library/kernel/jartisan/src/jmigrations/JMigratorFactory.java: Some input files use unchecked or unsafe operations.
+[INFO] /home/prusia117/Dev/Java/poo/devapp/src/main/java/com/library/kernel/jartisan/src/jmigrations/JMigratorFactory.java: Recompile with -Xlint:unchecked for details.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.528 s
+[INFO] Finished at: 2025-10-31T00:53:50-06:00
+[INFO] ------------------------------------------------------------------------
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::staticFieldBase has been called by com.google.inject.internal.aop.HiddenClassDefiner (file:/usr/share/java/maven/lib/guice-5.1.0-classes.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.inject.internal.aop.HiddenClassDefiner
+WARNING: sun.misc.Unsafe::staticFieldBase will be removed in a future release
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::staticFieldBase has been called by com.google.inject.internal.aop.HiddenClassDefiner (file:/usr/share/java/maven/lib/guice-5.1.0-classes.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.inject.internal.aop.HiddenClassDefiner
+WARNING: sun.misc.Unsafe::staticFieldBase will be removed in a future release
+[INFO] Scanning for projects...
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------------------< com.library:devapp >-------------------------
+[INFO] Building devapp 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ devapp ---
+[INFO] Deleting /home/prusia117/Dev/Java/poo/devapp/target
+[INFO] 
+[INFO] -------------------------< com.library:devapp >-------------------------
+[INFO] Building devapp 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ devapp ---
+[INFO] 
+[INFO] --- dependency:3.7.0:copy-dependencies (default-cli) @ devapp ---
+[INFO] Copying 2 resources from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.8.0:compile (default-compile) @ devapp ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 65 source files to /home/prusia117/Dev/Java/poo/devapp/target/classes
+[INFO] Copying artifact 'org.openjfx:javafx-controls:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-controls/13/javafx-controls-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-controls-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-controls:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-controls/13/javafx-controls-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-controls-13-linux.jar
+[INFO] Copying artifact 'org.openjfx:javafx-graphics:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-graphics/13/javafx-graphics-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-graphics-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-graphics:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-graphics/13/javafx-graphics-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-graphics-13-linux.jar
+[INFO] Copying artifact 'org.openjfx:javafx-base:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-base/13/javafx-base-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-base-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-base:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-base/13/javafx-base-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-base-13-linux.jar
+[INFO] Copying artifact 'org.openjfx:javafx-fxml:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-fxml/13/javafx-fxml-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-fxml-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-fxml:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-fxml/13/javafx-fxml-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-fxml-13-linux.jar
+[INFO] Copying artifact 'org.postgresql:postgresql:jar:42.7.8:compile' (/home/prusia117/.m2/repository/org/postgresql/postgresql/42.7.8/postgresql-42.7.8.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/postgresql-42.7.8.jar
+[INFO] Copying artifact 'org.checkerframework:checker-qual:jar:3.49.5:runtime' (/home/prusia117/.m2/repository/org/checkerframework/checker-qual/3.49.5/checker-qual-3.49.5.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/checker-qual-3.49.5.jar
+[INFO] Copying artifact 'org.mongodb:mongodb-driver-sync:jar:5.5.0:compile' (/home/prusia117/.m2/repository/org/mongodb/mongodb-driver-sync/5.5.0/mongodb-driver-sync-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/mongodb-driver-sync-5.5.0.jar
+[INFO] Copying artifact 'org.mongodb:bson:jar:5.5.0:compile' (/home/prusia117/.m2/repository/org/mongodb/bson/5.5.0/bson-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/bson-5.5.0.jar
+[INFO] Copying artifact 'org.mongodb:mongodb-driver-core:jar:5.5.0:compile' (/home/prusia117/.m2/repository/org/mongodb/mongodb-driver-core/5.5.0/mongodb-driver-core-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/mongodb-driver-core-5.5.0.jar
+[INFO] Copying artifact 'org.mongodb:bson-record-codec:jar:5.5.0:runtime' (/home/prusia117/.m2/repository/org/mongodb/bson-record-codec/5.5.0/bson-record-codec-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/bson-record-codec-5.5.0.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.913 s
+[INFO] Finished at: 2025-10-31T00:54:17-06:00
+[INFO] ------------------------------------------------------------------------
+[INFO] /home/prusia117/Dev/Java/poo/devapp/src/main/java/com/library/kernel/jartisan/src/jmigrations/JMigratorFactory.java: Some input files use unchecked or unsafe operations.
+[INFO] /home/prusia117/Dev/Java/poo/devapp/src/main/java/com/library/kernel/jartisan/src/jmigrations/JMigratorFactory.java: Recompile with -Xlint:unchecked for details.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.506 s
+[INFO] Finished at: 2025-10-31T00:54:18-06:00
+[INFO] ------------------------------------------------------------------------
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::staticFieldBase has been called by com.google.inject.internal.aop.HiddenClassDefiner (file:/usr/share/java/maven/lib/guice-5.1.0-classes.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.inject.internal.aop.HiddenClassDefiner
+WARNING: sun.misc.Unsafe::staticFieldBase will be removed in a future release
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::staticFieldBase has been called by com.google.inject.internal.aop.HiddenClassDefiner (file:/usr/share/java/maven/lib/guice-5.1.0-classes.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.inject.internal.aop.HiddenClassDefiner
+WARNING: sun.misc.Unsafe::staticFieldBase will be removed in a future release
+[INFO] Scanning for projects...
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------------------< com.library:devapp >-------------------------
+[INFO] Building devapp 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ devapp ---
+[INFO] 
+[INFO] -------------------------< com.library:devapp >-------------------------
+[INFO] Building devapp 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] Deleting /home/prusia117/Dev/Java/poo/devapp/target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ devapp ---
+[INFO] 
+[INFO] --- dependency:3.7.0:copy-dependencies (default-cli) @ devapp ---
+[INFO] Copying 2 resources from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.8.0:compile (default-compile) @ devapp ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 65 source files to /home/prusia117/Dev/Java/poo/devapp/target/classes
+[INFO] Copying artifact 'org.openjfx:javafx-controls:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-controls/13/javafx-controls-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-controls-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-controls:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-controls/13/javafx-controls-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-controls-13-linux.jar
+[INFO] Copying artifact 'org.openjfx:javafx-graphics:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-graphics/13/javafx-graphics-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-graphics-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-graphics:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-graphics/13/javafx-graphics-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-graphics-13-linux.jar
+[INFO] Copying artifact 'org.openjfx:javafx-base:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-base/13/javafx-base-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-base-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-base:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-base/13/javafx-base-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-base-13-linux.jar
+[INFO] Copying artifact 'org.openjfx:javafx-fxml:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-fxml/13/javafx-fxml-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-fxml-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-fxml:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-fxml/13/javafx-fxml-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-fxml-13-linux.jar
+[INFO] Copying artifact 'org.postgresql:postgresql:jar:42.7.8:compile' (/home/prusia117/.m2/repository/org/postgresql/postgresql/42.7.8/postgresql-42.7.8.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/postgresql-42.7.8.jar
+[INFO] Copying artifact 'org.checkerframework:checker-qual:jar:3.49.5:runtime' (/home/prusia117/.m2/repository/org/checkerframework/checker-qual/3.49.5/checker-qual-3.49.5.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/checker-qual-3.49.5.jar
+[INFO] Copying artifact 'org.mongodb:mongodb-driver-sync:jar:5.5.0:compile' (/home/prusia117/.m2/repository/org/mongodb/mongodb-driver-sync/5.5.0/mongodb-driver-sync-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/mongodb-driver-sync-5.5.0.jar
+[INFO] Copying artifact 'org.mongodb:bson:jar:5.5.0:compile' (/home/prusia117/.m2/repository/org/mongodb/bson/5.5.0/bson-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/bson-5.5.0.jar
+[INFO] Copying artifact 'org.mongodb:mongodb-driver-core:jar:5.5.0:compile' (/home/prusia117/.m2/repository/org/mongodb/mongodb-driver-core/5.5.0/mongodb-driver-core-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/mongodb-driver-core-5.5.0.jar
+[INFO] Copying artifact 'org.mongodb:bson-record-codec:jar:5.5.0:runtime' (/home/prusia117/.m2/repository/org/mongodb/bson-record-codec/5.5.0/bson-record-codec-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/bson-record-codec-5.5.0.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.906 s
+[INFO] Finished at: 2025-10-31T00:54:54-06:00
+[INFO] ------------------------------------------------------------------------
+[INFO] /home/prusia117/Dev/Java/poo/devapp/src/main/java/com/library/kernel/jartisan/src/jmigrations/JMigratorFactory.java: Some input files use unchecked or unsafe operations.
+[INFO] /home/prusia117/Dev/Java/poo/devapp/src/main/java/com/library/kernel/jartisan/src/jmigrations/JMigratorFactory.java: Recompile with -Xlint:unchecked for details.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.520 s
+[INFO] Finished at: 2025-10-31T00:54:55-06:00
+[INFO] ------------------------------------------------------------------------
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::staticFieldBase has been called by com.google.inject.internal.aop.HiddenClassDefiner (file:/usr/share/java/maven/lib/guice-5.1.0-classes.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.inject.internal.aop.HiddenClassDefiner
+WARNING: sun.misc.Unsafe::staticFieldBase will be removed in a future release
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::staticFieldBase has been called by com.google.inject.internal.aop.HiddenClassDefiner (file:/usr/share/java/maven/lib/guice-5.1.0-classes.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.inject.internal.aop.HiddenClassDefiner
+WARNING: sun.misc.Unsafe::staticFieldBase will be removed in a future release
+[INFO] Scanning for projects...
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------------------< com.library:devapp >-------------------------
+[INFO] Building devapp 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] -------------------------< com.library:devapp >-------------------------
+[INFO] Building devapp 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ devapp ---
+[INFO] 
+[INFO] --- dependency:3.7.0:copy-dependencies (default-cli) @ devapp ---
+[INFO] Deleting /home/prusia117/Dev/Java/poo/devapp/target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ devapp ---
+[INFO] Copying 2 resources from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.8.0:compile (default-compile) @ devapp ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 65 source files to /home/prusia117/Dev/Java/poo/devapp/target/classes
+[INFO] Copying artifact 'org.openjfx:javafx-controls:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-controls/13/javafx-controls-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-controls-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-controls:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-controls/13/javafx-controls-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-controls-13-linux.jar
+[INFO] Copying artifact 'org.openjfx:javafx-graphics:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-graphics/13/javafx-graphics-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-graphics-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-graphics:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-graphics/13/javafx-graphics-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-graphics-13-linux.jar
+[INFO] Copying artifact 'org.openjfx:javafx-base:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-base/13/javafx-base-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-base-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-base:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-base/13/javafx-base-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-base-13-linux.jar
+[INFO] Copying artifact 'org.openjfx:javafx-fxml:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-fxml/13/javafx-fxml-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-fxml-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-fxml:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-fxml/13/javafx-fxml-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-fxml-13-linux.jar
+[INFO] Copying artifact 'org.postgresql:postgresql:jar:42.7.8:compile' (/home/prusia117/.m2/repository/org/postgresql/postgresql/42.7.8/postgresql-42.7.8.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/postgresql-42.7.8.jar
+[INFO] Copying artifact 'org.checkerframework:checker-qual:jar:3.49.5:runtime' (/home/prusia117/.m2/repository/org/checkerframework/checker-qual/3.49.5/checker-qual-3.49.5.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/checker-qual-3.49.5.jar
+[INFO] Copying artifact 'org.mongodb:mongodb-driver-sync:jar:5.5.0:compile' (/home/prusia117/.m2/repository/org/mongodb/mongodb-driver-sync/5.5.0/mongodb-driver-sync-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/mongodb-driver-sync-5.5.0.jar
+[INFO] Copying artifact 'org.mongodb:bson:jar:5.5.0:compile' (/home/prusia117/.m2/repository/org/mongodb/bson/5.5.0/bson-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/bson-5.5.0.jar
+[INFO] Copying artifact 'org.mongodb:mongodb-driver-core:jar:5.5.0:compile' (/home/prusia117/.m2/repository/org/mongodb/mongodb-driver-core/5.5.0/mongodb-driver-core-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/mongodb-driver-core-5.5.0.jar
+[INFO] Copying artifact 'org.mongodb:bson-record-codec:jar:5.5.0:runtime' (/home/prusia117/.m2/repository/org/mongodb/bson-record-codec/5.5.0/bson-record-codec-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/bson-record-codec-5.5.0.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.855 s
+[INFO] Finished at: 2025-10-31T00:55:33-06:00
+[INFO] ------------------------------------------------------------------------
+[INFO] /home/prusia117/Dev/Java/poo/devapp/src/main/java/com/library/kernel/jartisan/src/jmigrations/JMigratorFactory.java: Some input files use unchecked or unsafe operations.
+[INFO] /home/prusia117/Dev/Java/poo/devapp/src/main/java/com/library/kernel/jartisan/src/jmigrations/JMigratorFactory.java: Recompile with -Xlint:unchecked for details.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.505 s
+[INFO] Finished at: 2025-10-31T00:55:33-06:00
+[INFO] ------------------------------------------------------------------------
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::staticFieldBase has been called by com.google.inject.internal.aop.HiddenClassDefiner (file:/usr/share/java/maven/lib/guice-5.1.0-classes.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.inject.internal.aop.HiddenClassDefiner
+WARNING: sun.misc.Unsafe::staticFieldBase will be removed in a future release
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::staticFieldBase has been called by com.google.inject.internal.aop.HiddenClassDefiner (file:/usr/share/java/maven/lib/guice-5.1.0-classes.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.inject.internal.aop.HiddenClassDefiner
+WARNING: sun.misc.Unsafe::staticFieldBase will be removed in a future release
+[INFO] Scanning for projects...
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------------------< com.library:devapp >-------------------------
+[INFO] Building devapp 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ devapp ---
+[INFO] Deleting /home/prusia117/Dev/Java/poo/devapp/target
+[INFO] 
+[INFO] -------------------------< com.library:devapp >-------------------------
+[INFO] Building devapp 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ devapp ---
+[INFO] 
+[INFO] --- dependency:3.7.0:copy-dependencies (default-cli) @ devapp ---
+[INFO] Copying 2 resources from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.8.0:compile (default-compile) @ devapp ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 65 source files to /home/prusia117/Dev/Java/poo/devapp/target/classes
+[INFO] Copying artifact 'org.openjfx:javafx-controls:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-controls/13/javafx-controls-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-controls-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-controls:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-controls/13/javafx-controls-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-controls-13-linux.jar
+[INFO] Copying artifact 'org.openjfx:javafx-graphics:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-graphics/13/javafx-graphics-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-graphics-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-graphics:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-graphics/13/javafx-graphics-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-graphics-13-linux.jar
+[INFO] Copying artifact 'org.openjfx:javafx-base:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-base/13/javafx-base-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-base-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-base:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-base/13/javafx-base-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-base-13-linux.jar
+[INFO] Copying artifact 'org.openjfx:javafx-fxml:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-fxml/13/javafx-fxml-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-fxml-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-fxml:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-fxml/13/javafx-fxml-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-fxml-13-linux.jar
+[INFO] Copying artifact 'org.postgresql:postgresql:jar:42.7.8:compile' (/home/prusia117/.m2/repository/org/postgresql/postgresql/42.7.8/postgresql-42.7.8.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/postgresql-42.7.8.jar
+[INFO] Copying artifact 'org.checkerframework:checker-qual:jar:3.49.5:runtime' (/home/prusia117/.m2/repository/org/checkerframework/checker-qual/3.49.5/checker-qual-3.49.5.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/checker-qual-3.49.5.jar
+[INFO] Copying artifact 'org.mongodb:mongodb-driver-sync:jar:5.5.0:compile' (/home/prusia117/.m2/repository/org/mongodb/mongodb-driver-sync/5.5.0/mongodb-driver-sync-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/mongodb-driver-sync-5.5.0.jar
+[INFO] Copying artifact 'org.mongodb:bson:jar:5.5.0:compile' (/home/prusia117/.m2/repository/org/mongodb/bson/5.5.0/bson-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/bson-5.5.0.jar
+[INFO] Copying artifact 'org.mongodb:mongodb-driver-core:jar:5.5.0:compile' (/home/prusia117/.m2/repository/org/mongodb/mongodb-driver-core/5.5.0/mongodb-driver-core-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/mongodb-driver-core-5.5.0.jar
+[INFO] Copying artifact 'org.mongodb:bson-record-codec:jar:5.5.0:runtime' (/home/prusia117/.m2/repository/org/mongodb/bson-record-codec/5.5.0/bson-record-codec-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/bson-record-codec-5.5.0.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.904 s
+[INFO] Finished at: 2025-10-31T00:55:40-06:00
+[INFO] ------------------------------------------------------------------------
+[INFO] /home/prusia117/Dev/Java/poo/devapp/src/main/java/com/library/kernel/jartisan/src/jmigrations/JMigratorFactory.java: Some input files use unchecked or unsafe operations.
+[INFO] /home/prusia117/Dev/Java/poo/devapp/src/main/java/com/library/kernel/jartisan/src/jmigrations/JMigratorFactory.java: Recompile with -Xlint:unchecked for details.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.510 s
+[INFO] Finished at: 2025-10-31T00:55:40-06:00
+[INFO] ------------------------------------------------------------------------
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::staticFieldBase has been called by com.google.inject.internal.aop.HiddenClassDefiner (file:/usr/share/java/maven/lib/guice-5.1.0-classes.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.inject.internal.aop.HiddenClassDefiner
+WARNING: sun.misc.Unsafe::staticFieldBase will be removed in a future release
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::staticFieldBase has been called by com.google.inject.internal.aop.HiddenClassDefiner (file:/usr/share/java/maven/lib/guice-5.1.0-classes.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.inject.internal.aop.HiddenClassDefiner
+WARNING: sun.misc.Unsafe::staticFieldBase will be removed in a future release
+[INFO] Scanning for projects...
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------------------< com.library:devapp >-------------------------
+[INFO] Building devapp 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] -------------------------< com.library:devapp >-------------------------
+[INFO] Building devapp 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ devapp ---
+[INFO] 
+[INFO] --- dependency:3.7.0:copy-dependencies (default-cli) @ devapp ---
+[INFO] Deleting /home/prusia117/Dev/Java/poo/devapp/target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ devapp ---
+[INFO] Copying 2 resources from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.8.0:compile (default-compile) @ devapp ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 65 source files to /home/prusia117/Dev/Java/poo/devapp/target/classes
+[INFO] Copying artifact 'org.openjfx:javafx-controls:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-controls/13/javafx-controls-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-controls-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-controls:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-controls/13/javafx-controls-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-controls-13-linux.jar
+[INFO] Copying artifact 'org.openjfx:javafx-graphics:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-graphics/13/javafx-graphics-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-graphics-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-graphics:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-graphics/13/javafx-graphics-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-graphics-13-linux.jar
+[INFO] Copying artifact 'org.openjfx:javafx-base:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-base/13/javafx-base-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-base-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-base:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-base/13/javafx-base-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-base-13-linux.jar
+[INFO] Copying artifact 'org.openjfx:javafx-fxml:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-fxml/13/javafx-fxml-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-fxml-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-fxml:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-fxml/13/javafx-fxml-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-fxml-13-linux.jar
+[INFO] Copying artifact 'org.postgresql:postgresql:jar:42.7.8:compile' (/home/prusia117/.m2/repository/org/postgresql/postgresql/42.7.8/postgresql-42.7.8.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/postgresql-42.7.8.jar
+[INFO] Copying artifact 'org.checkerframework:checker-qual:jar:3.49.5:runtime' (/home/prusia117/.m2/repository/org/checkerframework/checker-qual/3.49.5/checker-qual-3.49.5.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/checker-qual-3.49.5.jar
+[INFO] Copying artifact 'org.mongodb:mongodb-driver-sync:jar:5.5.0:compile' (/home/prusia117/.m2/repository/org/mongodb/mongodb-driver-sync/5.5.0/mongodb-driver-sync-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/mongodb-driver-sync-5.5.0.jar
+[INFO] Copying artifact 'org.mongodb:bson:jar:5.5.0:compile' (/home/prusia117/.m2/repository/org/mongodb/bson/5.5.0/bson-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/bson-5.5.0.jar
+[INFO] Copying artifact 'org.mongodb:mongodb-driver-core:jar:5.5.0:compile' (/home/prusia117/.m2/repository/org/mongodb/mongodb-driver-core/5.5.0/mongodb-driver-core-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/mongodb-driver-core-5.5.0.jar
+[INFO] Copying artifact 'org.mongodb:bson-record-codec:jar:5.5.0:runtime' (/home/prusia117/.m2/repository/org/mongodb/bson-record-codec/5.5.0/bson-record-codec-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/bson-record-codec-5.5.0.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.817 s
+[INFO] Finished at: 2025-10-31T00:56:26-06:00
+[INFO] ------------------------------------------------------------------------
+[INFO] /home/prusia117/Dev/Java/poo/devapp/src/main/java/com/library/kernel/jartisan/src/jmigrations/JMigratorFactory.java: Some input files use unchecked or unsafe operations.
+[INFO] /home/prusia117/Dev/Java/poo/devapp/src/main/java/com/library/kernel/jartisan/src/jmigrations/JMigratorFactory.java: Recompile with -Xlint:unchecked for details.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.505 s
+[INFO] Finished at: 2025-10-31T00:56:26-06:00
+[INFO] ------------------------------------------------------------------------
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::staticFieldBase has been called by com.google.inject.internal.aop.HiddenClassDefiner (file:/usr/share/java/maven/lib/guice-5.1.0-classes.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.inject.internal.aop.HiddenClassDefiner
+WARNING: sun.misc.Unsafe::staticFieldBase will be removed in a future release
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::staticFieldBase has been called by com.google.inject.internal.aop.HiddenClassDefiner (file:/usr/share/java/maven/lib/guice-5.1.0-classes.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.inject.internal.aop.HiddenClassDefiner
+WARNING: sun.misc.Unsafe::staticFieldBase will be removed in a future release
+[INFO] Scanning for projects...
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------------------< com.library:devapp >-------------------------
+[INFO] Building devapp 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ devapp ---
+[INFO] 
+[INFO] -------------------------< com.library:devapp >-------------------------
+[INFO] Building devapp 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] Deleting /home/prusia117/Dev/Java/poo/devapp/target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ devapp ---
+[INFO] 
+[INFO] --- dependency:3.7.0:copy-dependencies (default-cli) @ devapp ---
+[INFO] Copying 2 resources from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.8.0:compile (default-compile) @ devapp ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 65 source files to /home/prusia117/Dev/Java/poo/devapp/target/classes
+[INFO] Copying artifact 'org.openjfx:javafx-controls:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-controls/13/javafx-controls-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-controls-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-controls:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-controls/13/javafx-controls-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-controls-13-linux.jar
+[INFO] Copying artifact 'org.openjfx:javafx-graphics:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-graphics/13/javafx-graphics-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-graphics-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-graphics:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-graphics/13/javafx-graphics-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-graphics-13-linux.jar
+[INFO] Copying artifact 'org.openjfx:javafx-base:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-base/13/javafx-base-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-base-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-base:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-base/13/javafx-base-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-base-13-linux.jar
+[INFO] Copying artifact 'org.openjfx:javafx-fxml:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-fxml/13/javafx-fxml-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-fxml-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-fxml:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-fxml/13/javafx-fxml-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-fxml-13-linux.jar
+[INFO] Copying artifact 'org.postgresql:postgresql:jar:42.7.8:compile' (/home/prusia117/.m2/repository/org/postgresql/postgresql/42.7.8/postgresql-42.7.8.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/postgresql-42.7.8.jar
+[INFO] Copying artifact 'org.checkerframework:checker-qual:jar:3.49.5:runtime' (/home/prusia117/.m2/repository/org/checkerframework/checker-qual/3.49.5/checker-qual-3.49.5.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/checker-qual-3.49.5.jar
+[INFO] Copying artifact 'org.mongodb:mongodb-driver-sync:jar:5.5.0:compile' (/home/prusia117/.m2/repository/org/mongodb/mongodb-driver-sync/5.5.0/mongodb-driver-sync-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/mongodb-driver-sync-5.5.0.jar
+[INFO] Copying artifact 'org.mongodb:bson:jar:5.5.0:compile' (/home/prusia117/.m2/repository/org/mongodb/bson/5.5.0/bson-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/bson-5.5.0.jar
+[INFO] Copying artifact 'org.mongodb:mongodb-driver-core:jar:5.5.0:compile' (/home/prusia117/.m2/repository/org/mongodb/mongodb-driver-core/5.5.0/mongodb-driver-core-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/mongodb-driver-core-5.5.0.jar
+[INFO] Copying artifact 'org.mongodb:bson-record-codec:jar:5.5.0:runtime' (/home/prusia117/.m2/repository/org/mongodb/bson-record-codec/5.5.0/bson-record-codec-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/bson-record-codec-5.5.0.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.924 s
+[INFO] Finished at: 2025-10-31T00:57:03-06:00
+[INFO] ------------------------------------------------------------------------
+[INFO] /home/prusia117/Dev/Java/poo/devapp/src/main/java/com/library/kernel/jartisan/src/jmigrations/JMigratorFactory.java: Some input files use unchecked or unsafe operations.
+[INFO] /home/prusia117/Dev/Java/poo/devapp/src/main/java/com/library/kernel/jartisan/src/jmigrations/JMigratorFactory.java: Recompile with -Xlint:unchecked for details.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.494 s
+[INFO] Finished at: 2025-10-31T00:57:04-06:00
+[INFO] ------------------------------------------------------------------------
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::staticFieldBase has been called by com.google.inject.internal.aop.HiddenClassDefiner (file:/usr/share/java/maven/lib/guice-5.1.0-classes.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.inject.internal.aop.HiddenClassDefiner
+WARNING: sun.misc.Unsafe::staticFieldBase will be removed in a future release
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::staticFieldBase has been called by com.google.inject.internal.aop.HiddenClassDefiner (file:/usr/share/java/maven/lib/guice-5.1.0-classes.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.inject.internal.aop.HiddenClassDefiner
+WARNING: sun.misc.Unsafe::staticFieldBase will be removed in a future release
+[INFO] Scanning for projects...
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------------------< com.library:devapp >-------------------------
+[INFO] Building devapp 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] -------------------------< com.library:devapp >-------------------------
+[INFO] Building devapp 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ devapp ---
+[INFO] 
+[INFO] --- dependency:3.7.0:copy-dependencies (default-cli) @ devapp ---
+[INFO] Deleting /home/prusia117/Dev/Java/poo/devapp/target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ devapp ---
+[INFO] Copying 2 resources from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.8.0:compile (default-compile) @ devapp ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 65 source files to /home/prusia117/Dev/Java/poo/devapp/target/classes
+[INFO] Copying artifact 'org.openjfx:javafx-controls:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-controls/13/javafx-controls-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-controls-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-controls:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-controls/13/javafx-controls-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-controls-13-linux.jar
+[INFO] Copying artifact 'org.openjfx:javafx-graphics:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-graphics/13/javafx-graphics-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-graphics-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-graphics:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-graphics/13/javafx-graphics-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-graphics-13-linux.jar
+[INFO] Copying artifact 'org.openjfx:javafx-base:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-base/13/javafx-base-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-base-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-base:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-base/13/javafx-base-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-base-13-linux.jar
+[INFO] Copying artifact 'org.openjfx:javafx-fxml:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-fxml/13/javafx-fxml-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-fxml-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-fxml:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-fxml/13/javafx-fxml-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-fxml-13-linux.jar
+[INFO] Copying artifact 'org.postgresql:postgresql:jar:42.7.8:compile' (/home/prusia117/.m2/repository/org/postgresql/postgresql/42.7.8/postgresql-42.7.8.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/postgresql-42.7.8.jar
+[INFO] Copying artifact 'org.checkerframework:checker-qual:jar:3.49.5:runtime' (/home/prusia117/.m2/repository/org/checkerframework/checker-qual/3.49.5/checker-qual-3.49.5.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/checker-qual-3.49.5.jar
+[INFO] Copying artifact 'org.mongodb:mongodb-driver-sync:jar:5.5.0:compile' (/home/prusia117/.m2/repository/org/mongodb/mongodb-driver-sync/5.5.0/mongodb-driver-sync-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/mongodb-driver-sync-5.5.0.jar
+[INFO] Copying artifact 'org.mongodb:bson:jar:5.5.0:compile' (/home/prusia117/.m2/repository/org/mongodb/bson/5.5.0/bson-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/bson-5.5.0.jar
+[INFO] Copying artifact 'org.mongodb:mongodb-driver-core:jar:5.5.0:compile' (/home/prusia117/.m2/repository/org/mongodb/mongodb-driver-core/5.5.0/mongodb-driver-core-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/mongodb-driver-core-5.5.0.jar
+[INFO] Copying artifact 'org.mongodb:bson-record-codec:jar:5.5.0:runtime' (/home/prusia117/.m2/repository/org/mongodb/bson-record-codec/5.5.0/bson-record-codec-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/bson-record-codec-5.5.0.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.897 s
+[INFO] Finished at: 2025-10-31T00:58:28-06:00
+[INFO] ------------------------------------------------------------------------
+[INFO] /home/prusia117/Dev/Java/poo/devapp/src/main/java/com/library/kernel/jartisan/src/jmigrations/JMigratorFactory.java: Some input files use unchecked or unsafe operations.
+[INFO] /home/prusia117/Dev/Java/poo/devapp/src/main/java/com/library/kernel/jartisan/src/jmigrations/JMigratorFactory.java: Recompile with -Xlint:unchecked for details.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.533 s
+[INFO] Finished at: 2025-10-31T00:58:29-06:00
+[INFO] ------------------------------------------------------------------------
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::staticFieldBase has been called by com.google.inject.internal.aop.HiddenClassDefiner (file:/usr/share/java/maven/lib/guice-5.1.0-classes.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.inject.internal.aop.HiddenClassDefiner
+WARNING: sun.misc.Unsafe::staticFieldBase will be removed in a future release
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::staticFieldBase has been called by com.google.inject.internal.aop.HiddenClassDefiner (file:/usr/share/java/maven/lib/guice-5.1.0-classes.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.inject.internal.aop.HiddenClassDefiner
+WARNING: sun.misc.Unsafe::staticFieldBase will be removed in a future release
+[INFO] Scanning for projects...
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------------------< com.library:devapp >-------------------------
+[INFO] Building devapp 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ devapp ---
+[INFO] 
+[INFO] -------------------------< com.library:devapp >-------------------------
+[INFO] Building devapp 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] Deleting /home/prusia117/Dev/Java/poo/devapp/target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ devapp ---
+[INFO] 
+[INFO] --- dependency:3.7.0:copy-dependencies (default-cli) @ devapp ---
+[INFO] Copying 2 resources from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.8.0:compile (default-compile) @ devapp ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 65 source files to /home/prusia117/Dev/Java/poo/devapp/target/classes
+[INFO] Copying artifact 'org.openjfx:javafx-controls:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-controls/13/javafx-controls-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-controls-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-controls:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-controls/13/javafx-controls-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-controls-13-linux.jar
+[INFO] Copying artifact 'org.openjfx:javafx-graphics:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-graphics/13/javafx-graphics-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-graphics-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-graphics:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-graphics/13/javafx-graphics-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-graphics-13-linux.jar
+[INFO] Copying artifact 'org.openjfx:javafx-base:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-base/13/javafx-base-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-base-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-base:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-base/13/javafx-base-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-base-13-linux.jar
+[INFO] Copying artifact 'org.openjfx:javafx-fxml:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-fxml/13/javafx-fxml-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-fxml-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-fxml:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-fxml/13/javafx-fxml-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-fxml-13-linux.jar
+[INFO] Copying artifact 'org.postgresql:postgresql:jar:42.7.8:compile' (/home/prusia117/.m2/repository/org/postgresql/postgresql/42.7.8/postgresql-42.7.8.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/postgresql-42.7.8.jar
+[INFO] Copying artifact 'org.checkerframework:checker-qual:jar:3.49.5:runtime' (/home/prusia117/.m2/repository/org/checkerframework/checker-qual/3.49.5/checker-qual-3.49.5.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/checker-qual-3.49.5.jar
+[INFO] Copying artifact 'org.mongodb:mongodb-driver-sync:jar:5.5.0:compile' (/home/prusia117/.m2/repository/org/mongodb/mongodb-driver-sync/5.5.0/mongodb-driver-sync-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/mongodb-driver-sync-5.5.0.jar
+[INFO] Copying artifact 'org.mongodb:bson:jar:5.5.0:compile' (/home/prusia117/.m2/repository/org/mongodb/bson/5.5.0/bson-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/bson-5.5.0.jar
+[INFO] Copying artifact 'org.mongodb:mongodb-driver-core:jar:5.5.0:compile' (/home/prusia117/.m2/repository/org/mongodb/mongodb-driver-core/5.5.0/mongodb-driver-core-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/mongodb-driver-core-5.5.0.jar
+[INFO] Copying artifact 'org.mongodb:bson-record-codec:jar:5.5.0:runtime' (/home/prusia117/.m2/repository/org/mongodb/bson-record-codec/5.5.0/bson-record-codec-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/bson-record-codec-5.5.0.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.872 s
+[INFO] Finished at: 2025-10-31T00:58:59-06:00
+[INFO] ------------------------------------------------------------------------
+[INFO] /home/prusia117/Dev/Java/poo/devapp/src/main/java/com/library/kernel/jartisan/src/jmigrations/JMigratorFactory.java: Some input files use unchecked or unsafe operations.
+[INFO] /home/prusia117/Dev/Java/poo/devapp/src/main/java/com/library/kernel/jartisan/src/jmigrations/JMigratorFactory.java: Recompile with -Xlint:unchecked for details.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.479 s
+[INFO] Finished at: 2025-10-31T00:58:59-06:00
+[INFO] ------------------------------------------------------------------------
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::staticFieldBase has been called by com.google.inject.internal.aop.HiddenClassDefiner (file:/usr/share/java/maven/lib/guice-5.1.0-classes.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.inject.internal.aop.HiddenClassDefiner
+WARNING: sun.misc.Unsafe::staticFieldBase will be removed in a future release
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::staticFieldBase has been called by com.google.inject.internal.aop.HiddenClassDefiner (file:/usr/share/java/maven/lib/guice-5.1.0-classes.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.inject.internal.aop.HiddenClassDefiner
+WARNING: sun.misc.Unsafe::staticFieldBase will be removed in a future release
+[INFO] Scanning for projects...
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------------------< com.library:devapp >-------------------------
+[INFO] Building devapp 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ devapp ---
+[INFO] 
+[INFO] -------------------------< com.library:devapp >-------------------------
+[INFO] Building devapp 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] Deleting /home/prusia117/Dev/Java/poo/devapp/target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ devapp ---
+[INFO] 
+[INFO] --- dependency:3.7.0:copy-dependencies (default-cli) @ devapp ---
+[INFO] Copying 2 resources from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.8.0:compile (default-compile) @ devapp ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 65 source files to /home/prusia117/Dev/Java/poo/devapp/target/classes
+[INFO] Copying artifact 'org.openjfx:javafx-controls:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-controls/13/javafx-controls-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-controls-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-controls:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-controls/13/javafx-controls-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-controls-13-linux.jar
+[INFO] Copying artifact 'org.openjfx:javafx-graphics:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-graphics/13/javafx-graphics-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-graphics-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-graphics:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-graphics/13/javafx-graphics-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-graphics-13-linux.jar
+[INFO] Copying artifact 'org.openjfx:javafx-base:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-base/13/javafx-base-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-base-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-base:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-base/13/javafx-base-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-base-13-linux.jar
+[INFO] Copying artifact 'org.openjfx:javafx-fxml:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-fxml/13/javafx-fxml-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-fxml-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-fxml:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-fxml/13/javafx-fxml-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-fxml-13-linux.jar
+[INFO] Copying artifact 'org.postgresql:postgresql:jar:42.7.8:compile' (/home/prusia117/.m2/repository/org/postgresql/postgresql/42.7.8/postgresql-42.7.8.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/postgresql-42.7.8.jar
+[INFO] Copying artifact 'org.checkerframework:checker-qual:jar:3.49.5:runtime' (/home/prusia117/.m2/repository/org/checkerframework/checker-qual/3.49.5/checker-qual-3.49.5.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/checker-qual-3.49.5.jar
+[INFO] Copying artifact 'org.mongodb:mongodb-driver-sync:jar:5.5.0:compile' (/home/prusia117/.m2/repository/org/mongodb/mongodb-driver-sync/5.5.0/mongodb-driver-sync-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/mongodb-driver-sync-5.5.0.jar
+[INFO] Copying artifact 'org.mongodb:bson:jar:5.5.0:compile' (/home/prusia117/.m2/repository/org/mongodb/bson/5.5.0/bson-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/bson-5.5.0.jar
+[INFO] Copying artifact 'org.mongodb:mongodb-driver-core:jar:5.5.0:compile' (/home/prusia117/.m2/repository/org/mongodb/mongodb-driver-core/5.5.0/mongodb-driver-core-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/mongodb-driver-core-5.5.0.jar
+[INFO] Copying artifact 'org.mongodb:bson-record-codec:jar:5.5.0:runtime' (/home/prusia117/.m2/repository/org/mongodb/bson-record-codec/5.5.0/bson-record-codec-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/bson-record-codec-5.5.0.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.897 s
+[INFO] Finished at: 2025-10-31T00:59:03-06:00
+[INFO] ------------------------------------------------------------------------
+[INFO] /home/prusia117/Dev/Java/poo/devapp/src/main/java/com/library/kernel/jartisan/src/jmigrations/JMigratorFactory.java: Some input files use unchecked or unsafe operations.
+[INFO] /home/prusia117/Dev/Java/poo/devapp/src/main/java/com/library/kernel/jartisan/src/jmigrations/JMigratorFactory.java: Recompile with -Xlint:unchecked for details.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.515 s
+[INFO] Finished at: 2025-10-31T00:59:04-06:00
+[INFO] ------------------------------------------------------------------------
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::staticFieldBase has been called by com.google.inject.internal.aop.HiddenClassDefiner (file:/usr/share/java/maven/lib/guice-5.1.0-classes.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.inject.internal.aop.HiddenClassDefiner
+WARNING: sun.misc.Unsafe::staticFieldBase will be removed in a future release
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::staticFieldBase has been called by com.google.inject.internal.aop.HiddenClassDefiner (file:/usr/share/java/maven/lib/guice-5.1.0-classes.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.inject.internal.aop.HiddenClassDefiner
+WARNING: sun.misc.Unsafe::staticFieldBase will be removed in a future release
+[INFO] Scanning for projects...
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------------------< com.library:devapp >-------------------------
+[INFO] Building devapp 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ devapp ---
+[INFO] 
+[INFO] -------------------------< com.library:devapp >-------------------------
+[INFO] Building devapp 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- dependency:3.7.0:copy-dependencies (default-cli) @ devapp ---
+[INFO] Deleting /home/prusia117/Dev/Java/poo/devapp/target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ devapp ---
+[INFO] Copying 2 resources from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.8.0:compile (default-compile) @ devapp ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 65 source files to /home/prusia117/Dev/Java/poo/devapp/target/classes
+[INFO] Copying artifact 'org.openjfx:javafx-controls:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-controls/13/javafx-controls-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-controls-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-controls:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-controls/13/javafx-controls-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-controls-13-linux.jar
+[INFO] Copying artifact 'org.openjfx:javafx-graphics:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-graphics/13/javafx-graphics-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-graphics-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-graphics:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-graphics/13/javafx-graphics-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-graphics-13-linux.jar
+[INFO] Copying artifact 'org.openjfx:javafx-base:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-base/13/javafx-base-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-base-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-base:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-base/13/javafx-base-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-base-13-linux.jar
+[INFO] Copying artifact 'org.openjfx:javafx-fxml:jar:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-fxml/13/javafx-fxml-13.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-fxml-13.jar
+[INFO] Copying artifact 'org.openjfx:javafx-fxml:jar:linux:13:compile' (/home/prusia117/.m2/repository/org/openjfx/javafx-fxml/13/javafx-fxml-13-linux.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/javafx-fxml-13-linux.jar
+[INFO] Copying artifact 'org.postgresql:postgresql:jar:42.7.8:compile' (/home/prusia117/.m2/repository/org/postgresql/postgresql/42.7.8/postgresql-42.7.8.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/postgresql-42.7.8.jar
+[INFO] Copying artifact 'org.checkerframework:checker-qual:jar:3.49.5:runtime' (/home/prusia117/.m2/repository/org/checkerframework/checker-qual/3.49.5/checker-qual-3.49.5.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/checker-qual-3.49.5.jar
+[INFO] Copying artifact 'org.mongodb:mongodb-driver-sync:jar:5.5.0:compile' (/home/prusia117/.m2/repository/org/mongodb/mongodb-driver-sync/5.5.0/mongodb-driver-sync-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/mongodb-driver-sync-5.5.0.jar
+[INFO] Copying artifact 'org.mongodb:bson:jar:5.5.0:compile' (/home/prusia117/.m2/repository/org/mongodb/bson/5.5.0/bson-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/bson-5.5.0.jar
+[INFO] Copying artifact 'org.mongodb:mongodb-driver-core:jar:5.5.0:compile' (/home/prusia117/.m2/repository/org/mongodb/mongodb-driver-core/5.5.0/mongodb-driver-core-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/mongodb-driver-core-5.5.0.jar
+[INFO] Copying artifact 'org.mongodb:bson-record-codec:jar:5.5.0:runtime' (/home/prusia117/.m2/repository/org/mongodb/bson-record-codec/5.5.0/bson-record-codec-5.5.0.jar) to /home/prusia117/Dev/Java/poo/devapp/target/dependency/bson-record-codec-5.5.0.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.927 s
+[INFO] Finished at: 2025-10-31T00:59:53-06:00
+[INFO] ------------------------------------------------------------------------
+[INFO] /home/prusia117/Dev/Java/poo/devapp/src/main/java/com/library/kernel/jartisan/src/jmigrations/JMigratorFactory.java: Some input files use unchecked or unsafe operations.
+[INFO] /home/prusia117/Dev/Java/poo/devapp/src/main/java/com/library/kernel/jartisan/src/jmigrations/JMigratorFactory.java: Recompile with -Xlint:unchecked for details.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.525 s
+[INFO] Finished at: 2025-10-31T00:59:53-06:00
+[INFO] ------------------------------------------------------------------------
