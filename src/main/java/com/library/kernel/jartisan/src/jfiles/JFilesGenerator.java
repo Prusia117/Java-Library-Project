@@ -5,6 +5,8 @@ import com.library.kernel.jartisan.src.jfiles.jtemplates.*;
 
 import java.io.File;
 import java.io.PrintWriter;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -17,7 +19,7 @@ public final class JFilesGenerator implements Colors {
         put("Entity", "entities");
         put("Model", "models");
         put("Controller", "controllers");
-        put("Migration", "database/migrations");
+        put("Migration", "database/migrations/");
     }};
 
     private static final HashMap<String, IJTemplate> CLASSES = new HashMap<String, IJTemplate>() {{
@@ -28,6 +30,11 @@ public final class JFilesGenerator implements Colors {
     }};
 
     public static boolean generateNewFile(String type, String className){
+
+        if(type.equals("Migration")){
+            className = "M" + LocalDate.now().toString().replace("-", "") + "_" + LocalTime.now().toString().replace(":","").replace(".","")  + "_" + className;
+        }
+
         String filePath = "src/main/java/com/library/" + DIRECTORIES.get(type) + className + type +".java";
 
         String fileTemplate = CLASSES.get(type).getTemplate(className);

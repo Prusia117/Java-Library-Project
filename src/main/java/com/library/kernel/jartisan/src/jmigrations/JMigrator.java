@@ -2,8 +2,10 @@ package com.library.kernel.jartisan.src.jmigrations;
 
 import com.library.config.DatabaseConfig;
 import com.library.kernel.KernelConfiguration;
+import com.library.kernel.jartisan.src.jmigrations.utils.JMigratorException;
 import com.library.kernel.jartisan.src.jmigrations.utils.JMigratorFactoryException;
 import com.library.kernel.jartisan.src.jmigrations.utils.JMigratorReaderException;
+import com.library.kernel.jartisan.src.jmigrations.utils.JMigratorSQLExecutorException;
 import com.library.kernel.kernelSql.connection.ConnectionManagar;
 import com.library.kernel.kernelSql.connection.utils.ConnectionManagerException;
 import com.library.kernel.kernelSql.migrator.Migration;
@@ -12,41 +14,65 @@ import com.library.kernel.kernelSql.migrator.core.ddl.table.Schema;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedHashMap;
+import java.util.List;
 
 public final class JMigrator {
 
-    public static<T extends Migration> boolean runMigrations() throws ConnectionManagerException, JMigratorReaderException, ClassNotFoundException, JMigratorFactoryException {
+    public static final List<String> J_SUPPORTED_MIGRATIONS_ACTIONS = Arrays.asList("Execute", "Rollback");
 
 
-        ArrayList<String> migrationClasses = JMigratorReader.readMigrations();
-        ArrayList<T> migrationInstances = new ArrayList<T>();
-        ArrayList<Schema> schemasArray = null;
-        LinkedHashMap<String, T> migrationMap = new LinkedHashMap<String, T>();
+    private static<T extends Migration> boolean runMigrations() throws JMigratorException {
+        try {
 
-        for (String migrationClass : migrationClasses) {
-            migrationMap.put(migrationClass, JMigratorFactory.createEntity(Class.forName("com.library.database.migrations." + migrationClass)));
-        }
+            KernelConfiguration.setKernelConfiguration(new DatabaseConfig(), true);
 
+            ArrayList<String> migrationClasses = JMigratorReader.readMigrations();
+            LinkedHashMap<String, T> migrationMap = new LinkedHashMap<String, T>();
 
-
-        for (int i = 0; i < migrationInstances.size(); i++) {
-            schemasArray = migrationInstances.get(i).up();
-            for (int j = 0; j < schemasArray.size(); j++) {
-                System.out.println(schemasArray.get(j).toString());
+            for (String migrationClass : migrationClasses) {
+                migrationMap.put(migrationClass, JMigratorFactory.createEntity(migrationClass));
             }
+
+            return JMigratorSQLExecutor.runMigrations(ConnectionManagar.getConnection(), migrationMap);
+
+
+        }catch (JMigratorSQLExecutorException | JMigratorFactoryException | JMigratorReaderException | ConnectionManagerException error){
+            throw new JMigratorException("Error Running Migrations: " + error.getMessage());
         }
-
-        //System.out.println(ConnectionManagar.getConnection().toString());
-
-        return true;
 
     }
 
-    public static void main(String[] args) throws ConnectionManagerException, InterruptedException, IOException, JMigratorReaderException, JMigratorFactoryException, ClassNotFoundException {
-        JMigrator.runMigrations();
+
+    private static<T extends Migration> boolean rollbackMigrations() throws JMigratorException {
+        try {
+
+            KernelConfiguration.setKernelConfiguration(new DatabaseConfig(), true);
+
+            ArrayList<String> migrationClasses = JMigratorReader.readMigrations();
+            LinkedHashMap<String, T> migrationMap = new LinkedHashMap<String, T>();
+
+            for (String migrationClass : migrationClasses) {
+                migrationMap.put(migrationClass, JMigratorFactory.createEntity(migrationClass));
+            }
+
+            return JMigratorSQLExecutor.rollbackMigrations(ConnectionManagar.getConnection(), migrationMap);
 
 
+        }catch (JMigratorSQLExecutorException | JMigratorFactoryException | JMigratorReaderException | ConnectionManagerException error){
+            throw new JMigratorException("Error Running Migrations: " + error.getMessage());
+        }
+
+    }
+
+    public static boolean runMigrationsCommand(String migrationAction) throws JMigratorException {
+        if(migrationAction.equals("Execute")){
+            return runMigrations();
+        }else if(migrationAction.equals("Rollback")){
+            return rollbackMigrations();
+        }
+        throw new JMigratorException("Invalid Migration Action: " + migrationAction);
     }
 
 }

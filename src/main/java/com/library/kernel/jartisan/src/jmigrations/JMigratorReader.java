@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
 
-public final class JMigratorReader {
+final class JMigratorReader {
 
     private static final String MIGRATIONS_PATH = "src/main/java/com/library/database/migrations/";
 

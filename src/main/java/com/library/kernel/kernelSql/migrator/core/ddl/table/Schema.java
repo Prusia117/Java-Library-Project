@@ -57,11 +57,12 @@ public final class Schema {
         return this;
     }
 
-    public void addCheck(String predicate){
+    public Schema addCheck(SQLCheckOperators operator, String predicate){
         String columnName = columnArray.get(columnArray.size() - 1).getColumName();
-        Check newCheck = new Check(predicate);
+        Check newCheck = new Check(columnName, operator ,predicate);
         newCheck.setConstraintName(tableName.toLowerCase(Locale.ROOT) + "_" + columnName + "___ck");
         constraintArray.add(newCheck);
+        return this;
     }
 
     public String toString(){
