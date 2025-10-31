@@ -2,6 +2,7 @@ package com.library.kernel.jartisan.src.jfiles;
 
 import com.library.kernel.classes.Colors;
 import com.library.kernel.jartisan.src.jfiles.jtemplates.*;
+import com.library.kernel.logger.Logger;
 
 import java.io.File;
 import java.io.PrintWriter;
@@ -29,8 +30,8 @@ public final class JFilesGenerator implements Colors {
         put("Migration", new JMigrationTemplate());
     }};
 
-    public static boolean generateNewFile(String type, String className){
-
+    public static void generateNewFile(String type, String className){
+        Logger.setLoggerMode(true);
         if(type.equals("Migration")){
             className = "M" + LocalDate.now().toString().replace("-", "") + "_" + LocalTime.now().toString().replace(":","").replace(".","")  + "_" + className;
         }
@@ -39,7 +40,12 @@ public final class JFilesGenerator implements Colors {
 
         String fileTemplate = CLASSES.get(type).getTemplate(className);
         boolean result = newFile(filePath, fileTemplate);
-        return result;
+
+        if(result == true){
+            Logger.infoLog("Jartisan Files Generator", type + GREEN + " created successfully");
+        }else{
+            Logger.errorLog("Jartisan Files Generator", type + RED + " could not be created");
+        }
     }
 
     private static boolean newFile(String path, String content){
@@ -52,7 +58,7 @@ public final class JFilesGenerator implements Colors {
             output.close();
             return file.exists();
         } catch (Exception e) {
-            System.out.println("[" + RED + "ERROR" + RESET + "]: " + RED + "Jartisan Exception: " + e + RESET);
+            Logger.errorLog("Jartisan Files Generator Exception", e.getMessage());
             return false;
         }
     }

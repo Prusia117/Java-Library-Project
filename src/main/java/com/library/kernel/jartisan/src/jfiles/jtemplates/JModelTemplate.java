@@ -1,6 +1,8 @@
 package com.library.kernel.jartisan.src.jfiles.jtemplates;
 
 public final class JModelTemplate implements IJTemplate  {
+
+    @Override
     public String getTemplate(String className) {
 
         return "package com.library.models;\n\n" +

@@ -4,7 +4,6 @@ public abstract class Constraint {
 
     protected String constraintName;
     protected String complement;
-    protected String secondComplement;
     protected StringBuilder sqlStmt = new StringBuilder("CONSTRAINT ");
 
     public Constraint(String complement){

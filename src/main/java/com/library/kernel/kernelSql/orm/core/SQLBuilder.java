@@ -1,11 +1,11 @@
-package com.library.kernel.kernelSql.orm.core.sql;
+package com.library.kernel.kernelSql.orm.core;
 
 import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
 
 import com.library.kernel.logger.Logger;
-import com.library.kernel.kernelSql.orm.core.sql.utils.SQLBuilderException;
+import com.library.kernel.kernelSql.orm.core.utils.SQLBuilderException;
 import com.library.kernel.kernelSql.orm.entity.Entity;
 import com.library.kernel.kernelSql.orm.entity.EntityFactory;
 import com.library.kernel.kernelSql.orm.entity.EntityMapper;
@@ -13,7 +13,7 @@ import com.library.kernel.kernelSql.orm.entity.EntityMapper;
 import com.library.kernel.classes.*;
 import com.library.kernel.kernelSql.orm.entity.utils.EntityFactoryException;;
 
-public final class SQLBuilder implements Colors {
+final class SQLBuilder implements Colors {
 
     private static String[] createJoinsStatments(HashMap<Class<?>, String> relationships)
     throws SQLBuilderException

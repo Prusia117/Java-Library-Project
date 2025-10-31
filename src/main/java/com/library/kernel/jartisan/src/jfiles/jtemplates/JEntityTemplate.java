@@ -2,7 +2,7 @@ package com.library.kernel.jartisan.src.jfiles.jtemplates;
 
 public final class JEntityTemplate implements IJTemplate {
 
-
+    @Override
     public String getTemplate(String className) {
         return "package com.library.entities;\n\n" +
                 "import com.library.kernel.kernelSql.orm.entity.Entity;\n\n" +
