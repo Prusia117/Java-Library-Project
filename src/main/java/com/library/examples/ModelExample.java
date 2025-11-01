@@ -3,13 +3,14 @@ package com.library.examples;
 import java.util.List;
 
 import com.library.config.DatabaseConfig;
+import com.library.kernel.KernelConfiguration;
 import com.library.kernel.kernelSql.orm.core.ORM;
 import com.library.kernel.kernelSql.orm.repository.Repository;
 
 public class ModelExample
 {
     static {
-        //ORM.setDatabaseProperties(new DatabaseConfig());
+        KernelConfiguration.setKernelConfiguration(new DatabaseConfig(), true);
     }
     Repository<BookEntity> br;
 
@@ -34,8 +35,8 @@ public class ModelExample
 
     public boolean save() throws Throwable{
         BookEntity be = new BookEntity();
-        be.tittle = "titulo 4";
-        be.img = "imagen 4";
+        be.tittle = "titulo 1";
+        be.img = "imagen 1";
         be.bo_autor_id = 1;
 
 
@@ -57,7 +58,7 @@ public class ModelExample
     public static void main(String[] args) throws Throwable{
         ModelExample me = new ModelExample();
 
-        me.delete();
+        me.save();
 
         List<BookEntity> a = me.getAll();
 

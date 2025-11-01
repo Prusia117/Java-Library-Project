@@ -9,6 +9,7 @@ import java.util.Map;
 import com.library.kernel.classes.Colors;
 import com.library.kernel.kernelSql.connection.ConnectionManagar;
 import com.library.kernel.kernelSql.connection.utils.ConnectionManagerException;
+import com.library.kernel.kernelSql.orm.core.utils.SQLExecutorException;
 import com.library.kernel.logger.Logger;
 import com.library.kernel.kernelSql.orm.core.utils.ORMException;
 import com.library.kernel.kernelSql.orm.entity.Entity;
@@ -58,14 +59,7 @@ public final class ORM<T extends Entity> implements Colors {
              * se necesita ejecutar al final de la transacción sql 'connection.close();' pero con utilizar el
              * try de esta manera ejecuta el close al final por ti
              */
-            try (
-                    // Se obtiene una conexión
-                    Connection connection = getConnection();
-                    Statement stmt = connection.createStatement();
-                    // Se ejecuta el sql statment
-                    ResultSet resultSet = stmt.executeQuery(sqlStmt);
-
-            ) {
+            try{
 
                 Logger.infoLog("SQL Query", sqlStmt);
 
@@ -75,6 +69,8 @@ public final class ORM<T extends Entity> implements Colors {
                 Field[] entityFields = EntityMapper.mapEntityAttributes(entity.getClass());
 
                 Logger.infoLog(GREEN + "Fields from Entity", String.valueOf(entityFields.length));
+
+                ResultSet resultSet = SQLExecutor.excuteSelectQuery(getConnection(), sqlStmt);
 
                 // Se crea un while que dice mientras existe un resultado en el resultSet continua
                 while (resultSet.next()) {
@@ -145,7 +141,8 @@ public final class ORM<T extends Entity> implements Colors {
 
                 return entityArray;
 
-            } catch (SQLException | EntityMapperException | EntityFactoryException | EntityPopulatorException error) {
+            } catch (SQLExecutorException | EntityMapperException | EntityFactoryException | EntityPopulatorException |
+                     SQLException error) {
 
                 Logger.infoLog("SQL Query", sqlStmt);
                 Logger.infoLog("SQL Error Query Exception", error.getMessage());
@@ -186,15 +183,14 @@ public final class ORM<T extends Entity> implements Colors {
              * se necesita ejecutar al final de la transacción sql 'connection.close();' pero con utilizar el
              * try de esta manera ejecuta el close al final por ti
              */
-            try (
-                    Connection connection = getConnection();
-                    Statement stmt = connection.createStatement();) {
-                // Se ejecuta el sqlstatment
-                int result = stmt.executeUpdate(sqlStmt);
+            try  {
+
+                // Se ejecuta el sql statment
+                int result = SQLExecutor.executeUpdateStatment(getConnection(), sqlStmt);
 
                 return result;
 
-            } catch (SQLException error) {
+            } catch (SQLExecutorException error) {
 
                 Logger.errorLog("ORM SQL Error Query Exception", error.getMessage());
                 throw new ORMException("ORM SQL Error Query Exception: " + error.getMessage());
@@ -226,17 +222,14 @@ public final class ORM<T extends Entity> implements Colors {
             * se necesita ejecutar al final de la transacción sql 'connection.close();' pero con utilizar el
             * try de esta manera ejecuta el close al final por ti
             */
-            try (
-                    Connection connection = getConnection();
-                    Statement stmt = connection.createStatement();) {
+            try  {
                 
                 // Se ejecuta el sql statment
-                int result = stmt.executeUpdate(sqlStmt);
-
+                int result = SQLExecutor.executeUpdateStatment(getConnection(), sqlStmt);
                 Logger.infoLog("SQL Query", sqlStmt);
                 return result;
 
-            } catch (SQLException error) {
+            } catch (SQLExecutorException error) {
 
                 Logger.errorLog("ORM SQL Error Query Exception", error.getMessage());
                 throw new ORMException("ORM SQL Error Query Exception: " + error.getMessage());
