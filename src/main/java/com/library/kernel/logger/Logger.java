@@ -20,6 +20,11 @@ public final class Logger implements Colors
         System.out.println("[" + RED + "ERROR" + RESET + "]: " + RED + tittle + ": " + message + RESET);
     }
 
+    public static void errorLog(String tittle, String message, String messageCause){
+        if(!DEBUG_MODE) return;
+        System.out.println("[" + RED + "ERROR" + RESET + "]: " + RED + tittle + ": " + message + BLUE + " Caused by: " + RED +messageCause + RESET);
+    }
+
     public static void warningLog(String tittle, String message){
         if(!DEBUG_MODE) return;
         System.out.println("[" + YELLOW + "WARNING" + RESET + "]: " + YELLOW + tittle + ": " + message + RESET);

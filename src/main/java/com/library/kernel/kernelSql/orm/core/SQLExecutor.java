@@ -9,16 +9,16 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-final class SQLExecutor {
+final class SQLExecutor implements ISQLExecutor{
 
-    public static ResultSet excuteSelectQuery(Connection connection, String sqlStmt) throws SQLExecutorException {
-        try (
-                // Se obtiene una conexión
-                Statement stmt = connection.createStatement();
-                // Se ejecuta el sql statment
-                ResultSet resultSet = stmt.executeQuery(sqlStmt);
+    @Override
+    public ResultSet excuteSelectQuery(Connection connection, String sqlStmt) throws SQLExecutorException {
+        try {
 
-        ) {
+            // Se obtiene una conexión
+            Statement stmt = connection.createStatement();
+            // Se ejecuta el sql statment
+            ResultSet resultSet = stmt.executeQuery(sqlStmt);
 
             return resultSet;
 
@@ -28,7 +28,8 @@ final class SQLExecutor {
         }
     }
 
-    public static int executeUpdateStatment(Connection connection, String sqlStmt) throws SQLExecutorException {
+    @Override
+    public int executeUpdateStatment(Connection connection, String sqlStmt) throws SQLExecutorException {
         try (
                 Statement stmt = connection.createStatement();) {
 
