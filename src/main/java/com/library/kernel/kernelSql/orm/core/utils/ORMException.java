@@ -5,4 +5,7 @@ public class ORMException extends Exception
     public ORMException(String exceptionText){
         super(exceptionText);
     }
+    public ORMException(String exceptionText, Throwable cause){
+        super(exceptionText, cause);
+    }
 }

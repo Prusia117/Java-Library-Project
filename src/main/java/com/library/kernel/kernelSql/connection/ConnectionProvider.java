@@ -37,8 +37,8 @@ final class ConnectionProvider  implements Colors {
             return connection;
 
         } catch (SQLException error) {
-            Logger.errorLog("SQL Connection Provider Error", error.getMessage());
-            throw new SQLException("SQL Connection Provider Error: " + error.getMessage());
+            Logger.errorLog("ConnectionProviderException", "Database connection failed: " + error.getMessage());
+            throw new SQLException("Failed to establish a database connection via ConnectionProvider.", error);
         }
     }
 }

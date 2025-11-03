@@ -13,9 +13,10 @@ import com.library.kernel.kernelSql.orm.entity.EntityMapper;
 import com.library.kernel.classes.*;
 import com.library.kernel.kernelSql.orm.entity.utils.EntityFactoryException;;
 
-final class SQLBuilder implements Colors {
+final class SQLBuilder implements ISQLBuilder ,Colors {
 
-    private static String[] createJoinsStatments(HashMap<Class<?>, String> relationships)
+    @Override
+    public String[] createJoinsStatments(HashMap<Class<?>, String> relationships)
     throws SQLBuilderException
     {
         try{
@@ -74,17 +75,19 @@ final class SQLBuilder implements Colors {
         }
     }
 
-    public static String createSelectQuery(Entity entity, String value, String field)
+    @Override
+    public String createSelectQuery(Entity entity, String value, String field)
             throws SQLBuilderException {
         try {
             if(entity == null){
                 throw new SQLBuilderException("Invalid Values Provided");
             }
-            // Se crea el string que almacena las columnas de la tabla es StringBuilder para preservar la dirección de memoria
-            StringBuilder sqlColumns = new StringBuilder();
 
             // Se crea el string que almacena el sql statment de la cosnulta es StringBuilder para preservar la dirección de memoria
             StringBuilder sqlStmt = new StringBuilder();
+
+            // Se crea el string que almacena las columnas de la tabla es StringBuilder para preservar la dirección de memoria
+            StringBuilder sqlColumns = new StringBuilder();
 
             String[] joinsStatments = null;
 
@@ -144,47 +147,59 @@ final class SQLBuilder implements Colors {
         }
     }
 
-    public static String createUpdateQuery(Entity entity, String id)
+    @Override
+    public String createInsertQuery(Entity entity)
+    throws SQLBuilderException
+    {
+        try {
+            StringBuilder sqlStmt = new StringBuilder();
+
+            // Se crea la base del sql Statmnet con la palabra insert y el nombre de la tabla
+            sqlStmt.append("INSERT INTO " + entity.getTableName() + " (");
+
+            //Se mapea la entity consulta la clase EntityFactory para mayor información
+            HashMap<String, String> map = EntityMapper.mapEntityFieldsAndAttributes(entity);
+
+            // Se crean los strings que almacenaran los atributos y los valores de estas
+            StringBuilder sqlColumns = new StringBuilder();
+            StringBuilder sqlValues = new StringBuilder();
+
+            // Se recorre el map de la entity para asignarle los valores a sqlColumns y sqlValues
+            for (Map.Entry<String, String> entry : map.entrySet()) {
+
+                // Se hace un continue si la entity tiene autoincrementable y se omite el campo entityRelationships
+                if ((entity.getAutoIncrement() && entry.getKey() == entity.getPrimaryKey())
+                        || entry.getKey() == "entityRelationships") {
+                    continue;
+                }
+                sqlColumns.append(entry.getKey() + ", ");
+                sqlValues.append("'" + entry.getValue() + "'" + ", ");
+            }
+
+            // Se completa el sql statment
+            sqlStmt.append(
+                    sqlColumns.substring(0, sqlColumns.length() - 2)
+                            + ") VALUES ("
+                            + sqlValues.substring(0, sqlValues.length() - 2) + ");");
+
+            return sqlStmt.toString();
+        }catch (SQLBuilderException error){
+            Logger.errorLog("SQLBuilder Exception", error.getMessage());
+            throw new SQLBuilderException("SQLBuilder Exception: " + error.getMessage());
+        }
+    }
+
+    @Override
+    public String createUpdateQuery(Entity entity, String id)
     throws SQLBuilderException
     {
         try {
 
-            if(entity == null){
+            if(entity == null || id == null){
                 throw new SQLBuilderException("Invalid Values Provided");
             }
 
             StringBuilder sqlStmt = new StringBuilder();
-            // Si la id es null indica que es una insert de un nuevo registro
-            if (id == null && entity != null) {
-                // Se crea la base del sql Statmnet con la palabra insert y el nombre de la tabla
-                sqlStmt.append("INSERT INTO " + entity.getTableName() + " (");
-
-                //Se mapea la entity consulta la clase EntityFactory para mayor información
-                HashMap<String, String> map = EntityMapper.mapEntityFieldsAndAttributes(entity);
-
-                // Se crean los strings que almacenaran los atributos y los valores de estas
-                StringBuilder sqlColumns = new StringBuilder();
-                StringBuilder sqlValues = new StringBuilder();
-
-                // Se recorre el map de la entity para asignarle los valores a sqlColumns y sqlValues
-                for (Map.Entry<String, String> entry : map.entrySet()) {
-
-                    // Se hace un continue si la entity tiene autoincrementable y se omite el campo entityRelationships
-                    if ((entity.getAutoIncrement() && entry.getKey() == entity.getPrimaryKey())
-                            || entry.getKey() == "entityRelationships") {
-                        continue;
-                    }
-                    sqlColumns.append(entry.getKey() + ", ");
-                    sqlValues.append("'" + entry.getValue() + "'" + ", ");
-                }
-
-                // Se completa el sql statment
-                sqlStmt.append(
-                        sqlColumns.substring(0, sqlColumns.length() - 2)
-                                + ") VALUES ("
-                                + sqlValues.substring(0, sqlValues.length() - 2) + ");");
-                // Si ambas referencias no son null se trata de actualizar un regsitro
-            } else if (id != null && entity != null) {
 
                 // Se crea la base del sql Statmnet con la palabra update, el nombre de la tabla y la palabra set
                 sqlStmt.append("UPDATE " + entity.getTableName() + " SET ");
@@ -207,10 +222,6 @@ final class SQLBuilder implements Colors {
                 sqlStmt.append(
                         sqlColumnsAndValues.substring(0, sqlColumnsAndValues.length() - 2)
                                 + " WHERE " + entity.getPrimaryKey() + " = " + id + ";");
-            } else {
-                // Si no es un caso de insert o update se lanza una excepción
-                throw new SQLBuilderException("Invalid Query Statment");
-            }
 
             return sqlStmt.toString();
         }catch (SQLBuilderException error){
@@ -220,8 +231,8 @@ final class SQLBuilder implements Colors {
         }
     }
 
-    public static String createDeleteQuery(Entity entity, String id)
-    throws SQLBuilderException
+    @Override
+    public String createDeleteQuery(Entity entity, String id) throws SQLBuilderException
     {
         try {
             if (entity == null || id == null){

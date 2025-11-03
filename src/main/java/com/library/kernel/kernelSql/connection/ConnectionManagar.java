@@ -20,9 +20,9 @@ public final class ConnectionManagar {
     {
         try {
             return connectionProvider.getConnection();
-        }catch(SQLException error){
-            Logger.errorLog("Connection Manager Exception", error.getMessage());
-            throw new ConnectionManagerException("Connection Manager Exception" + error.getMessage());
+        }catch (SQLException error) {
+            Logger.errorLog("ConnectionManagerException", "ConnectionManager could not connect: " + error.getMessage());
+            throw new ConnectionManagerException("ConnectionManager failed to connect to the database.", error);
         }
     }
 }

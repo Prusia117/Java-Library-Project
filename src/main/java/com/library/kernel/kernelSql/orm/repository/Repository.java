@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.library.kernel.classes.Colors;
+import com.library.kernel.kernelSql.orm.core.IORMEngine;
 import com.library.kernel.logger.Logger;
 import com.library.kernel.kernelSql.orm.core.ORM;
 import com.library.kernel.kernelSql.orm.core.utils.ORMException;
@@ -18,7 +19,7 @@ import com.library.kernel.kernelSql.orm.repository.utils.RepositoryException;
  * La lógica de negocio no se mete con la base de datos directamente, sino que le pide al repositorio que lo haga
  * Ventajas: el código es más limpio, fácil de mantener, y se puede cambiar la fuente de datos sin romper todo
  */
-public final class Repository<T extends Entity> implements Colors
+public final class Repository<T extends Entity> implements IRepository<T>, Colors
 {
     // ORM consulta la clase para mas información
     private ORM<T> orm;
@@ -34,6 +35,7 @@ public final class Repository<T extends Entity> implements Colors
     }
 
     // Método que obtiene todos los regristros de la entity
+    @Override
     public List<T> getAll() throws RepositoryException
     {
         try {
@@ -50,6 +52,7 @@ public final class Repository<T extends Entity> implements Colors
     
     
     // Método que obtiene un registro de la entity por medio de su id
+    @Override
     public List<T> getById(String id) throws RepositoryException
     {
         try {
@@ -69,6 +72,7 @@ public final class Repository<T extends Entity> implements Colors
     }
     
     // Método que guarda un registro de la entity
+    @Override
     public boolean save(T entity) throws RepositoryException
     {
         try {
@@ -86,12 +90,13 @@ public final class Repository<T extends Entity> implements Colors
             return result == 1 ? true : false;
 
         } catch (RepositoryException | ORMException error) {
-            Logger.errorLog("Repository Exception", error.getMessage());
-            throw new RepositoryException("Repository Exception: " + error.getMessage());
+            Logger.errorLog("RepositoryException", "Repository operation failed: " + error.getMessage());
+            throw new RepositoryException("Repository error occurred: " + error.getMessage());
         }
     }
     
     // Método que actualiza un registro de la entity
+    @Override
     public boolean update(T entity, String id) throws RepositoryException
     {
         try {
@@ -115,6 +120,7 @@ public final class Repository<T extends Entity> implements Colors
     }
 
     // Método que elimina un registro de la entity
+    @Override
     public boolean delete(String id) throws RepositoryException
     {
         try {
