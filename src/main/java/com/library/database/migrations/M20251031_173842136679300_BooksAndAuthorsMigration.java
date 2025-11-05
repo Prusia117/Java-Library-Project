@@ -37,9 +37,10 @@ public class M20251031_173842136679300_BooksAndAuthorsMigration extends Migratio
 
 	@Override
 	public ArrayList<String> rollback() {
-		return new ArrayList<String>(List.of(		
-		    "autores",
-                "books"
+		return new ArrayList<String>(List.of(
+
+                "books",
+                "autores"
 		
 		));
 	}

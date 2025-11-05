@@ -14,6 +14,8 @@ import java.util.*;
 
 final class JMigratorSQLExecutor implements Colors {
 
+    private static ArrayList<String> migrationsThread = new ArrayList<String>();
+
     private static boolean verifyIfMigrationTableExits(Connection connection) throws JMigratorSQLExecutorException {
         try (
                 // Se obtiene una conexión
@@ -66,11 +68,14 @@ final class JMigratorSQLExecutor implements Colors {
                 return false;
             }
 
-            boolean update = stmt.execute(JMigratorSQLBuilder.buildUpdateMigrationTableQuery(migrationName));
-            if(update){
-                Logger.errorLog("Jartisan Migrator Executor Exception: ", "Failed to update migration: " + migrationName);
-                deleteMigrations(connection, migrationName);
-                return false;
+            if(!migrationsThread.contains(migrationName)){
+                boolean update = stmt.execute(JMigratorSQLBuilder.buildUpdateMigrationTableQuery(migrationName));
+                if(update){
+                    Logger.errorLog("Jartisan Migrator Executor Exception: ", "Failed to update migration: " + migrationName);
+                    deleteMigrations(connection, migrationName);
+                    return false;
+                }
+                migrationsThread.add(migrationName);
             }
 
             return true;
@@ -108,8 +113,10 @@ final class JMigratorSQLExecutor implements Colors {
                 }
                 if(migrationsMap.isEmpty()){
                     Logger.infoLog("Jartisan Migrator Executor", "All Migrations have been executed. Nothing to do");
+                    return true;
                 }
             }
+
 
             for (Map.Entry<String, T> migration : migrationsMap.entrySet()) {
                 ArrayList<Schema> schemasArray = migration.getValue().up();
@@ -135,6 +142,11 @@ final class JMigratorSQLExecutor implements Colors {
             Logger.infoLog("Jartisan Migrator Executor", "Running rollback migrations");
             List<Map.Entry<String, T>> reversedMigrationsMap = new ArrayList<>(migrationsMap.entrySet());
             Collections.reverse(reversedMigrationsMap);
+
+            if(!verifyIfMigrationTableExits(connection)){
+                Logger.infoLog("Jartisan Migrator Executor", "All Migrations have been rolled back. Nothing to do");
+                return true;
+            }
 
             for (Map.Entry<String, T> migration : reversedMigrationsMap) {
                 ArrayList<String> schemasArray = migration.getValue().rollback();
