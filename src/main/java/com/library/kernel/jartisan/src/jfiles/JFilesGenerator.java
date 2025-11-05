@@ -17,9 +17,9 @@ public final class JFilesGenerator implements Colors {
     public static final List<String> J_SUPPORTED_FILE_TYPES = Arrays.asList("Entity", "Model", "Controller", "Migration");
 
     private static final HashMap<String, String> DIRECTORIES = new HashMap<String, String>() {{
-        put("Entity", "entities");
-        put("Model", "models");
-        put("Controller", "controllers");
+        put("Entity", "entities/");
+        put("Model", "models/");
+        put("Controller", "controllers/");
         put("Migration", "database/migrations/");
     }};
 
