@@ -1,5 +1,8 @@
 package com.library.kernel.kernelSql.migrator.core.ddl.constraints;
-
+/**
+ * Enumeración que define operadores válidos para restricciones CHECK en sentencias DDL/SQL.
+ * Cada constante almacena la representación textual del operador que se usará al generar la cláusula.
+ */
 public enum SQLCheckOperators {
 
     EQUALS(
