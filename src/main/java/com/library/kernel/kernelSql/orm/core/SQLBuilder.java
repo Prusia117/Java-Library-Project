@@ -12,9 +12,31 @@ import com.library.kernel.kernelSql.orm.entity.EntityMapper;
 
 import com.library.kernel.classes.*;
 import com.library.kernel.kernelSql.orm.entity.utils.EntityFactoryException;;
-
+/**
+ * Generador de sentencias SQL básicas para entidades.
+ *
+ * Esta clase construye sentencias SQL de tipo SELECT, INSERT, UPDATE y DELETE,
+ * así como las cláusulas JOIN necesarias cuando una entidad tiene relaciones con
+ * otras entidades. Los métodos devuelven las sentencias SQL en forma de
+ * cadenas y lanzan {@link SQLBuilderException} en caso de parámetros inválidos
+ * o errores durante la generación.
+ *
+ * Nota: no ejecuta las sentencias, solo las construye.
+ */
 final class SQLBuilder implements ISQLBuilder ,Colors {
-
+    /**
+     * Crea las cláusulas JOIN y una lista de columnas adicionales provenientes
+     * de las entidades relacionadas.
+     *
+     * @param relationships Mapa donde la clave es la clase de la entidad relacionada
+     *                      y el valor es el campo que une la entidad dependiente
+     *                      con la independiente.
+     * @return Un arreglo de dos posiciones:
+     *         [0] = cadena con los JOINs (por ejemplo " INNER JOIN ... ON ...")
+     *         [1] = cadena con las columnas adicionales separadas por comas
+     * @throws SQLBuilderException Si el parámetro es nulo o vacío o si ocurre un error
+     *                             al crear las entidades relacionadas.
+     */
     @Override
     public String[] createJoinsStatments(HashMap<Class<?>, String> relationships)
     throws SQLBuilderException
@@ -25,26 +47,25 @@ final class SQLBuilder implements ISQLBuilder ,Colors {
                 throw new SQLBuilderException("Invalid SQL Relationships Provided");
             }
 
-            // Se crea el string que almacena los joins de la tabla es StringBuilder para preservar la dirección de memoria
+            // StringBuilder para concatenar las sentencias JOIN
             StringBuilder joins = new StringBuilder();
 
-            // Se crea el string que almacena las columnas de las tablas externas es StringBuilder para preservar la dirección de memoria
+            // StringBuilder para concatenar las columnas provenientes de las entidades relacionadas
             StringBuilder joinsSqlColumns = new StringBuilder();
 
             /*
-             * Se obtiene un hashmap con las relaciones de la tabla:
-             * Class<?> representa a la entity externa
-             * String representa el campo por el cual la tabla dependiente se relaciona
-             * con la tabla independiente
+             * El mapa 'relationships' contiene:
+             * - Class<?>: clase de la entidad relacionada
+             * - String: campo por el cual la tabla dependiente se relaciona con la independiente
              */
 
-            // Se recorre el hashmap con un foreach
+            // Recorre el mapa de relaciones
             for (Map.Entry<Class<?>, String> relationship : relationships.entrySet()) {
 
-                // Se crea una nueva entity de tipo Class<?> consulta la clase par mas información
+                // Crea una instancia de Entity para la entidad relacionada
                 Entity newRelationalEntity = EntityFactory.createEntity(relationship.getKey());
 
-                // Se agrega los joins de la tabla
+                // Agrega la cláusula JOIN correspondiente
                 joins.append(" INNER JOIN ")
                     .append(newRelationalEntity.getTableName())
                     .append(" ON ")
@@ -52,13 +73,14 @@ final class SQLBuilder implements ISQLBuilder ,Colors {
                     .append(" = ")
                     .append(relationship.getValue()); // Representa el atributo que une a Tabla A con Tabla B
 
-                // Se mapea la nueva entity consulta la clase par mas información
+                // Mapea los atributos de la nueva entidad relacionada
                 Field[] newEntityAttributes  = EntityMapper.mapEntityAttributes(newRelationalEntity.getClass());
 
-                // Se recorre el hashmap con un foreach
+                // Recorre los atributos y añade aquellos que correspondan a las columnas a seleccionar
                 for (Field newEntityAttribute : newEntityAttributes) {
-                    // Se omite el campo entityRelationships ya que contiene las relaciones de las
-                    // tablas
+                    // Aquí se añade el campo 'entityRelationships' (si existe) entre las columnas adicionales.
+                    // (Nota: la lógica conserva la implementación existente; si se desea omitir este campo,
+                    // habría que cambiar la condición para hacer un 'continue' cuando el nombre sea 'entityRelationships'.)
                     if (newEntityAttribute.getName().equals("entityRelationships")) {
                         joinsSqlColumns.append(newEntityAttribute.getName() + ", ");
                     }
@@ -74,7 +96,15 @@ final class SQLBuilder implements ISQLBuilder ,Colors {
             throw new SQLBuilderException("SQLBuilder Exception: " + error.getMessage());
         }
     }
-
+    /**
+     * Construye una sentencia SELECT para la entidad proporcionada.
+     *
+     * @param entity Entidad sobre la que se construye la consulta.
+     * @param value  Valor para la cláusula WHERE (puede ser nulo para omitir WHERE).
+     * @param field  Campo a usar en la cláusula WHERE (si es nulo se usa la clave primaria).
+     * @return Cadena con la sentencia SELECT completa terminada en punto y coma.
+     * @throws SQLBuilderException Si la entidad es nula o ocurre un error durante la construcción.
+     */
     @Override
     public String createSelectQuery(Entity entity, String value, String field)
             throws SQLBuilderException {
@@ -83,17 +113,18 @@ final class SQLBuilder implements ISQLBuilder ,Colors {
                 throw new SQLBuilderException("Invalid Values Provided");
             }
 
-            // Se crea el string que almacena el sql statment de la cosnulta es StringBuilder para preservar la dirección de memoria
+            // StringBuilder para la sentencia SQL completa
             StringBuilder sqlStmt = new StringBuilder();
 
-            // Se crea el string que almacena las columnas de la tabla es StringBuilder para preservar la dirección de memoria
+            // StringBuilder para las columnas de la entidad actual
             StringBuilder sqlColumns = new StringBuilder();
 
             String[] joinsStatments = null;
 
-            // Se mapea los atributos de la entidad consulta la clase EntityMapper par mas información
+            // StringBuilder para las columnas de la entidad actual
             Field[] entityAttributes = EntityMapper.mapEntityAttributes(entity.getClass());
 
+            // Añade las columnas, omitiendo el campo 'entityRelationships'
             for (Field entityAttribute : entityAttributes) {
                 // Se omite el campo entityRelationships ya que contiene las relaciones de las tablas
                 if (!entityAttribute.getName().contentEquals("entityRelationships")) {
@@ -101,30 +132,30 @@ final class SQLBuilder implements ISQLBuilder ,Colors {
                 }
             }
 
-            // Se comprueba si la tabla tiene relaciones
+            // Si la entidad tiene relaciones, obtiene los JOINs y columnas adicionales
             if (entity.getRelationships() != null) {
                 joinsStatments = createJoinsStatments(entity.getRelationships());
             }
 
             sqlStmt.append("SELECT ");
 
-            // Se comprueba si la tabla tiene relaciones
+            // Si tiene relaciones, concatena las columnas locales y las columnas extra de los JOINs
             if (entity.getRelationships() != null) {
-                // agrega los joins correspondientes de la tabla
                 sqlStmt.append(sqlColumns);
                 sqlStmt.append(joinsStatments[1]);
             } else {
-                // agrega un select con solo las columnas de la tabla dependiente
+                // Si no, añade solo las columnas de la entidad actual (elimina la última coma y espacio)
                 sqlStmt.append(sqlColumns.substring(0, sqlColumns.length() - 2));
             }
             sqlStmt.append(" FROM ")
                     .append(entity.getTableName());
 
-            // Si tiene relaciones se agregan al sql statment de la cosnulta
+            // Añade los JOINs si existen
             if (entity.getRelationships() != null) {
                 sqlStmt.append(joinsStatments[0]);
             }
 
+            // Añade cláusula WHERE si se proporciona un valor
             if (value != null) {
                 sqlStmt.append(" WHERE ")
                         .append(
@@ -134,7 +165,7 @@ final class SQLBuilder implements ISQLBuilder ,Colors {
                         .append(value);
             }
 
-            // Si agrega un order by por el id de tipo ASC
+            // Añade ORDER BY por la clave primaria de manera ascendente
             sqlStmt.append(" ORDER BY ")
                     .append(entity.getPrimaryKey())
                     .append(" ASC;");
@@ -147,6 +178,13 @@ final class SQLBuilder implements ISQLBuilder ,Colors {
         }
     }
 
+    /**
+     * Construye una sentencia INSERT para la entidad proporcionada.
+     *
+     * @param entity Entidad a insertar.
+     * @return Cadena con la sentencia INSERT completa terminada en punto y coma.
+     * @throws SQLBuilderException Si ocurre un error al generar la sentencia.
+     */
     @Override
     public String createInsertQuery(Entity entity)
     throws SQLBuilderException
@@ -154,20 +192,20 @@ final class SQLBuilder implements ISQLBuilder ,Colors {
         try {
             StringBuilder sqlStmt = new StringBuilder();
 
-            // Se crea la base del sql Statmnet con la palabra insert y el nombre de la tabla
+            // Construye la parte inicial del INSERT con el nombre de la tabla
             sqlStmt.append("INSERT INTO " + entity.getTableName() + " (");
 
-            //Se mapea la entity consulta la clase EntityFactory para mayor información
+            // Mapea los campos y sus valores de la entidad
             HashMap<String, String> map = EntityMapper.mapEntityFieldsAndAttributes(entity);
 
-            // Se crean los strings que almacenaran los atributos y los valores de estas
+            // StringBuilder para columnas y valores
             StringBuilder sqlColumns = new StringBuilder();
             StringBuilder sqlValues = new StringBuilder();
 
-            // Se recorre el map de la entity para asignarle los valores a sqlColumns y sqlValues
+            // Recorre el mapa y arma las listas de columnas y valores
             for (Map.Entry<String, String> entry : map.entrySet()) {
 
-                // Se hace un continue si la entity tiene autoincrementable y se omite el campo entityRelationships
+                // Si la entidad tiene autoincrementable y el campo es la PK, o si es 'entityRelationships', se omite
                 if ((entity.getAutoIncrement() && entry.getKey() == entity.getPrimaryKey())
                         || entry.getKey() == "entityRelationships") {
                     continue;
@@ -176,7 +214,7 @@ final class SQLBuilder implements ISQLBuilder ,Colors {
                 sqlValues.append("'" + entry.getValue() + "'" + ", ");
             }
 
-            // Se completa el sql statment
+            // Completa la sentencia INSERT eliminando la última coma y espacio
             sqlStmt.append(
                     sqlColumns.substring(0, sqlColumns.length() - 2)
                             + ") VALUES ("
@@ -188,7 +226,14 @@ final class SQLBuilder implements ISQLBuilder ,Colors {
             throw new SQLBuilderException("SQLBuilder Exception: " + error.getMessage());
         }
     }
-
+    /**
+     * Construye una sentencia UPDATE para la entidad especificada y el id dado.
+     *
+     * @param entity Entidad con los nuevos valores.
+     * @param id     Identificador (valor) de la fila a actualizar.
+     * @return Cadena con la sentencia UPDATE completa terminada en punto y coma.
+     * @throws SQLBuilderException Si alguno de los parámetros es nulo o ocurre un error.
+     */
     @Override
     public String createUpdateQuery(Entity entity, String id)
     throws SQLBuilderException
@@ -201,24 +246,23 @@ final class SQLBuilder implements ISQLBuilder ,Colors {
 
             StringBuilder sqlStmt = new StringBuilder();
 
-                // Se crea la base del sql Statmnet con la palabra update, el nombre de la tabla y la palabra set
+                // Inicia la sentencia UPDATE con el nombre de la tabla y la cláusula SET
                 sqlStmt.append("UPDATE " + entity.getTableName() + " SET ");
 
-                //Se mapea la entity consulta la clase EntityFactory para mayor información
+                // Mapea los campos y valores de la entidad
                 HashMap<String, String> map = EntityMapper.mapEntityFieldsAndAttributes(entity);
 
-                // Se crean el string que almacenara los atributos y los valores de la entity
+                // StringBuilder para los pares columna = valor
                 StringBuilder sqlColumnsAndValues = new StringBuilder();
 
-                // Se recorre el map de la entity para asignarle los valores a sqlColumnsAndValues
+                // Recorre el mapa y añade solo los campos cuyo valor no sea "null"
                 for (Map.Entry<String, String> entry : map.entrySet()) {
-                    // Si el valor es null significa que no es campo a actualizar de la entity
                     if (!entry.getValue().equals("null")) {
                         Logger.infoLog("Entity Field Value", entry.getKey() + " => " + entry.getValue());
                         sqlColumnsAndValues.append(entry.getKey() + " = '" + entry.getValue() + "', ");
                     }
                 }
-                // Se completa el sql statment
+                // Completa la sentencia eliminando la última coma y espacio, y añade la cláusula WHERE
                 sqlStmt.append(
                         sqlColumnsAndValues.substring(0, sqlColumnsAndValues.length() - 2)
                                 + " WHERE " + entity.getPrimaryKey() + " = " + id + ";");
@@ -230,7 +274,14 @@ final class SQLBuilder implements ISQLBuilder ,Colors {
             throw new SQLBuilderException("SQLBuilder Exception: " + error.getMessage());
         }
     }
-
+    /**
+     * Construye una sentencia DELETE para la entidad y el id proporcionados.
+     *
+     * @param entity Entidad desde la cual se eliminará la fila.
+     * @param id     Identificador (valor) de la fila a eliminar.
+     * @return Cadena con la sentencia DELETE completa terminada en punto y coma.
+     * @throws SQLBuilderException Si alguno de los parámetros es nulo.
+     */
     @Override
     public String createDeleteQuery(Entity entity, String id) throws SQLBuilderException
     {

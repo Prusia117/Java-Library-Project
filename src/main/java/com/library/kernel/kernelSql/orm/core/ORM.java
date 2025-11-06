@@ -12,22 +12,31 @@ import com.library.kernel.kernelSql.orm.core.utils.ORMException;
 import com.library.kernel.kernelSql.orm.entity.Entity;
 import com.library.kernel.kernelSql.orm.entity.utils.EntityMapperException;
 
-/*
- * Se declara un generic T que extiende de Entity es decir:
- * Es un tipo desconosido pero que tiene que se una implentación
- * o una herencia de Entity
+/**
+ * ORM generic para operaciones básicas sobre entidades que extienden {@link Entity}.
+ *
+ * El parámetro genérico {@code T} representa una implementación concreta de {@code Entity}.
+ * Esta clase proporciona métodos para ejecutar consultas SELECT, INSERT/UPDATE y DELETE
+ * utilizando un constructor de SQL y un ejecutor de sentencias.
  */
 public final class ORM<T extends Entity> implements IORMEngine<T>, Colors {
-    // Método para setear los parametros de la base de datos
+    // Ejecutores y constructores de sentencias SQL
 
     private ISQLExecutor sqlExecutor;
     private ISQLBuilder sqlBuilder;
 
+    // Inicialización por defecto de los componentes SQL
     {
         sqlExecutor = new SQLExecutor();
         sqlBuilder = new SQLBuilder();
     }
 
+    /**
+     * Obtiene una conexión de la capa de conexión.
+     *
+     * @return una conexión válida a la base de datos
+     * @throws ORMException si no se puede obtener la conexión
+     */
     private static Connection getConnection() throws ORMException {
         try {
             return ConnectionManagar.getConnection();
@@ -39,9 +48,17 @@ public final class ORM<T extends Entity> implements IORMEngine<T>, Colors {
 
 
 
-    /*
-     * Método selectQuery funciona para manejar selects de toda la data o solo de un registro con un id
-     * Se le pasa una entity de tipo T y opcional un id de tipo String
+    /**
+     * Ejecuta una consulta SELECT para la entidad proporcionada.
+     *
+     * <p>Construye la sentencia SQL mediante {@code sqlBuilder} y mapea el {@code ResultSet}
+     * a una lista de entidades del tipo {@code T} usando {@code SQLResultMapper}.</p>
+     *
+     * @param entity entidad que define la tabla y el mapeo (no puede ser {@code null})
+     * @param value  valor para filtrar (opcional; si es {@code null} puede devolver todos los registros)
+     * @param field  campo sobre el que aplicar el filtro (opcional; se usa junto a {@code value})
+     * @return lista de entidades mapeadas desde el resultado de la consulta
+     * @throws ORMException si ocurre un error al obtener la conexión, ejecutar la consulta o mapear resultados
      */
     @Override
     public ArrayList<T> selectQuery(T entity, String value, String field) throws ORMException
@@ -71,7 +88,14 @@ public final class ORM<T extends Entity> implements IORMEngine<T>, Colors {
             throw new ORMException("Unhandled SQL exception during query execution: " + error.getMessage(), error);
         }
     }
-
+    /**
+     * Ejecuta una sentencia de actualización (INSERT, UPDATE o DELETE).
+     *
+     * @param entity entidad asociada (se usa para trazas/logs; no es modificada)
+     * @param sqlStmt sentencia SQL a ejecutar
+     * @return número de filas afectadas por la operación
+     * @throws ORMException si hay un error en la ejecución SQL o al obtener la conexión
+     */
     private int executeUpdate(T entity, String sqlStmt) throws ORMException {
         Logger.infoLog("SQL Query", sqlStmt);
         try (Connection conn = getConnection()) {
@@ -82,9 +106,16 @@ public final class ORM<T extends Entity> implements IORMEngine<T>, Colors {
         }
     }
 
-    /*
-     * Método updateQuery funciona para insertar o actualizar regsitro
-     * Se le pasa una entity de tipo T y opcional un id de tipo String
+    /**
+     * Inserta o actualiza un registro de la entidad.
+     *
+     * <p>Si {@code id} es {@code null} se realiza un INSERT; si {@code id} no es {@code null}
+     * se realiza un UPDATE sobre el registro identificado por {@code id}.</p>
+     *
+     * @param entity entidad con los datos a insertar/actualizar (no puede ser {@code null})
+     * @param id     identificador del registro a actualizar (si es {@code null} se inserta)
+     * @return número de filas afectadas
+     * @throws ORMException si falla la creación de la sentencia o la ejecución
      */
     @Override
     public int updateQuery(T entity, String id) throws ORMException
@@ -110,9 +141,13 @@ public final class ORM<T extends Entity> implements IORMEngine<T>, Colors {
             throw new ORMException("Failed to execute UPDATE query: " + error.getMessage(), error);
         }
     }
-    /*
-     * Método selectQuery funciona para manejar selects de toda la data o solo de un registro con un id
-     * Se le pasa una entity de tipo T y opcional un id de tipo String
+    /**
+     * Elimina un registro de la entidad por su identificador.
+     *
+     * @param entity entidad a la que pertenece el registro (no puede ser {@code null})
+     * @param id     identificador del registro a eliminar (no puede ser {@code null})
+     * @return número de filas afectadas
+     * @throws ORMException si faltan parámetros o falla la ejecución del DELETE
      */
     @Override
     public int deleteQuery(T entity, String id) throws ORMException

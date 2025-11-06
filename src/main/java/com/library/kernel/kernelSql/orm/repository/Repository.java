@@ -13,20 +13,33 @@ import com.library.kernel.kernelSql.orm.entity.EntityFactory;
 import com.library.kernel.kernelSql.orm.entity.utils.EntityFactoryException;
 import com.library.kernel.kernelSql.orm.repository.utils.RepositoryException;
 
-/*
- * Este archivo implementa el patrón Repository
- * ¿Qué significa eso? Que aquí se maneja el acceso a los datos (como si fuera el mesero del sistema)
- * La lógica de negocio no se mete con la base de datos directamente, sino que le pide al repositorio que lo haga
- * Ventajas: el código es más limpio, fácil de mantener, y se puede cambiar la fuente de datos sin romper todo
+/**
+ * Repositorio genérico para entidades {@code Entity}.
+ *
+ * Implementa el patrón Repository: centraliza el acceso a datos y delega la
+ * construcción y ejecución de consultas al motor ORM ({@link ORM}).
+ *
+ * Responsabilidades:
+ * - Proveer métodos CRUD básicos (listar, obtener por id, guardar, actualizar, eliminar).
+ * - Manejar excepciones de capa de repositorio y registrar errores mediante {@link Logger}.
+ *
+ * @param <T> Tipo concreto que extiende {@link Entity}.
  */
 public final class Repository<T extends Entity> implements IRepository<T>, Colors
 {
-    // ORM consulta la clase para mas información
-    private ORM<T> orm;
+    /**
+     * Instancia del motor ORM que realiza las consultas sobre la entidad.
+     */    private ORM<T> orm;
 
-    // Esta variable alamcenara el tipo de Entity el cual el repository utilizara
+    /**
+     * Clase de la entidad que este repositorio manejará.
+     */
     private Class<T> entityType;
-
+    /**
+     * Crea un repositorio para el tipo de entidad proporcionado.
+     *
+     * @param type Clase concreta de la entidad que gestionará este repositorio.
+     */
     public Repository(Class<T> type)
     {
         orm = new ORM<T>();
@@ -34,12 +47,16 @@ public final class Repository<T extends Entity> implements IRepository<T>, Color
         this.entityType = type;
     }
 
-    // Método que obtiene todos los regristros de la entity
-    @Override
+    /**
+     * Obtiene todos los registros de la entidad.
+     *
+     * @return Lista de instancias de la entidad.
+     * @throws RepositoryException Si ocurre cualquier error en la operación del repositorio.
+     */    @Override
     public List<T> getAll() throws RepositoryException
     {
         try {
-
+            // Delegar al ORM la obtención de todos los registros (sin filtro)
             ArrayList<T> entityArrayList = orm.selectQuery(EntityFactory.createEntity(entityType),null, null);
             
             return entityArrayList;
@@ -49,10 +66,15 @@ public final class Repository<T extends Entity> implements IRepository<T>, Color
             throw new RepositoryException("Repository Exception: " + error.getMessage());
         }
     }
-    
-    
-    // Método que obtiene un registro de la entity por medio de su id
-    @Override
+
+
+    /**
+     * Obtiene un registro (o registros) de la entidad por su id.
+     *
+     * @param id Identificador del registro a buscar (como cadena).
+     * @return Lista con el/los registros encontrados.
+     * @throws RepositoryException Si los valores son inválidos o ocurre un error en la operación.
+     */    @Override
     public List<T> getById(String id) throws RepositoryException
     {
         try {
@@ -70,9 +92,15 @@ public final class Repository<T extends Entity> implements IRepository<T>, Color
             throw new RepositoryException("Repository Exception: " + error.getMessage());
         }
     }
-    
-    // Método que guarda un registro de la entity
-    @Override
+
+
+    /**
+     * Guarda (inserta) una entidad en la base de datos.
+     *
+     * @param entity Instancia de la entidad a guardar.
+     * @return {@code true} si la operación reportó éxito, {@code false} en caso contrario.
+     * @throws RepositoryException Si los valores son inválidos o la operación falla.
+     */    @Override
     public boolean save(T entity) throws RepositoryException
     {
         try {
@@ -94,9 +122,16 @@ public final class Repository<T extends Entity> implements IRepository<T>, Color
             throw new RepositoryException("Repository error occurred: " + error.getMessage());
         }
     }
-    
-    // Método que actualiza un registro de la entity
-    @Override
+
+
+    /**
+     * Actualiza un registro existente identificado por {@code id}.
+     *
+     * @param entity Entidad con los nuevos valores.
+     * @param id     Identificador del registro a actualizar.
+     * @return {@code true} si la actualización fue exitosa, {@code false} en caso contrario.
+     * @throws RepositoryException Si los valores son inválidos o la operación falla.
+     */    @Override
     public boolean update(T entity, String id) throws RepositoryException
     {
         try {
@@ -119,8 +154,14 @@ public final class Repository<T extends Entity> implements IRepository<T>, Color
         }
     }
 
-    // Método que elimina un registro de la entity
-    @Override
+
+    /**
+     * Elimina un registro de la entidad por su identificador.
+     *
+     * @param id Identificador del registro a eliminar.
+     * @return {@code true} si la eliminación fue exitosa, {@code false} en caso contrario.
+     * @throws RepositoryException Si los valores son inválidos o la operación falla.
+     */    @Override
     public boolean delete(String id) throws RepositoryException
     {
         try {
