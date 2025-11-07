@@ -4,9 +4,9 @@ import com.library.kernel.kernelSql.orm.entity.Entity;
 
 import java.util.List;
 
-public abstract interface Model {
+public abstract interface IModel<T extends Entity> {
 
-    public abstract List<Entity> getById(String id);
+    public abstract List<T> getById(String id);
 
     public abstract boolean save();
 

@@ -37,20 +37,21 @@ final class SQLResultMapper implements Colors {
      * usados en los logs y en la lectura consideran el desplazamiento suministrado en
      * el parámetro {@code j}.
      */
-    private static<T extends Entity> void populateRelationships(ResultSet resultSet, Field[] entityFields , T entity, int j){
+    private static<T extends Entity> void populateEntities(ResultSet resultSet, Field[] entityFields , T entity, int j){
         try {
+
             for (int i = 0; i < entityFields.length - 1; i++) {
-                j++;
                 Logger.infoLog(
                         YELLOW + "Entity Info",
                         "Entity Field => " + entityFields[i].getName() + RESET + " | " + PURPLE
-                                + "Entity Value => " + resultSet.getObject(i + 1)
+                                + "Entity Value => " + resultSet.getObject(j)
                 );
                 // Se setea los valores de las filas en el objeto
                 EntityPopulator.populateEntity(entity, entityFields[i], resultSet.getObject(j));
+                j++;
             }
         }catch(Exception error){
-
+            System.out.println(error.getMessage());
         }
     }
     /**
@@ -86,7 +87,7 @@ final class SQLResultMapper implements Colors {
                 ArrayList<Entity> relationshipEntities = new ArrayList<Entity>();
 
                 // Se poblan los campos de la entidad principal (índice base 1)
-                populateRelationships(resultSet, entityFields, newEntity, 1);
+                populateEntities(resultSet, entityFields, newEntity, 1);
 
                 // Si la entidad tiene relaciones, se crean y pueblan las entidades relacionadas
                 if (relationshipsEntities != null) {
@@ -106,7 +107,7 @@ final class SQLResultMapper implements Colors {
 
                         T newRelationshipEntity = EntityFactory.createEntity(newClassEntity);
 
-                        populateRelationships(resultSet, relationshipEntityFields, newRelationshipEntity, relationshipEntityFields.length);
+                        populateEntities(resultSet, relationshipEntityFields, newRelationshipEntity, relationshipEntityFields.length);
 
                         // Se guarda la entidad relacionada en la lista de relaciones
                         relationshipEntities.add(newRelationshipEntity);
