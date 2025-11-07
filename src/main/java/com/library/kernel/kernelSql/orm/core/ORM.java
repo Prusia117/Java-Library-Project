@@ -78,7 +78,6 @@ public final class ORM<T extends Entity> implements IORMEngine<T>, Colors {
                     ResultSet resultSet = sqlExecutor.excuteSelectQuery(conn, sqlStmt);
             ){
                 ArrayList<T> entityArray = SQLResultMapper.mapResultSetToEntities(resultSet, entity);
-
                 return entityArray;
             }
 

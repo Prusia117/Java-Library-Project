@@ -7,10 +7,10 @@ public final class JModelTemplate implements IJTemplate  {
 
         return "package com.library.models;\n\n" +
                 "import java.util.List;\n\n" +
-                "com.library.kernel.kernelSql.orm.repository.Repository;\n\n" +
+                "import com.library.kernel.kernelSql.orm.repository.Repository;\n\n" +
                 "import com.library.entities." + className + "Entity;\n\n" +
-                "import com.library.kernel.framework.Model;\n\n" +
-                "public final class " + className + "Model implements Model{\n" +
+                "import com.library.kernel.framework.IModel;\n\n" +
+                "public final class " + className + "Model implements IModel{\n" +
                 "\n" +
                 "\tRepository<" + className + "Entity> " + className.toLowerCase() + "Repositrory = new Repository<" + className + "Entity>(" + className + "Entity.class);\n" +
                 "\n" +

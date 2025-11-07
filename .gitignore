@@ -2,3 +2,5 @@ target/
 .vscode
 .idea/
 maven.log
+.env
+maven_dep.log

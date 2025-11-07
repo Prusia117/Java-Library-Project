@@ -12,6 +12,8 @@ services:
       - "5420:5432"
     networks:
       - network_library
+    volumes:
+      - ./db_data:/var/lib/postgresql/data
 
   pgadmin:
     container_name: library-postgres-panel
@@ -25,6 +27,9 @@ services:
       - network_library
     depends_on:
     - postgres
+
+volumes:
+  db_data:
 
 networks:
   network_library:

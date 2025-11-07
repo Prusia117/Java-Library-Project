@@ -7,20 +7,44 @@ import java.sql.SQLException;
 import com.library.kernel.classes.Colors;
 import com.library.kernel.logger.Logger;
 
-
+/**
+ * Proveedor de conexiones JDBC para la aplicación.
+ *
+ * Esta clase crea conexiones a la base de datos utilizando las propiedades
+ * provistas por una implementación de {@code IDatabaseProperties}. Mantiene
+ * una referencia estática a las propiedades para que todas las instancias
+ * compartan la misma configuración.
+ */
 final class ConnectionProvider  implements Colors {
-    
-    // Object tipo DatabaseProperties consulta su interfaz par mas información
-    private static DatabaseProperties databaseProperties = null;
 
-    public ConnectionProvider(DatabaseProperties properties){
+    /**
+     * Objeto que contiene las propiedades de conexión de la base de datos.
+     * Ver la interfaz {@code IDatabaseProperties} para más información.
+     */
+    private static IDatabaseProperties databaseProperties = null;
+    /**
+     * Crea un proveedor de conexiones. Si aún no se han establecido las
+     * propiedades estáticas, las asigna con la instancia proporcionada.
+     *
+     * @param properties implementación de {@code IDatabaseProperties} que contiene
+     *                   host, puerto, nombre de base de datos, usuario, contraseña y driver
+     */
+    public ConnectionProvider(IDatabaseProperties properties){
         if(databaseProperties == null){
             databaseProperties = properties;
         }
     }
 
-    // Método para obtener una conexión utilizando el driver de postgres JDBC https://jdbc.postgresql.org/
-    public Connection getConnection() throws SQLException {
+    /**
+     * Obtiene una conexión JDBC usando el driver y credenciales definidos en
+     * {@code databaseProperties}.
+     *
+     * Construye la URL con la forma:
+     * jdbc:{driver}://{host}:{port}/{database}
+     *
+     * @return una conexión válida a la base de datos
+     * @throws SQLException si falla la obtención de la conexión
+     */    public Connection getConnection() throws SQLException {
         try {
             /*
              * Se crea el "string" de conexión con estructura:
@@ -30,7 +54,7 @@ final class ConnectionProvider  implements Colors {
                     + "://" + databaseProperties.getHost() + ":" + databaseProperties.getPort() + "/"
                     + databaseProperties.getDataBaseName();
 
-            // Se crea una conexión y se le pasa al método getConnection el string conexión como otros parametros como el usario y contraseña
+            // Se obtiene la conexión pasando URL, usuario y contraseña
             Connection connection = DriverManager.getConnection(stringConnection, databaseProperties.getDataBaseUser(),
                     databaseProperties.getDataBasePassword());
 
