@@ -6,7 +6,7 @@ public final class JModelTemplate implements IJTemplate  {
     public String getTemplate(String className) {
 
         return "package com.library.models;\n\n" +
-                "import java.util.List;\n\n" +
+                "import java.util.ArrayList;\n\n" +
                 "import com.library.kernel.kernelSql.orm.repository.Repository;\n\n" +
                 "import com.library.entities." + className + "Entity;\n\n" +
                 "import com.library.kernel.framework.IModel;\n\n" +
@@ -14,13 +14,13 @@ public final class JModelTemplate implements IJTemplate  {
                 "\n" +
                 "\tRepository<" + className + "Entity> " + className.toLowerCase() + "Repositrory = new Repository<" + className + "Entity>(" + className + "Entity.class);\n" +
                 "\n" +
-                "\tpublic List<" + className + "Entity> getAll(){\n" +
-                "\t\tList<" + className + "Entity> entityList = " + className.toLowerCase() + "Repositrory.getAll();\n" +
+                "\tpublic ArrayList<" + className + "Entity> getAll(){\n" +
+                "\t\tArrayList<" + className + "Entity> entityList = " + className.toLowerCase() + "Repositrory.getAll();\n" +
                 "\t\treturn entityList;\n" +
                 "\t}\n\n" +
                 "\t@Override\n" +
-                "\tpublic List<" + className + "Entity> getById(String id){\n" +
-                "\t\tList<" + className + "Entity> entityList = " + className.toLowerCase() + "Repositrory.getById(id);\n" +
+                "\tpublic ArrayList<" + className + "Entity> getById(String id){\n" +
+                "\t\tArrayList<" + className + "Entity> entityList = " + className.toLowerCase() + "Repositrory.getById(id);\n" +
                 "\t\treturn entityList;\n" +
                 "\t}\n\n" +
                 "\t@Override\n" +

@@ -16,7 +16,7 @@ import java.sql.SQLException;
  */
 public final class ConnectionManagar {
     /**
-     * Proveedor compartido de conexiones. Se inicializa solo una vez.
+     * Proveedor compartido de conexiones. Se inicializ a solo una vez.
      */
     private static ConnectionProvider connectionProvider = null;
     /**

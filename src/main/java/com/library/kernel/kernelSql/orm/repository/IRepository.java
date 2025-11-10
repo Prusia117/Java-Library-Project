@@ -3,6 +3,7 @@ package com.library.kernel.kernelSql.orm.repository;
 import com.library.kernel.kernelSql.orm.entity.Entity;
 import com.library.kernel.kernelSql.orm.repository.utils.RepositoryException;
 
+import java.util.ArrayList;
 import java.util.List;
 /**
  * Interfaz genérica para repositorios que manejan entidades del tipo {@code T}.
@@ -16,7 +17,7 @@ public abstract interface IRepository<T extends Entity> {
      * @return lista de entidades {@code T}; puede estar vacía si no hay resultados
      * @throws RepositoryException si ocurre un error al acceder al repositorio
      */
-    public abstract List<T> getAll() throws RepositoryException;
+    public abstract ArrayList<T> getAll() throws RepositoryException;
     /**
      * Obtiene las entidades que coinciden con el identificador proporcionado.
      *
@@ -24,7 +25,7 @@ public abstract interface IRepository<T extends Entity> {
      * @return lista de entidades que coinciden con {@code id}; puede contener múltiples entradas o estar vacía
      * @throws RepositoryException si ocurre un error al acceder al repositorio
      */
-    public abstract List<T> getById(String id) throws RepositoryException;
+    public abstract ArrayList<T> getById(String id) throws RepositoryException;
     /**
      * Persiste una nueva entidad en el repositorio.
      *

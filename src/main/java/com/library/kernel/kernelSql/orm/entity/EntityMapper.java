@@ -33,7 +33,8 @@ public final class EntityMapper<T extends Entity> implements Colors {
      * @param <T>    Tipo concreto que extiende {@code Entity}.
      * @return Mapa con pares (nombreCampo -> valorComoCadena).
      * @throws EntityMapperException Si ocurre un error de reflexión al acceder a los campos.
-     */    public static<T extends Entity> HashMap<String, String> mapEntityFieldsAndAttributes(T entity)
+     */
+    public static<T extends Entity> HashMap<String, String> mapEntityFieldsAndAttributes(T entity)
     throws EntityMapperException
     {
         try {

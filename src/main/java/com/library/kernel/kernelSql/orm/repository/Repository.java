@@ -29,7 +29,8 @@ public final class Repository<T extends Entity> implements IRepository<T>, Color
 {
     /**
      * Instancia del motor ORM que realiza las consultas sobre la entidad.
-     */    private ORM<T> orm;
+     */
+    private IORMEngine<T> orm;
 
     /**
      * Clase de la entidad que este repositorio manejará.
@@ -52,8 +53,9 @@ public final class Repository<T extends Entity> implements IRepository<T>, Color
      *
      * @return Lista de instancias de la entidad.
      * @throws RepositoryException Si ocurre cualquier error en la operación del repositorio.
-     */    @Override
-    public List<T> getAll() throws RepositoryException
+     */
+    @Override
+    public ArrayList<T> getAll() throws RepositoryException
     {
         try {
             // Delegar al ORM la obtención de todos los registros (sin filtro)
@@ -75,7 +77,7 @@ public final class Repository<T extends Entity> implements IRepository<T>, Color
      * @return Lista con el/los registros encontrados.
      * @throws RepositoryException Si los valores son inválidos o ocurre un error en la operación.
      */    @Override
-    public List<T> getById(String id) throws RepositoryException
+    public ArrayList<T> getById(String id) throws RepositoryException
     {
         try {
             
