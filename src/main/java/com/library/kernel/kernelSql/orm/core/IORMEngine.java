@@ -29,7 +29,7 @@ public abstract interface IORMEngine<T extends Entity> {
      * @return Lista de entidades del tipo {@code T} resultantes de la consulta.
      * @throws ORMException Si ocurre un error en la capa ORM o en la ejecución de la consulta.
      */
-    public abstract List<T> selectQuery(T entity, String value, String field) throws ORMException;
+    public abstract ArrayList<T> selectQuery(T entity, String value, String field) throws ORMException;
     /**
      * Ejecuta una operación de actualización (UPDATE) para la entidad proporcionada.
      *

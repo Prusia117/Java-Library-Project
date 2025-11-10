@@ -22,8 +22,8 @@ import com.library.kernel.kernelSql.orm.entity.utils.EntityMapperException;
 public final class ORM<T extends Entity> implements IORMEngine<T>, Colors {
     // Ejecutores y constructores de sentencias SQL
 
-    private ISQLExecutor sqlExecutor;
-    private ISQLBuilder sqlBuilder;
+    private final ISQLExecutor sqlExecutor;
+    private final ISQLBuilder sqlBuilder;
 
     // Inicialización por defecto de los componentes SQL
     {

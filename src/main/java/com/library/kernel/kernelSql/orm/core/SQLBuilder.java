@@ -37,7 +37,6 @@ final class SQLBuilder implements ISQLBuilder ,Colors {
      * @throws SQLBuilderException Si el parámetro es nulo o vacío o si ocurre un error
      *                             al crear las entidades relacionadas.
      */
-    @Override
     public String[] createJoinsStatments(HashMap<Class<?>, String> relationships)
     throws SQLBuilderException
     {
