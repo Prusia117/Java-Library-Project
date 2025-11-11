@@ -59,7 +59,7 @@ public class LoginController {
     @FXML
     private void irAInicio() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/I-view.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/HomeView.fxml"));
             Parent root = loader.load();
             Stage stage = (Stage) txtCorreo.getScene().getWindow();
             Scene scene = new Scene(root, 870, 500);

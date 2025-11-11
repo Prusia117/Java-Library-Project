@@ -65,7 +65,7 @@ public class SplashController {
     @FXML
     private void abrirVentanaIS() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/IS-view.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/LoginView.fxml"));
             Scene scene = new Scene(loader.load(), 870, 500);
             Stage stage = (Stage) btnIniciarSesion.getScene().getWindow();
             stage.setScene(scene);
