@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<StackPane xmlns="http://javafx.com/javafx/8"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="FolderIS.ISController"
+           prefHeight="500.0"
+           prefWidth="870.0">
+
+    <children>
+
+        <ImageView fitHeight="500.0" fitWidth="870.0" preserveRatio="false">
+            <image>
+                <Image url="@img/Fondos/FIS.png" />
+            </image>
+        </ImageView>
+
+        <AnchorPane prefWidth="870.0" prefHeight="500.0">
+
+            <VBox alignment="CENTER_RIGHT"
+                  spacing="15"
+                  prefWidth="350"
+                  layoutX="480"
+                  layoutY="180">
+
+                <children>
+
+                    <TextField fx:id="txtCorreo"
+                               promptText="Ingresa tu correo"
+                               prefWidth="280"
+                               prefHeight="38"
+                               style="-fx-background-radius: 8; -fx-border-radius: 8;
+                                      -fx-border-color: #ccc; -fx-padding: 6;" />
+
+                    <StackPane prefWidth="280" alignment="CENTER_RIGHT">
+                        <children>
+                            <PasswordField fx:id="txtContrasena"
+                                           promptText="Ingresa tu contraseña"
+                                           prefWidth="280"
+                                           prefHeight="38"
+                                           style="-fx-background-radius: 8; -fx-border-radius: 8;
+                                                  -fx-border-color: #ccc; -fx-padding: 6 35 6 6;" />
+                            <TextField fx:id="campoVisible"
+                                       promptText="Ingresa tu contraseña"
+                                       prefWidth="280"
+                                       prefHeight="38"
+                                       visible="false"
+                                       managed="false"
+                                       style="-fx-background-radius: 8; -fx-border-radius: 8;
+                                              -fx-border-color: #ccc; -fx-padding: 6 35 6 6;" />
+                            <Button fx:id="btnVerContrasena"
+                                    onAction="#togglePassword"
+                                    style="-fx-background-color: transparent; -fx-cursor: hand; -fx-padding: 0;">
+                                <graphic>
+                                    <ImageView fx:id="iconoOjo"
+                                               fitHeight="18"
+                                               fitWidth="18">
+                                        <image>
+                                            <Image url="@img/Botones/BV.png" />
+                                        </image>
+                                    </ImageView>
+                                </graphic>
+                            </Button>
+                        </children>
+                    </StackPane>
+
+                    <!-- Botón de inicio de sesión -->
+                    <VBox spacing="10" alignment="CENTER">
+                        <Button fx:id="btIniciarSesion"
+                                onAction="#irAInicio"
+                                style="-fx-background-color: transparent; -fx-cursor: hand;">
+                            <graphic>
+                                <ImageView fx:id="imgIniciarSesion"
+                                           fitWidth="180"
+                                           fitHeight="140"
+                                           preserveRatio="true">
+                                    <image>
+                                        <Image url="@img/Botones/BIS.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                    </VBox>
+                </children>
+            </VBox>
+        </AnchorPane>
+    </children>
+</StackPane>

@@ -1,0 +1,20 @@
+package com.library.applications;
+
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+import java.io.IOException;
+
+public class SplashApplication extends Application {
+    @Override
+    public void start(Stage stage) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(SplashApplication.class.getResource("/SN-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 870, 500);
+        stage.setTitle("SobreNosotros");
+        stage.setScene(scene);
+        stage.setResizable(false);
+        stage.show();
+    }
+}

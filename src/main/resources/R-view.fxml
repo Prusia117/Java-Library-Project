@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<StackPane fx:id="stackPane"
+           prefHeight="870.0"
+           prefWidth="500.0"
+           xmlns="http://javafx.com/javafx/25"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="FolderR.RController">
+
+    <children>
+
+        <ImageView fx:id="fondo"
+                   fitHeight="${stackPane.height}"
+                   fitWidth="${stackPane.width}"
+                   preserveRatio="false"
+                   pickOnBounds="true">
+            <image>
+                <Image url="@img/Fondos/FR.png" />
+            </image>
+        </ImageView>
+
+        <VBox spacing="10" alignment="CENTER" StackPane.alignment="CENTER">
+            <padding>
+                <Insets top="100" right="0" bottom="0" left="0"/>
+            </padding>
+            <children>
+
+                <TextField fx:id="nombreField"
+                           promptText="Nombre Completo"
+                           prefWidth="340"
+                           prefHeight="40"
+                           maxWidth="340"
+                           style="-fx-border-color: #2d2853; -fx-border-radius: 5; -fx-background-radius: 5;"/>
+
+                <TextField fx:id="fechaField"
+                           promptText="DD/MM/AAAA"
+                           prefWidth="340"
+                           prefHeight="40"
+                           maxWidth="340"
+                           style="-fx-border-color: #2d2853; -fx-border-radius: 5; -fx-background-radius: 5;"/>
+
+                <TextField fx:id="correoField"
+                           promptText="Correo electrónico"
+                           prefWidth="340"
+                           prefHeight="40"
+                           maxWidth="340"
+                           style="-fx-border-color: #2d2853; -fx-border-radius: 5; -fx-background-radius: 5;"/>
+
+                <HBox spacing="5" alignment="CENTER">
+                    <children>
+                        <PasswordField fx:id="passwordField"
+                                       promptText="Contraseña"
+                                       prefWidth="315"
+                                       prefHeight="40"
+                                       maxWidth="315"
+                                       style="-fx-border-color: #2d2853; -fx-border-radius: 5; -fx-background-radius: 5;"/>
+
+                        <ImageView fx:id="verIcono"
+                                   fitWidth="20"
+                                   fitHeight="20"
+                                   pickOnBounds="true"
+                                   onMouseClicked="#togglePassword">
+                            <image>
+                                <Image url="@img/Botones/BV.png"/>
+                            </image>
+                        </ImageView>
+                    </children>
+                </HBox>
+
+                <VBox spacing="10" alignment="CENTER">
+                    <padding>
+                        <Insets top="-20" right="0" bottom="0" left="0"/>
+                    </padding>
+                    <children>
+
+                        <HBox spacing="5" alignment="CENTER">
+                            <children>
+
+                                <Button
+                                        fx:id="guardarBtn"
+                                        onAction="#guardarDatos"
+                                        prefWidth="180"
+                                        prefHeight="140"
+                                        style="-fx-background-color: transparent;">
+                                    <graphic>
+                                        <ImageView fitWidth="180" fitHeight="140">
+                                            <image>
+                                                <Image url="@img/Botones/BAU.png"/>
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+
+                                <Button
+                                        fx:id="irAtras"
+                                        onAction="#irAtras"
+                                        prefWidth="180"
+                                        prefHeight="140"
+                                        style="-fx-background-color: transparent;">
+                                    <graphic>
+                                        <ImageView fitWidth="180" fitHeight="140">
+                                            <image>
+                                                <Image url="@img/Botones/BR.png"/>
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+
+                            </children>
+                        </HBox>
+
+                        <Label fx:id="mensajeLabel"
+                               textFill="#2d2853"
+                               style="-fx-font-size: 12px;"/>
+
+                        <Label fx:id="salirLink"
+                               text="¿Quisieras salir?"
+                               visible="false"
+                               style="-fx-text-fill: #4b0082; -fx-font-size: 13px; -fx-cursor: hand;"/>
+
+                    </children>
+                </VBox>
+            </children>
+        </VBox>
+    </children>
+</StackPane>
+
