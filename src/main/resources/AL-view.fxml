@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="FolderAL.ALController"
+            prefHeight="500" prefWidth="870">
+
+    <children>
+        <ImageView fitHeight="500" fitWidth="870" preserveRatio="false">
+            <image>
+                <Image url="@img/Fondos/FAL.png"/>
+            </image>
+        </ImageView>
+
+        <Button fx:id="btnSalir" layoutX="820" layoutY="8"
+                style="-fx-background-color: transparent;"
+                onAction="#onSalirClick">
+            <graphic>
+                <ImageView fitWidth="20" fitHeight="20">
+                    <image>
+                        <Image url="@img/Botones/BPR.png"/>
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
+
+        <VBox alignment="CENTER" spacing="12" layoutX="130" layoutY="120" prefWidth="610">
+            <children>
+
+                <TextField fx:id="txtTitulo" promptText="Título"
+                           style="-fx-border-color: #1a1333; -fx-border-width: 1.5; -fx-background-color: white; -fx-font-style: italic;"
+                           prefWidth="600"/>
+
+                <TextField fx:id="txtAutor" promptText="Autor"
+                           style="-fx-border-color: #1a1333; -fx-border-width: 1.5; -fx-background-color: white; -fx-font-style: italic;"
+                           prefWidth="600"/>
+
+                <TextField fx:id="txtResena" promptText="Reseña"
+                           style="-fx-border-color: #1a1333; -fx-border-width: 1.5; -fx-background-color: white; -fx-font-style: italic;"
+                           prefWidth="600"/>
+
+                <HBox alignment="CENTER" spacing="10" translateY="-10">
+                    <children>
+                        <TextField fx:id="txtFecha" promptText="DD/MM/YYYY"
+                                   style="-fx-border-color: #1a1333; -fx-border-width: 1.5; -fx-background-color: white; -fx-font-style: italic;"
+                                   prefWidth="180"/>
+
+                        <Button fx:id="btnImportarPDF" onAction="#onImportarPDFClick" style="-fx-background-color: transparent;">
+                            <graphic>
+                                <ImageView fitWidth="120" fitHeight="120">
+                                    <image>
+                                        <Image url="@img/Botones/BIL.png"/>
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Button>
+
+                        <Button fx:id="btnImportarIMG" text="Importar Imagen"
+                                onAction="#onImportarIMGClick"
+                                style="-fx-background-color: #9C27B0; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 10; -fx-pref-width: 150; -fx-pref-height: 40;"/>
+                    </children>
+                </HBox>
+
+                <Button fx:id="btnGuardar" onAction="#onGuardarClick"
+                        style="-fx-background-color: transparent;"
+                        translateY="-110">
+                    <graphic>
+                        <ImageView fitWidth="140" fitHeight="140">
+                            <image>
+                                <Image url="@img/Botones/BAL.png"/>
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+
+                <Label fx:id="lblMensaje" textFill="red"
+                       style="-fx-font-weight: bold; -fx-font-size: 14px;"
+                       translateY="-120"
+                       alignment="CENTER"/>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>
+
