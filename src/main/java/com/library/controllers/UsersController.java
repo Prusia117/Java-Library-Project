@@ -115,7 +115,7 @@ public class UsersController {
     private void irAEAplicacion() {
         contador = 0;
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/E-view.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/HomeView.fxml"));
             Pane root = loader.load();
             Stage stage = (Stage) stackPane.getScene().getWindow();
             Scene scene = new Scene(root, 870, 500);

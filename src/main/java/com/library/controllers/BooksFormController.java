@@ -117,7 +117,7 @@ public class BooksFormController {
     @FXML
     private void onSalirClick(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/E-view.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/HomeView.fxml"));
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.setTitle("Editar Libros");

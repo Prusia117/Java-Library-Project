@@ -10,9 +10,9 @@ import java.io.IOException;
 public class SplashApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(SplashApplication.class.getResource("/SN-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(SplashApplication.class.getResource("/SplashView.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 870, 500);
-        stage.setTitle("SobreNosotros");
+        stage.setTitle("Sobre Nosotros");
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
