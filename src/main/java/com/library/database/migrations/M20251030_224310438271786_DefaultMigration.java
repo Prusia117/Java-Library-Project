@@ -29,4 +29,3 @@ public class M20251030_224310438271786_DefaultMigration extends Migration {
         ));
     }
 }
-
