@@ -9,4 +9,6 @@ public interface Colors {
     public static final String BLUE = "\u001B[34m";
     public static final String PURPLE = "\u001B[35m";
     public static final String CIAN = "\u001B[36m";
+    public static final String BLACK =  "\u001B[30m";
+    public static final String WHITE = "\u001B[37m";
 }
