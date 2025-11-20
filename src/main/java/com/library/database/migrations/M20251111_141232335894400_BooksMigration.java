@@ -13,10 +13,13 @@ public class M20251111_141232335894400_BooksMigration extends Migration {
         return new ArrayList<>(List.of(
                 new Schema("T_Books")
                         .addColumn("book_id", SQLDataTypes.SERIAL).primaryKey()
-                        .addColumn("book_title", SQLDataTypes.VARCHAR).size(200).nullable(false)
-                        .addColumn("book_author", SQLDataTypes.VARCHAR).size(150).nullable(false)
+                        .addColumn("book_title", SQLDataTypes.VARCHAR)
+                        .addColumn("book_author", SQLDataTypes.VARCHAR)
                         .addColumn("book_year", SQLDataTypes.INT)
-                        .addColumn("book_category", SQLDataTypes.VARCHAR).size(100)
+                        .addColumn("book_category", SQLDataTypes.VARCHAR)
+                        //Agregación de los paths
+                        .addColumn("book_file_path", SQLDataTypes.VARCHAR)
+                        .addColumn("book_image_path", SQLDataTypes.VARCHAR)
         ));
     }
 
