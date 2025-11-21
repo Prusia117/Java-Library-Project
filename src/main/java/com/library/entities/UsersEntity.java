@@ -8,13 +8,13 @@ import java.util.HashMap;
 
 public final class UsersEntity implements Entity {
 
-	private String tableName = "T_Users";
+	public String tableName = "T_Users";
 
-	private String primaryKey = "user_id";
+	public String primaryKey = "user_id";
 
-	private boolean hasAutoIncrement = true; 
+	public boolean hasAutoIncrement = true;
 
-	private HashMap<Class<?>, String> relationships = null /*new HashMap<Class<?>, String>() {{}}*/;
+	public HashMap<Class<?>, String> relationships = null /*new HashMap<Class<?>, String>() {{}}*/;
 
     Integer user_id;
     String user_name;
