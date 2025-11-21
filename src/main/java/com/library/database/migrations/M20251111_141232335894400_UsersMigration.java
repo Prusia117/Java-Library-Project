@@ -12,8 +12,7 @@ public class M20251111_141232335894400_UsersMigration extends Migration {
     public ArrayList<Schema> up() {
         return new ArrayList<>(List.of(
                 new Schema("T_Users")
-                        .addColumn("user_id", SQLDataTypes.SERIAL)
-                        .primaryKey()
+                        .addColumn("user_id", SQLDataTypes.SERIAL).primaryKey()
                         .addColumn("user_name", SQLDataTypes.VARCHAR)
                         .addColumn("user_mail", SQLDataTypes.VARCHAR)
                         .addColumn("user_password", SQLDataTypes.VARCHAR)
