@@ -6,26 +6,25 @@ import java.util.ArrayList;
 
 import java.util.HashMap;
 
-public final class BooksEntity implements Entity {
+public final class BookEntity implements Entity {
 
-	private String tableName = "T_Books";
+	public String tableName = "T_Books";
 
-	private String primaryKey = "book_id";
+	public String primaryKey = "book_id";
 
-	private boolean hasAutoIncrement = true;
+	public boolean hasAutoIncrement = true;
 
-	private HashMap<Class<?>, String> relationships = null /*new HashMap<Class<?>, String>() {{}}*/;
+    public HashMap<Class<?>, String> relationships = null /*new HashMap<Class<?>, String>() {{}}*/;
 
-    Integer book_id;
-    String book_name;
-    String book_author;
-    Integer book_year;
-    String book_category;
-    String book_file_path;
-    String book_image_path;
+    public Integer book_id;
+    public String book_title;
+    public String book_author;
+    public Integer book_year;
+    public String book_category;
+    public String book_file_path;
+    public String book_image_path;
 
 	public ArrayList<Entity> entityRelationships;
-
 	@Override
 	public String getPrimaryKey() {
 		return primaryKey;
@@ -47,8 +46,6 @@ public final class BooksEntity implements Entity {
 	}
 
 	@Override
-	public void setEntityRelationships(ArrayList<Entity> entities){
-		this.entityRelationships = entities;
-	}
+	public void setEntityRelationships(ArrayList<Entity> entities)  {this.entityRelationships = entities;}
 }
 
