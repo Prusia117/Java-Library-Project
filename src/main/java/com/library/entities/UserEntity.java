@@ -16,10 +16,10 @@ public final class UsersEntity implements Entity {
 
 	public HashMap<Class<?>, String> relationships = null /*new HashMap<Class<?>, String>() {{}}*/;
 
-    Integer user_id;
-    String user_name;
-    String user_mail;
-    String user_password;
+    public Integer user_id;
+    public String user_name;
+    public String user_mail;
+    public String user_password;
 
 	public ArrayList<Entity> entityRelationships;
 
