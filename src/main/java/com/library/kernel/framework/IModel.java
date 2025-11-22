@@ -8,8 +8,6 @@ public abstract interface IModel<T extends Entity> {
 
     public abstract List<T> getById(String id);
 
-    public abstract boolean save();
-
     public abstract boolean update(String id);
 
     public abstract boolean delete(String id);
