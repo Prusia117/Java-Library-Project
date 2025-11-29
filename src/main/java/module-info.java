@@ -3,6 +3,8 @@ module module {
     requires javafx.fxml;
     requires javafx.graphics;
     requires javafx.web;
+    requires javafx.swing;
+    requires org.apache.pdfbox;
 
     requires org.controlsfx.controls;
     requires com.dlsc.formsfx;
