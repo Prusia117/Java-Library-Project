@@ -23,7 +23,6 @@ public final class UserModel implements IModel{
 		return entityList;
 	}
 
-	@Override
 	public boolean save(){
 		UserEntity entity = new UserEntity();
 		return userRepositrory.save(entity);

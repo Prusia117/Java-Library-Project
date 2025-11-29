@@ -23,7 +23,6 @@ public final class BookModel implements IModel{
 		return entityList;
 	}
 
-	@Override
 	public boolean save(){
 		BookEntity entity = new BookEntity();
 		return bookRepositrory.save(entity);
