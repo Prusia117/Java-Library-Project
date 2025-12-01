@@ -69,6 +69,33 @@ public final class Repository<T extends Entity> implements IRepository<T>, Color
         }
     }
 
+    /**
+     * Obtiene las entidades que coinciden con la fila y el identificador proporcionado.
+     *
+     * @param field fila por la cual se quiere buscar
+     * @param arg valor de la fila
+     * @return lista de entidades que coinciden con {@code id}; puede contener múltiples entradas o estar vacía
+     * @throws RepositoryException si ocurre un error al acceder al repositorio
+     */
+    public ArrayList<T> getByField(String field, String arg) {
+        try {
+
+            if(arg == null){
+                throw new RepositoryException("Invalid values provided");
+            }
+
+            // TODO: Implementar filtro por campo y valor
+
+            ArrayList<T> entityArrayList = orm.selectQuery(EntityFactory.createEntity(entityType),arg, field);
+
+            return entityArrayList;
+
+        } catch (RepositoryException | EntityFactoryException | ORMException error) {
+            Logger.errorLog("Repository Exception", error.getMessage());
+            throw new RepositoryException("Repository Exception: " + error.getMessage());
+        }
+    }
+
 
     /**
      * Obtiene un registro (o registros) de la entidad por su id.
@@ -76,8 +103,9 @@ public final class Repository<T extends Entity> implements IRepository<T>, Color
      * @param id Identificador del registro a buscar (como cadena).
      * @return Lista con el/los registros encontrados.
      * @throws RepositoryException Si los valores son inválidos o ocurre un error en la operación.
-     */    @Override
-    public ArrayList<T> getById(String id) throws RepositoryException
+     */
+    @Override
+    public T getById(String id) throws RepositoryException
     {
         try {
             
@@ -87,7 +115,7 @@ public final class Repository<T extends Entity> implements IRepository<T>, Color
 
             ArrayList<T> entityArrayList = orm.selectQuery(EntityFactory.createEntity(entityType),id, null);
             
-            return entityArrayList;
+            return entityArrayList.get(0);
 
         } catch (RepositoryException | EntityFactoryException | ORMException error) {
             Logger.errorLog("Repository Exception", error.getMessage());
