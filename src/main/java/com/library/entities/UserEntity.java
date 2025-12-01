@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 import java.util.HashMap;
 
-public final class UsersEntity implements Entity {
+public final class UserEntity implements Entity {
 
 	public String tableName = "T_Users";
 
