@@ -6,7 +6,7 @@ import java.util.List;
 
 public abstract interface IModel<T extends Entity> {
 
-    public abstract List<T> getById(String id);
+    public abstract T getById(String id);
 
     public abstract boolean update(String id);
 

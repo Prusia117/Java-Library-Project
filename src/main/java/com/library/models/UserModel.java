@@ -18,15 +18,20 @@ public final class UserModel implements IModel{
 	}
 
 	@Override
-	public ArrayList<UserEntity> getById(String id){
-		ArrayList<UserEntity> entityList = userRepositrory.getById(id);
-		return entityList;
+	public UserEntity getById(String id){
+        UserEntity entity = userRepositrory.getById(id);
+		return entity;
 	}
 
-	public boolean save(){
-		UserEntity entity = new UserEntity();
-		return userRepositrory.save(entity);
-	}
+    public boolean save(Integer id, String name, String mail, String password){
+        UserEntity entity = new UserEntity();
+        entity.user_id = id;
+        entity.user_name = name;
+        entity.user_mail = mail;
+        entity.user_password = password;
+
+        return userRepositrory.save(entity);
+    }
 
 	@Override
 	public boolean update(String id){
