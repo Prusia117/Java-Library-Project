@@ -19,13 +19,23 @@ public abstract interface IRepository<T extends Entity> {
      */
     public abstract ArrayList<T> getAll() throws RepositoryException;
     /**
-     * Obtiene las entidades que coinciden con el identificador proporcionado.
+     * Obtiene las entidades que coinciden con la fila y el identificador proporcionado.
+     *
+     * @param field fila por la cual se quiere buscar
+     * @param arg valor de la fila
+     * @return lista de entidades que coinciden con {@code id}; puede contener múltiples entradas o estar vacía
+     * @throws RepositoryException si ocurre un error al acceder al repositorio
+     */
+    public abstract ArrayList<T> getByField(String field, String arg) throws RepositoryException;
+
+    /**
+     * Obtiene las entidad que coinciden con el identificador proporcionado.
      *
      * @param id identificador de la(s) entidad(es) a recuperar
      * @return lista de entidades que coinciden con {@code id}; puede contener múltiples entradas o estar vacía
      * @throws RepositoryException si ocurre un error al acceder al repositorio
      */
-    public abstract ArrayList<T> getById(String id) throws RepositoryException;
+    public abstract T getById(String id) throws RepositoryException;
     /**
      * Persiste una nueva entidad en el repositorio.
      *
