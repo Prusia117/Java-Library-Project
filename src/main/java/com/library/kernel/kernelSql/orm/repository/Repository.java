@@ -86,9 +86,11 @@ public final class Repository<T extends Entity> implements IRepository<T>, Color
 
             // TODO: Implementar filtro por campo y valor
 
-            return null;
+            ArrayList<T> entityArrayList = orm.selectQuery(EntityFactory.createEntity(entityType),arg, field);
 
-        } catch (RepositoryException error) {
+            return entityArrayList;
+
+        } catch (RepositoryException | EntityFactoryException | ORMException error) {
             Logger.errorLog("Repository Exception", error.getMessage());
             throw new RepositoryException("Repository Exception: " + error.getMessage());
         }
