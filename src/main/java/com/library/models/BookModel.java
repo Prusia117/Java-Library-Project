@@ -18,9 +18,9 @@ public final class BookModel implements IModel{
 	}
 
 	@Override
-	public ArrayList<BookEntity> getById(String id){
-		ArrayList<BookEntity> entityList = bookRepositrory.getById(id);
-		return entityList;
+	public BookEntity getById(String id){
+        BookEntity entity = bookRepositrory.getById(id);
+		return entity;
 	}
 
 	public boolean save(){
