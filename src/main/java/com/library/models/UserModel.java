@@ -23,9 +23,8 @@ public final class UserModel implements IModel{
 		return entity;
 	}
 
-    public boolean save(Integer id, String name, String mail, String password){
+    public boolean save(String name, String mail, String password){
         UserEntity entity = new UserEntity();
-        entity.user_id = id;
         entity.user_name = name;
         entity.user_mail = mail;
         entity.user_password = password;
@@ -44,5 +43,20 @@ public final class UserModel implements IModel{
 		return userRepositrory.delete(id);
 	}
 
-}
+    public UserEntity login(String user_mail/*Correo*/, String user_password/*Contraseña*/) {
 
+        ArrayList<UserEntity> users = userRepositrory.getByField("user_mail",user_mail);
+
+        if (users.size() == 0) {
+            return null;
+        }
+
+        UserEntity user = users.get(0);
+
+        if (user.user_password.equals(user_password)) {
+            return user;
+        }
+
+        return null;
+    }
+}
