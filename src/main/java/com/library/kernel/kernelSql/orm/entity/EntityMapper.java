@@ -1,6 +1,7 @@
 package com.library.kernel.kernelSql.orm.entity;
 
 import java.lang.reflect.Field;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 
@@ -74,8 +75,15 @@ public final class EntityMapper<T extends Entity> implements Colors {
 
             // Devolvemos los campos públicos
             Field[] entityFields = entityClass.getFields();
-            
-            return entityFields;
+            ArrayList<Field> publicFields = new ArrayList<>();
+            for (Field field : entityFields) {
+                if(!Entity.ENTITY_KEY_WORDS.contains(field.getName())){
+
+                    publicFields.add(field);
+                }
+            }
+
+            return publicFields.toArray(new Field[entityFields.length - publicFields.size()]);
 
         } catch (IllegalArgumentException error) {
             Logger.errorLog("Entity Factory Error", error.getMessage());

@@ -2,6 +2,7 @@ package com.library.kernel.kernelSql.orm.entity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * Interfaz {@code Entity}.
@@ -16,6 +17,8 @@ import java.util.HashMap;
  * - Exponer las relaciones con otras entidades y permitir asignar las entidades relacionadas.
  */
 public abstract interface Entity {
+
+    public static ArrayList<String> ENTITY_KEY_WORDS = new ArrayList<>(List.of("ENTITY_KEY_WORDS", "tableName", "primaryKey", "hasAutoIncrement", "relationships", "entityRelationships"));
 
     /**
      * Obtiene el nombre de la columna que actúa como clave primaria de la entidad.

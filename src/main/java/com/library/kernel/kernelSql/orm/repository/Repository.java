@@ -3,6 +3,8 @@ package com.library.kernel.kernelSql.orm.repository;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.library.config.DatabaseConfig;
+import com.library.kernel.KernelConfiguration;
 import com.library.kernel.classes.Colors;
 import com.library.kernel.kernelSql.orm.core.IORMEngine;
 import com.library.kernel.logger.Logger;
@@ -43,6 +45,7 @@ public final class Repository<T extends Entity> implements IRepository<T>, Color
      */
     public Repository(Class<T> type)
     {
+        KernelConfiguration.setKernelConfiguration(new DatabaseConfig(), true);
         orm = new ORM<T>();
 
         this.entityType = type;
