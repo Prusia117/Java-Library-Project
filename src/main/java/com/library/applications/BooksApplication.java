@@ -12,7 +12,7 @@ public class BooksApplication extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(BooksApplication.class.getResource("/BooksView.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 870, 500);
-        stage.setTitle("Libros");
+        stage.setTitle("Libro");
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
