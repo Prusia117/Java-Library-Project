@@ -23,9 +23,9 @@ public final class BookModel implements IModel{
 		return entity;
 	}
 
-    public boolean save(Integer book_id,String book_title, String book_author,Integer book_year,String book_category,String book_file_path,String book_image_path){
+    public boolean save(String book_title, String book_author,Integer book_year,String book_category,String book_file_path,String book_image_path){
         BookEntity entity = new BookEntity();
-        entity.book_id = book_id;
+
         entity.book_title = book_title;
         entity.book_author = book_author;
         entity.book_year = book_year;
