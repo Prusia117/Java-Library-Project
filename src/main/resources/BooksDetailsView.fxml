@@ -17,58 +17,58 @@
         fx:controller="com.library.controllers.BooksDetailsController">
 
     <children>
-        <ImageView fitHeight="500.0"
-                   fitWidth="870.0"
-                   pickOnBounds="true"
-                   preserveRatio="false">
+        <ImageView
+                fitHeight="500.0"
+                fitWidth="870.0"
+                pickOnBounds="true"
+                preserveRatio="false">
             <image>
-                <Image url="@img/Fondos/FSL.png" />
+                <Image url="@img/Fondos/FSL.png"/>
             </image>
         </ImageView>
 
 
         <ImageView
-                   fitHeight="200.0"
-                   fitWidth="200.0"
-                   translateX="-300.0"
-                   translateY="-90.0"
-                   pickOnBounds="true"
-                   preserveRatio="false">
-            <image>
-                <Image url="@img/Imagenes/Blaze.png" />
-            </image>
+                fx:id="imgPortadaDetalle"
+                fitHeight="200.0"
+                fitWidth="200.0"
+                translateX="-300.0"
+                translateY="-90.0"
+                pickOnBounds="true"
+                preserveRatio="false">
         </ImageView>
 
-        <Label text="Aquí va la descripción larga del libro. Esta historia trata sobre..."
-               wrapText="true"
-               textFill="BLACK"
-               maxWidth="300.0"
-               StackPane.alignment="TOP_LEFT">
+        <Label
+                fx:id="lblDescripcionDetalle"
+                wrapText="true"
+                textFill="BLACK"
+                maxWidth="300.0"
+                StackPane.alignment="TOP_LEFT">
             <font>
-                <Font size="14.0" />
+                <Font size="14.0"/>
             </font>
             <StackPane.margin>
-                <Insets top="100.0" left="250.0" />
+                <Insets top="100.0" left="250.0"/>
             </StackPane.margin>
         </Label>
 
         <Button text="Leer"
                 fx:id="btnLeerBlaze"
-                onAction="#abrirLibroBlaze"  prefWidth="120.0"
+                onAction="#abrirLibroBlaze" prefWidth="120.0"
                 prefHeight="40.0"
                 StackPane.alignment="TOP_LEFT">
 
             <style>
                 -fx-background-color: #FF5722; /* Color Naranja */
-                -fx-text-fill: white;          /* Texto Blanco */
-                -fx-font-weight: bold;         /* Texto en Negrita */
-                -fx-background-radius: 20;     /* Bordes Redondeados */
-                -fx-cursor: hand;              /* Manita al pasar el mouse */
+                -fx-text-fill: white; /* Texto Blanco */
+                -fx-font-weight: bold; /* Texto en Negrita */
+                -fx-background-radius: 20; /* Bordes Redondeados */
+                -fx-cursor: hand; /* Manita al pasar el mouse */
                 -fx-font-size: 14px;
             </style>
 
             <StackPane.margin>
-                <Insets top="280.0" left="70.0" />
+                <Insets top="280.0" left="70.0"/>
             </StackPane.margin>
         </Button>
     </children>

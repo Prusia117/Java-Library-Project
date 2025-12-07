@@ -8,13 +8,14 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
-import org.apache.pdfbox.Loader;
+import org.apache.pdfbox.Loader; // Importante: Clase para cargar en PDFBox 3.x
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.rendering.PDFRenderer;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 
 public class BooksController {
 
@@ -42,13 +43,46 @@ public class BooksController {
     }
 
     // MÉTODO PÚBLICO PARA RECIBIR LA RUTA ---
-    public void setPdfFilePath(String path) {
-        File file = new File(path);
-        if (file.exists() && file.isFile()) {
-            loadPDF(file);
-        } else {
-            showError("Archivo no encontrado",
-                    "No se pudo encontrar el archivo PDF en:\n" + path);
+    public void setPdfFilePath(String rutaPdf) {
+        try {
+            // Cerramos el documento anterior si existe para liberar memoria
+            if (currentDocument != null) currentDocument.close();
+
+            // 1. Lógica Híbrida: Intentar cargar como archivo local (C:\...)
+            File archivoLocal = new File(rutaPdf);
+
+            if (archivoLocal.exists()) {
+                // CASO A: Es una ruta absoluta del disco
+                System.out.println("Cargando PDF local: " + rutaPdf);
+                // Loader.loadPDF(File) es muy eficiente para archivos locales
+                currentDocument = Loader.loadPDF(archivoLocal);
+            } else {
+                // CASO B: No existe en disco, intentamos como Recurso (/img/Pdfs/...)
+                System.out.println("Buscando PDF en recursos: " + rutaPdf);
+
+                // Aseguramos que la ruta empiece con "/" para buscar en resources
+                String rutaRecurso = rutaPdf.startsWith("/") ? rutaPdf : "/" + rutaPdf;
+
+                try (InputStream stream = getClass().getResourceAsStream(rutaRecurso)) {
+                    if (stream != null) {
+                        // En PDFBox 3.0, para cargar un Stream usamos bytes
+                        currentDocument = Loader.loadPDF(stream.readAllBytes());
+                    } else {
+                        showError("PDF no encontrado", "No se encontró el archivo ni en disco ni en recursos:\n" + rutaPdf);
+                        return;
+                    }
+                }
+            }
+
+            // Si llegamos aquí, el PDF cargó correctamente
+            pdfRenderer = new PDFRenderer(currentDocument);
+            totalPages = currentDocument.getNumberOfPages();
+            currentPage = 0;
+            renderCurrentPage();
+
+        } catch (IOException e) {
+            showError("Error al leer el PDF", e.getMessage());
+            e.printStackTrace();
         }
     }
     
@@ -69,29 +103,19 @@ public class BooksController {
         }
     }
 
-    private void loadPDF(File file) {
-        try {
-            if (currentDocument != null) currentDocument.close();
 
-            currentDocument = Loader.loadPDF(file);
-            pdfRenderer = new PDFRenderer(currentDocument);
-            totalPages = currentDocument.getNumberOfPages();
-            currentPage = 0;
-            renderCurrentPage();
-        } catch (IOException e) {
-            showError("Error al cargar el PDF", e.getMessage());
-        }
-    }
 
     private void renderCurrentPage() {
         if (pdfRenderer == null || currentDocument == null) return;
         try {
+            // Renderizamos la página actual a una imagen (150 DPI es buena calidad)
             BufferedImage bufferedImage = pdfRenderer.renderImageWithDPI(currentPage, 150);
             imageView.setImage(SwingFXUtils.toFXImage(bufferedImage, null));
+
             lblPageInfo.setText(String.format("Página %d de %d", currentPage + 1, totalPages));
             updateNavigationButtons();
         } catch (IOException e) {
-            showError("Error renderizando", e.getMessage());
+            showError("Error visualizando página", e.getMessage());
         }
     }
 
