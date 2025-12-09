@@ -14,7 +14,7 @@ public class HomeController {
 
     @FXML
     private void irAEView(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/HomeView.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/BooksView.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root, 870, 500);
         stage.setScene(scene);
