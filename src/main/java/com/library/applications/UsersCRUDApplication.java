@@ -7,11 +7,11 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class UsersFormApplication extends Application {
+public class UsersCRUDApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(UsersFormApplication.class.getResource("/UsersCRUDFormView.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 870, 500);
+        FXMLLoader fxmlLoader = new FXMLLoader(UsersCRUDApplication.class.getResource("/UsersCRUDView.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 870, 900);
         stage.setTitle("Registrar Usuario");
         stage.setScene(scene);
         stage.setResizable(false);

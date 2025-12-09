@@ -4,11 +4,15 @@ import com.library.entities.UserEntity;
 import com.library.models.UserModel;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
 
 import java.util.ArrayList;
 
-public class UsersCRUDFormController {
+public class UsersCRUDController {
 
     @FXML private TextField txtNombre;
     @FXML private TextField txtCorreo;
@@ -43,6 +47,31 @@ public class UsersCRUDFormController {
 
         tablaUsuarios.setOnMouseClicked(event -> cargarSeleccionado());
     }
+
+    @FXML
+    private void regresarAHome() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/HomeView.fxml"));
+            Parent root = loader.load();
+
+            Stage stage = (Stage) txtNombre.getScene().getWindow();
+            
+            // Restablecer tamaños para Home
+            stage.setMinWidth(870);
+            stage.setMinHeight(500);
+            stage.setWidth(870);
+            stage.setHeight(500);
+            
+            stage.setScene(new Scene(root, 870, 500));
+            stage.setTitle("Biblioteca Digital");
+            stage.centerOnScreen();
+            stage.show();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 
     private void cargarTabla() {
         ArrayList<UserEntity> lista = userModel.getAll();

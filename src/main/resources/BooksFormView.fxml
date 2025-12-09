@@ -9,7 +9,7 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx/21"
             xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.library.controllers.BooksCRUDFormController"
+            fx:controller="com.library.controllers.BooksCRUDController"
             prefHeight="500" prefWidth="870">
 
     <children>
