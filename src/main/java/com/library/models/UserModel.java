@@ -33,8 +33,8 @@ public final class UserModel implements IModel{
         return userRepositrory.save(entity);
     }
 
-    public boolean update(String id){
-        UserEntity entity = new UserEntity();
+    public boolean update(UserEntity entity, String id){
+
         return userRepositrory.update(entity, id);
     }
 
@@ -59,3 +59,4 @@ public final class UserModel implements IModel{
         return false;
     }
 }
+
