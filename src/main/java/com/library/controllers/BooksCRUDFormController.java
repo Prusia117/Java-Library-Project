@@ -10,6 +10,9 @@ import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 
 import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 
 public class BooksCRUDFormController {
@@ -34,7 +37,6 @@ public class BooksCRUDFormController {
     @FXML
     public void initialize() {
 
-        // Se enlazan los campos EXACTOS del BookEntity
         colTitulo.setCellValueFactory(c ->
                 new javafx.beans.property.SimpleStringProperty(c.getValue().book_title));
 
@@ -66,26 +68,66 @@ public class BooksCRUDFormController {
         txtAnio.setText(String.valueOf(seleccionado.book_year));
         txtCategoria.setText(seleccionado.book_category);
 
-        if (seleccionado.book_image_path != null && !seleccionado.book_image_path.isEmpty()) {
-            File img = new File(seleccionado.book_image_path);
+        if (seleccionado.book_image_path != null) {
+            File img = new File("src/main/resources" + seleccionado.book_image_path);
             if (img.exists()) {
                 imagePreview.setImage(new Image(img.toURI().toString()));
             }
         }
 
         rutaImagen = seleccionado.book_image_path;
+        rutaPDF = seleccionado.book_file_path;
     }
+
+    // =======================================================
+    // COPIAR ARCHIVOS A RESOURCES
+    // =======================================================
+
+    private String copiarArchivo(File origen, String destinoCarpeta) {
+        try {
+            String fileName = origen.getName();
+            String rutaFinal = destinoCarpeta + fileName;
+
+            Path destino = Path.of("src/main/resources" + rutaFinal);
+
+            Files.createDirectories(destino.getParent());
+            Files.copy(origen.toPath(), destino, StandardCopyOption.REPLACE_EXISTING);
+
+            return rutaFinal;  // Lo que se guarda en BD
+        }
+        catch (Exception e) {
+            alerta("Error", "No se pudo copiar el archivo:\n" + e.getMessage());
+            return null;
+        }
+    }
+
+    // =======================================================
+    // SELECCIONAR IMAGEN
+    // =======================================================
 
     @FXML
     private void onSeleccionarImagen() {
         FileChooser chooser = new FileChooser();
+        chooser.getExtensionFilters().add(
+                new FileChooser.ExtensionFilter("Imágenes", "*.jpg", "*.jpeg", "*.png")
+        );
         File file = chooser.showOpenDialog(null);
 
         if (file != null) {
-            rutaImagen = file.getAbsolutePath();
-            imagePreview.setImage(new Image(file.toURI().toString()));
+
+            // COPIAR A RESOURCES/img/Imagenes/
+            String ruta = copiarArchivo(file, "/img/Imagenes/");
+            if (ruta != null) {
+                rutaImagen = ruta;
+                imagePreview.setImage(new Image(file.toURI().toString()));
+            }
         }
     }
+
+    // =======================================================
+    // SELECCIONAR PDF
+    // =======================================================
+
     @FXML
     private void onSeleccionarPDF() {
         FileChooser chooser = new FileChooser();
@@ -96,35 +138,44 @@ public class BooksCRUDFormController {
         File file = chooser.showOpenDialog(null);
 
         if (file != null) {
-            rutaPDF = file.getAbsolutePath();
-            alerta("PDF seleccionado", "Se cargó el PDF:\n" + file.getName());
+            // COPIAR A RESOURCES/img/Pdfs/
+            String ruta = copiarArchivo(file, "/img/Pdfs/");
+            if (ruta != null) {
+                rutaPDF = ruta;
+                alerta("PDF seleccionado", "Se guardó una copia del PDF:\n" + file.getName());
+            }
         }
     }
 
+    // =======================================================
+    // AGREGAR
+    // =======================================================
 
     @FXML
     private void onAgregar() {
-        String yearText = txtAnio.getText();
 
-        if (yearText == null || yearText.isEmpty()) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setHeaderText("Faltan datos");
-            alert.setContentText("El campo Año está vacío. Ingresa un número.");
-            alert.show();
+        if (txtAnio.getText().isEmpty()) {
+            alerta("Error", "El campo Año no puede estar vacío.");
             return;
         }
 
-        int year = Integer.parseInt(yearText);
+        int year;
+
+        try {
+            year = Integer.parseInt(txtAnio.getText());
+        } catch (Exception e) {
+            alerta("Error", "El año debe ser un número válido.");
+            return;
+        }
 
         boolean ok = bookModel.save(
                 txtTitulo.getText(),
                 txtAutor.getText(),
                 year,
                 txtCategoria.getText(),
-                rutaPDF,           //book_file_path
-                rutaImagen         //book_image_path
+                rutaPDF,
+                rutaImagen
         );
-
 
         if (!ok) {
             alerta("Error", "No se pudo guardar el libro");
@@ -135,6 +186,10 @@ public class BooksCRUDFormController {
         cargarTabla();
         alerta("Éxito", "Libro agregado correctamente");
     }
+
+    // =======================================================
+    // ACTUALIZAR
+    // =======================================================
 
     @FXML
     private void onActualizar() {
@@ -149,6 +204,7 @@ public class BooksCRUDFormController {
         seleccionado.book_year = Integer.parseInt(txtAnio.getText());
         seleccionado.book_category = txtCategoria.getText();
         seleccionado.book_image_path = rutaImagen;
+        seleccionado.book_file_path = rutaPDF;
 
         boolean ok = bookModel.update(seleccionado.book_id.toString());
 
@@ -161,6 +217,10 @@ public class BooksCRUDFormController {
         cargarTabla();
         alerta("Éxito", "Libro actualizado correctamente");
     }
+
+    // =======================================================
+    // ELIMINAR
+    // =======================================================
 
     @FXML
     private void onEliminar() {
@@ -182,13 +242,19 @@ public class BooksCRUDFormController {
         alerta("Éxito", "Libro eliminado correctamente");
     }
 
+    // =======================================================
+    // LIMPIAR
+    // =======================================================
+
     private void limpiar() {
         txtTitulo.clear();
         txtAutor.clear();
         txtAnio.clear();
         txtCategoria.clear();
         imagePreview.setImage(null);
+
         rutaImagen = null;
+        rutaPDF = null;
     }
 
     private void alerta(String titulo, String mensaje) {
