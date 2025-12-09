@@ -65,10 +65,13 @@ public class UsersCRUDFormController {
     @FXML
     private void onAgregar() {
 
+        UserEntity userEntity = new UserEntity();
+        userEntity.user_name = txtNombre.getText();
+        userEntity.user_mail = txtCorreo.getText();
+        userEntity.user_password = txtPassword.getText();
+
         boolean ok = userModel.save(
-                txtNombre.getText(),
-                txtCorreo.getText(),
-                txtPassword.getText()
+                userEntity
         );
 
         if (!ok) {
