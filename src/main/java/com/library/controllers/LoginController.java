@@ -74,7 +74,6 @@ public class LoginController {
 
             boolean res = model.login(txtCorreo.getText().replace('"',' ').trim(), txtContrasena.getText().replace('"',' ').trim());
 
-
             if(!res)  {
                 lblAlert.setText("Credencicales Invalidas");
                 lblAlert.setVisible(true);
