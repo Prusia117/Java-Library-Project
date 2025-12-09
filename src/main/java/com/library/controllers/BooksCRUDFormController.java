@@ -104,11 +104,22 @@ public class BooksCRUDFormController {
 
     @FXML
     private void onAgregar() {
+        String yearText = txtAnio.getText();
+
+        if (yearText == null || yearText.isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText("Faltan datos");
+            alert.setContentText("El campo Año está vacío. Ingresa un número.");
+            alert.show();
+            return;
+        }
+
+        int year = Integer.parseInt(yearText);
 
         boolean ok = bookModel.save(
                 txtTitulo.getText(),
                 txtAutor.getText(),
-                Integer.parseInt(txtAnio.getText()),
+                year,
                 txtCategoria.getText(),
                 rutaPDF,           //book_file_path
                 rutaImagen         //book_image_path
