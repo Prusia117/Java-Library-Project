@@ -18,5 +18,10 @@
                 <Image url="@img/Fondos/FE.png"/>
             </image>
         </ImageView>
+
+        <VBox spacing="10" alignment="BOTTOM_CENTER" prefHeight="500">
+            <Button text="Ver Libros" onAction="#irAEView" />
+        </VBox>
+
     </children>
 </StackPane>
