@@ -27,7 +27,6 @@ public final class JModelTemplate implements IJTemplate  {
                 "\t\t" + className + "Entity entity = new " + className + "Entity();\n" +
                 "\t\treturn " + className.toLowerCase() + "Repositrory" + ".save(entity)" + ";\n" +
                 "\t}\n\n" +
-                "\t@Override\n" +
                 "\tpublic boolean update(String id){\n" +
                 "\t\t" + className + "Entity entity = new " + className + "Entity();\n" +
                 "\t\treturn " + className.toLowerCase() + "Repositrory" + ".update(entity, id)" + ";\n" +
