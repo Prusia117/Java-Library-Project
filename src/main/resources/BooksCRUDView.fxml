@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.library.controllers.BooksCRUDFormController"
+            prefHeight="500" prefWidth="870">
+
+    <VBox spacing="15" alignment="CENTER">
+
+        <TextField fx:id="txtTitulo" promptText="Título"/>
+        <TextField fx:id="txtAutor" promptText="Autor"/>
+        <TextField fx:id="txtAnio" promptText="Año"/>
+        <TextField fx:id="txtCategoria" promptText="Categoría"/>
+
+        <HBox spacing="20" alignment="CENTER">
+            <Button text="Seleccionar imagen" onAction="#onSeleccionarImagen"/>
+            <Button text="Seleccionar PDF" onAction="#onSeleccionarPDF"/>
+        </HBox>
+
+        <ImageView fx:id="imagePreview" fitHeight="100" fitWidth="100"/>
+
+        <HBox spacing="20" alignment="CENTER">
+            <Button text="Agregar" onAction="#onAgregar"/>
+            <Button text="Actualizar" onAction="#onActualizar"/>
+            <Button text="Eliminar" onAction="#onEliminar"/>
+        </HBox>
+
+        <TableView fx:id="tablaLibros">
+            <columns>
+                <TableColumn fx:id="colTitulo" text="Título"/>
+                <TableColumn fx:id="colAutor" text="Autor"/>
+                <TableColumn fx:id="colAnio" text="Año"/>
+                <TableColumn fx:id="colCategoria" text="Categoría"/>
+            </columns>
+        </TableView>
+    </VBox>
+    </AnchorPane>
