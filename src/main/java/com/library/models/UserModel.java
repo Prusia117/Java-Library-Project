@@ -33,7 +33,6 @@ public final class UserModel implements IModel{
         return userRepositrory.save(entity);
     }
 
-    @Override
     public boolean update(String id){
         UserEntity entity = new UserEntity();
         return userRepositrory.update(entity, id);
