@@ -258,7 +258,7 @@ final class SQLBuilder implements ISQLBuilder ,Colors {
 
                 // Recorre el mapa y añade solo los campos cuyo valor no sea "null"
                 for (Map.Entry<String, String> entry : map.entrySet()) {
-                    if (!entry.getValue().equals("null") ||
+                    if (!entry.getValue().equals("null") &&
                             !ENTITY_KEY_WORDS.contains(entry.getKey())) {
                         Logger.infoLog("Entity Field Value", entry.getKey() + " => " + entry.getValue());
                         sqlColumnsAndValues.append(entry.getKey() + " = '" + entry.getValue() + "', ");
