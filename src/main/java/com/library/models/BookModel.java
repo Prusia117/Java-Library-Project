@@ -36,7 +36,6 @@ public final class BookModel implements IModel{
         return bookRepositrory.save(entity);
     }
 
-	@Override
 	public boolean update(String id){
 		BookEntity entity = new BookEntity();
 		return bookRepositrory.update(entity, id);
