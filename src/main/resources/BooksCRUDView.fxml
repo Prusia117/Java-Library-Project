@@ -1,44 +1,84 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/21"
-            xmlns:fx="http://javafx.com/fxml/1"
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.library.controllers.BooksCRUDFormController"
-            prefHeight="500" prefWidth="870">
+            prefHeight="600" prefWidth="800">
 
-    <VBox spacing="15" alignment="CENTER">
+    <!-- TÍTULO -->
+    <top>
+        <Label text="Gestión de Libros"
+               style="-fx-font-size: 22px; -fx-padding: 10;"
+               BorderPane.alignment="CENTER"/>
+    </top>
 
-        <TextField fx:id="txtTitulo" promptText="Título"/>
-        <TextField fx:id="txtAutor" promptText="Autor"/>
-        <TextField fx:id="txtAnio" promptText="Año"/>
-        <TextField fx:id="txtCategoria" promptText="Categoría"/>
+    <!-- CONTENIDO -->
+    <center>
+        <VBox spacing="15">
+            <padding>
+                <Insets top="10" right="20" bottom="10" left="20"/>
+            </padding>
 
-        <HBox spacing="20" alignment="CENTER">
-            <Button text="Seleccionar imagen" onAction="#onSeleccionarImagen"/>
-            <Button text="Seleccionar PDF" onAction="#onSeleccionarPDF"/>
-        </HBox>
+            <!-- FORMULARIO -->
+            <GridPane hgap="10" vgap="10">
+                <columnConstraints>
+                    <ColumnConstraints prefWidth="100" halignment="RIGHT"/>
+                    <ColumnConstraints prefWidth="250"/>
+                    <ColumnConstraints prefWidth="150"/>
+                </columnConstraints>
 
-        <ImageView fx:id="imagePreview" fitHeight="100" fitWidth="100"/>
+                <Label text="Título:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <TextField fx:id="txtTitulo" GridPane.rowIndex="0" GridPane.columnIndex="1" GridPane.columnSpan="2"/>
 
-        <HBox spacing="20" alignment="CENTER">
-            <Button text="Agregar" onAction="#onAgregar"/>
-            <Button text="Actualizar" onAction="#onActualizar"/>
-            <Button text="Eliminar" onAction="#onEliminar"/>
-        </HBox>
+                <Label text="Autor:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                <TextField fx:id="txtAutor" GridPane.rowIndex="1" GridPane.columnIndex="1" GridPane.columnSpan="2"/>
 
-        <TableView fx:id="tablaLibros">
-            <columns>
-                <TableColumn fx:id="colTitulo" text="Título"/>
-                <TableColumn fx:id="colAutor" text="Autor"/>
-                <TableColumn fx:id="colAnio" text="Año"/>
-                <TableColumn fx:id="colCategoria" text="Categoría"/>
-            </columns>
-        </TableView>
-    </VBox>
-    </AnchorPane>
+                <Label text="Año:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                <TextField fx:id="txtAnio" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                <Label text="Categoría:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                <TextField fx:id="txtCategoria" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+                <!-- Botones de selección de archivos -->
+                <Label text="Archivos:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                <HBox spacing="10" GridPane.rowIndex="4" GridPane.columnIndex="1" GridPane.columnSpan="2">
+                    <Button text="Seleccionar Imagen" onAction="#onSeleccionarImagen" prefWidth="150"/>
+                    <Button text="Seleccionar PDF" onAction="#onSeleccionarPDF" prefWidth="150"/>
+                </HBox>
+
+                <!-- Preview de imagen -->
+                <Label text="Vista Previa:" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+                <ImageView fx:id="imagePreview"
+                           fitHeight="100"
+                           fitWidth="100"
+                           preserveRatio="true"
+                           GridPane.rowIndex="5"
+                           GridPane.columnIndex="1"/>
+            </GridPane>
+
+            <!-- BOTONES -->
+            <HBox spacing="10" alignment="CENTER">
+                <Button text="Agregar" onAction="#onAgregar"/>
+                <Button text="Actualizar" onAction="#onActualizar"/>
+                <Button text="Eliminar" onAction="#onEliminar"/>
+            </HBox>
+
+            <!-- TABLA (ahora al final para que se expanda) -->
+            <TableView fx:id="tablaLibros" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colTitulo" text="Título" prefWidth="250"/>
+                    <TableColumn fx:id="colAutor" text="Autor" prefWidth="150"/>
+                    <TableColumn fx:id="colAnio" text="Año" prefWidth="80"/>
+                    <TableColumn fx:id="colCategoria" text="Categoría" prefWidth="120"/>
+                </columns>
+            </TableView>
+
+        </VBox>
+    </center>
+
+</BorderPane>
