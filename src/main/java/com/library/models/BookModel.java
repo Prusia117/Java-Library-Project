@@ -1,11 +1,8 @@
 package com.library.models;
 
 import java.util.ArrayList;
-
 import com.library.kernel.kernelSql.orm.repository.Repository;
-
 import com.library.entities.BookEntity;
-
 import com.library.kernel.framework.IModel;
 
 public final class BookModel implements IModel{
@@ -46,6 +43,4 @@ public final class BookModel implements IModel{
 	public boolean delete(String id){
 		return bookRepositrory.delete(id);
 	}
-
 }
-
