@@ -11,7 +11,7 @@ public class BooksCRUDApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(BooksCRUDApplication.class.getResource("/BooksCRUDView.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 870, 500);
+        Scene scene = new Scene(fxmlLoader.load(), 870, 900);
         stage.setTitle("Agregar Libro");
         stage.setScene(scene);
         stage.setResizable(false);

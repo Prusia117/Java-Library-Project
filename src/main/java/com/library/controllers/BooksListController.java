@@ -4,7 +4,7 @@ import com.library.entities.BookEntity;
 import com.library.models.BookModel;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -17,114 +17,130 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URL;
 import java.util.ArrayList;
-import java.util.ResourceBundle;
 
-public class BooksListController implements Initializable {
+public class BooksListController {
 
     @FXML
-    private FlowPane contenedorLibros; // Enlazado al FlowPane que acabamos de crear
+    private FlowPane contenedorLibros;
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        // 1. Instanciar tu modelo
-        BookModel bookModel = new BookModel();
+    private final BookModel bookModel = new BookModel();
 
-        // 2. Obtener la lista real de la BD
-        ArrayList<BookEntity> listaDeLibros = bookModel.getAll();
+    @FXML
+    public void initialize() {
+        cargarLibros();
+    }
 
-        // 3. Generar la vista para cada libro
-        if (listaDeLibros != null) {
-            for (BookEntity libro : listaDeLibros) {
-                VBox tarjeta = crearTarjetaLibro(libro);
-                contenedorLibros.getChildren().add(tarjeta);
-            }
+    private void cargarLibros() {
+        ArrayList<BookEntity> libros = bookModel.getAll();
+
+        for (BookEntity libro : libros) {
+            VBox tarjeta = crearTarjetaLibro(libro);
+            contenedorLibros.getChildren().add(tarjeta);
         }
     }
 
     private VBox crearTarjetaLibro(BookEntity libro) {
-        VBox card = new VBox(10);
-        card.setStyle("-fx-border-color: #4E342E; -fx-border-width: 2; -fx-padding: 15; -fx-background-color: white;");
-        card.setPrefWidth(200);
-        card.setAlignment(Pos.CENTER);
+        VBox tarjeta = new VBox(12);
+        tarjeta.setAlignment(Pos.CENTER);
+        tarjeta.setStyle(
+                "-fx-background-color: white;" +
+                "-fx-background-radius: 15;" +
+                "-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 10, 0, 0, 3);" +
+                "-fx-padding: 20;" +
+                "-fx-cursor: hand;"
+        );
+        tarjeta.setPrefWidth(200);
+        tarjeta.setPrefHeight(320);
 
-
-        // --- IMAGEN (Lógica corregida para rutas C:\...) ---
+        // Imagen
         ImageView imageView = new ImageView();
-        try {
-            String ruta = libro.book_image_path;
-
-            Image imagenFinal = null;
-
-
-
-            if (ruta != null && !ruta.isEmpty()) {
-
-                String rutaAbsoluta = ruta.startsWith("/") ? ruta : "/" + ruta;
-
-
-
-                InputStream stream = getClass().getResourceAsStream(rutaAbsoluta);
-
-
-
-                if (stream != null) {
-
-                    imagenFinal = new Image(stream);
-                    imageView.setImage(imagenFinal);
-
-                    System.out.println("Imagen cargada correctamente desde recursos: " + rutaAbsoluta);
-
-                } else {
-
-                    System.err.println("No jala la CHingadera " + rutaAbsoluta);
-
-                }
-
-            }
-
-        } catch (Exception e) {
-            System.out.println("Error al procesar la ruta de imagen: " + libro.book_title);
-            e.printStackTrace();
-        }
-
-        imageView.setFitHeight(120);
+        imageView.setFitWidth(150);
+        imageView.setFitHeight(200);
         imageView.setPreserveRatio(true);
 
-        // --- Título ---
-        Label lblTitulo = new Label(libro.book_title); // Usamos tu campo 'book_title'
-        lblTitulo.setStyle("-fx-font-weight: bold; -fx-font-size: 14px;");
-        lblTitulo.setWrapText(true);
+        if (libro.book_image_path != null && !libro.book_image_path.isEmpty()) {
+            File imgFile = new File("src/main/resources" + libro.book_image_path);
+            if (imgFile.exists()) {
+                imageView.setImage(new Image(imgFile.toURI().toString()));
+            }
+        }
 
-        // --- Botón Detalles ---
-        Button btnDetalles = new Button("Detalles");
-        btnDetalles.setStyle("-fx-background-color: #FF5722; -fx-text-fill: white; -fx-background-radius: 20; -fx-cursor: hand;");
+        // Título
+        Label titulo = new Label(libro.book_title);
+        titulo.setStyle("-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;");
+        titulo.setWrapText(true);
+        titulo.setMaxWidth(180);
+        titulo.setAlignment(Pos.CENTER);
 
-        // Acción: Abrir detalles pasando ESTE libro específico
-        btnDetalles.setOnAction(event -> abrirDetallesDelLibro(libro));
+        // Autor
+        Label autor = new Label(libro.book_author);
+        autor.setStyle("-fx-font-size: 12px; -fx-text-fill: #7f8c8d;");
 
-        card.getChildren().addAll(imageView, lblTitulo, btnDetalles);
-        return card;
+        // Botón Ver Detalles
+        Button btnDetalles = new Button("Ver Detalles");
+        btnDetalles.setStyle(
+                "-fx-background-color: #3498db;" +
+                "-fx-text-fill: white;" +
+                "-fx-font-weight: bold;" +
+                "-fx-background-radius: 5;" +
+                "-fx-cursor: hand;" +
+                "-fx-padding: 8 15 8 15;"
+        );
+        
+        btnDetalles.setOnAction(event -> abrirDetalles(libro));
+
+        tarjeta.getChildren().addAll(imageView, titulo, autor, btnDetalles);
+
+        return tarjeta;
     }
 
-    private void abrirDetallesDelLibro(BookEntity libro) {
+    private void abrirDetalles(BookEntity libro) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/BooksDetailsView.fxml"));
             Parent root = loader.load();
 
-            // Pasamos el libro al controlador de detalles
-            BooksDetailsController detailsController = loader.getController();
-            detailsController.setLibroActual(libro);
+            // Pasar el libro al controlador de detalles
+            BooksDetailsController controller = loader.getController();
+            controller.setLibro(libro);
 
-            Stage stage = new Stage();
-            stage.setTitle("Detalles: " + libro.book_title);
+            // Obtener el Stage actual y cerrarlo
+            Stage stageActual = (Stage) contenedorLibros.getScene().getWindow();
+            
+            // Crear nueva ventana para detalles
+            Stage stageDetalles = new Stage();
+            stageDetalles.setTitle("Detalles del Libro");
+            stageDetalles.setScene(new Scene(root, 900, 700));
+            stageDetalles.show();
+            
+            // Cerrar la ventana de lista de libros
+            stageActual.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void regresarAHome() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/HomeView.fxml"));
+            Parent root = loader.load();
+
+            Stage stage = (Stage) contenedorLibros.getScene().getWindow();
+            
+            // Restablecer tamaños para Home
+            stage.setMinWidth(870);
+            stage.setMinHeight(500);
+            stage.setWidth(870);
+            stage.setHeight(500);
+            
             stage.setScene(new Scene(root, 870, 500));
-            stage.setResizable(false);
+            stage.setTitle("Biblioteca Digital");
+            stage.centerOnScreen();
             stage.show();
-        } catch (IOException e) {
+
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

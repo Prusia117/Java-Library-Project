@@ -4,10 +4,14 @@ import com.library.entities.BookEntity;
 import com.library.models.BookModel;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
 import java.io.File;
 import java.nio.file.Files;
@@ -15,7 +19,7 @@ import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 
-public class BooksCRUDFormController {
+public class BooksCRUDController {
 
     @FXML private TextField txtTitulo;
     @FXML private TextField txtAutor;
@@ -39,6 +43,31 @@ public class BooksCRUDFormController {
 
     private final BookModel bookModel = new BookModel();
 
+    @FXML
+    private void regresarAHome() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/HomeView.fxml"));
+            Parent root = loader.load();
+
+            Stage stage = (Stage) txtTitulo.getScene().getWindow();
+            
+            // Restablecer tamaños para Home
+            stage.setMinWidth(870);
+            stage.setMinHeight(500);
+            stage.setWidth(870);
+            stage.setHeight(500);
+            
+            stage.setScene(new Scene(root, 870, 500));
+            stage.setTitle("Biblioteca Digital");
+            stage.centerOnScreen();
+            stage.show();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            alerta("Error", "No se pudo regresar al inicio: " + e.getMessage());
+        }
+    }
+    
     @FXML
     public void initialize() {
         colTitulo.setCellValueFactory(c ->

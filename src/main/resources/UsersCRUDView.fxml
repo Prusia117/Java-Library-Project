@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.library.controllers.UsersCRUDController"
+            prefWidth="700" prefHeight="650"
+            minWidth="600" minHeight="550"
+            style="-fx-background-color: #f5f5f5;">
+
+    <!-- TÍTULO -->
+    <top>
+        <VBox style="-fx-background-color: #2c3e50; -fx-padding: 15;">
+            <!-- Botón Regresar -->
+            <Button text="← Regresar al Inicio" onAction="#regresarAHome" 
+                    style="-fx-background-color: #34495e; -fx-text-fill: white; -fx-font-size: 13px; -fx-font-weight: bold; -fx-background-radius: 5; -fx-cursor: hand; -fx-padding: 8 15 8 15;">
+                <VBox.margin>
+                    <Insets bottom="10"/>
+                </VBox.margin>
+            </Button>
+            
+            <HBox alignment="CENTER">
+                <Label text="Gestión de Usuarios"
+                       style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+            </HBox>
+        </VBox>
+    </top>
+
+    <!-- CONTENIDO CON SCROLLPANE -->
+    <center>
+        <ScrollPane fitToWidth="true" style="-fx-background-color: transparent; -fx-background: transparent;">
+            <VBox spacing="15" style="-fx-background-color: #f5f5f5;">
+                <padding>
+                    <Insets top="20" right="20" bottom="20" left="20"/>
+                </padding>
+
+                <!-- FORMULARIO -->
+                <VBox spacing="10" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);">
+                    <Label text="Datos del Usuario" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+                    
+                    <GridPane hgap="15" vgap="12">
+                        <padding>
+                            <Insets top="10"/>
+                        </padding>
+                        <columnConstraints>
+                            <ColumnConstraints prefWidth="100" minWidth="80" halignment="RIGHT"/>
+                            <ColumnConstraints prefWidth="250" minWidth="200" hgrow="ALWAYS"/>
+                        </columnConstraints>
+
+                        <Label text="Nombre:" GridPane.rowIndex="0" GridPane.columnIndex="0" 
+                               style="-fx-font-size: 14px; -fx-text-fill: #34495e;"/>
+                        <TextField fx:id="txtNombre" GridPane.rowIndex="0" GridPane.columnIndex="1"
+                                  style="-fx-background-color: #ecf0f1; -fx-background-radius: 5; -fx-padding: 8;"
+                                  maxWidth="Infinity"/>
+
+                        <Label text="Correo:" GridPane.rowIndex="1" GridPane.columnIndex="0"
+                               style="-fx-font-size: 14px; -fx-text-fill: #34495e;"/>
+                        <TextField fx:id="txtCorreo" GridPane.rowIndex="1" GridPane.columnIndex="1"
+                                  style="-fx-background-color: #ecf0f1; -fx-background-radius: 5; -fx-padding: 8;"
+                                  maxWidth="Infinity"/>
+
+                        <Label text="Contraseña:" GridPane.rowIndex="2" GridPane.columnIndex="0"
+                               style="-fx-font-size: 14px; -fx-text-fill: #34495e;"/>
+                        <PasswordField fx:id="txtPassword" GridPane.rowIndex="2" GridPane.columnIndex="1"
+                                      style="-fx-background-color: #ecf0f1; -fx-background-radius: 5; -fx-padding: 8;"
+                                      maxWidth="Infinity"/>
+                    </GridPane>
+                </VBox>
+
+                <!-- BOTONES -->
+                <HBox spacing="15" alignment="CENTER">
+                    <padding>
+                        <Insets top="5"/>
+                    </padding>
+                    <Button text="Agregar" onAction="#onAgregar" prefWidth="110" prefHeight="35"
+                            style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-background-radius: 5; -fx-cursor: hand;"/>
+                    <Button text="Actualizar" onAction="#onActualizar" prefWidth="110" prefHeight="35"
+                            style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-background-radius: 5; -fx-cursor: hand;"/>
+                    <Button text="Eliminar" onAction="#onEliminar" prefWidth="110" prefHeight="35"
+                            style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-background-radius: 5; -fx-cursor: hand;"/>
+                    <Button text="Limpiar" onAction="#limpiar" prefWidth="110" prefHeight="35"
+                            style="-fx-background-color: #95a5a6; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-background-radius: 5; -fx-cursor: hand;"/>
+                </HBox>
+
+                <!-- TABLA CON ALTURA MÍNIMA -->
+                <VBox spacing="5" minHeight="250"
+                      style="-fx-background-color: white; -fx-padding: 15; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);">
+                    <Label text="Lista de Usuarios" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+                    
+                    <TableView fx:id="tablaUsuarios" VBox.vgrow="ALWAYS" minHeight="200">
+                        <style>
+                            -fx-background-color: transparent;
+                            -fx-background-radius: 5;
+                            -fx-table-cell-border-color: #ecf0f1;
+                        </style>
+                        <columns>
+                            <TableColumn fx:id="colId" text="ID" prefWidth="60" minWidth="50">
+                                <style>
+                                    -fx-alignment: CENTER;
+                                    -fx-font-weight: bold;
+                                    -fx-text-fill: #2c3e50;
+                                </style>
+                            </TableColumn>
+                            <TableColumn fx:id="colNombre" text="Nombre" prefWidth="150" minWidth="100">
+                                <style>
+                                    -fx-font-size: 13px;
+                                    -fx-text-fill: #34495e;
+                                </style>
+                            </TableColumn>
+                            <TableColumn fx:id="colCorreo" text="Correo" prefWidth="200" minWidth="150">
+                                <style>
+                                    -fx-font-size: 13px;
+                                    -fx-text-fill: #34495e;
+                                </style>
+                            </TableColumn>
+                            <TableColumn fx:id="colPassword" text="Contraseña" prefWidth="150" minWidth="100">
+                                <style>
+                                    -fx-font-size: 13px;
+                                    -fx-text-fill: #34495e;
+                                </style>
+                            </TableColumn>
+                        </columns>
+                    </TableView>
+                </VBox>
+
+            </VBox>
+        </ScrollPane>
+    </center>
+
+</BorderPane>
