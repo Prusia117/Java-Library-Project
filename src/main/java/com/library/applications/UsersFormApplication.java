@@ -10,7 +10,7 @@ import java.io.IOException;
 public class UsersFormApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(UsersFormApplication.class.getResource("/UsersFormView.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(UsersFormApplication.class.getResource("/UsersCRUDFormView.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 870, 500);
         stage.setTitle("Registrar Usuario");
         stage.setScene(scene);
