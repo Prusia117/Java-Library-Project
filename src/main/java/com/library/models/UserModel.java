@@ -10,21 +10,22 @@ import com.library.kernel.framework.IModel;
 
 public final class UserModel implements IModel{
 
-	Repository<UserEntity> userRepositrory = new Repository<UserEntity>(UserEntity.class);
+    Repository<UserEntity> userRepositrory = new Repository<UserEntity>(UserEntity.class);
 
-	public ArrayList<UserEntity> getAll(){
-		ArrayList<UserEntity> entityList = userRepositrory.getAll();
-		return entityList;
-	}
+    public ArrayList<UserEntity> getAll(){
+        ArrayList<UserEntity> entityList = userRepositrory.getAll();
+        return entityList;
+    }
 
-	@Override
-	public UserEntity getById(String id){
+    @Override
+    public UserEntity getById(String id){
         UserEntity entity = userRepositrory.getById(id);
-		return entity;
-	}
+        return entity;
+    }
 
     public boolean save(String name, String mail, String password){
         UserEntity entity = new UserEntity();
+
         entity.user_name = name;
         entity.user_mail = mail;
         entity.user_password = password;
@@ -32,31 +33,30 @@ public final class UserModel implements IModel{
         return userRepositrory.save(entity);
     }
 
-	@Override
-	public boolean update(String id){
-		UserEntity entity = new UserEntity();
-		return userRepositrory.update(entity, id);
-	}
+    @Override
+    public boolean update(String id){
+        UserEntity entity = new UserEntity();
+        return userRepositrory.update(entity, id);
+    }
 
-	@Override
-	public boolean delete(String id){
-		return userRepositrory.delete(id);
-	}
+    @Override
+    public boolean delete(String id){
+        return userRepositrory.delete(id);
+    }
 
-    public UserEntity login(String user_mail/*Correo*/, String user_password/*Contraseña*/) {
+    public boolean login(String user_mail/*Correo*/, String user_password/*Contraseña*/) {
 
         ArrayList<UserEntity> users = userRepositrory.getByField("user_mail",user_mail);
 
         if (users.size() == 0) {
-            return null;
+            return false;
         }
 
         UserEntity user = users.get(0);
-
         if (user.user_password.equals(user_password)) {
-            return user;
+            return true;
         }
 
-        return null;
+        return false;
     }
 }

@@ -20,4 +20,5 @@ module module {
     // Muy importante: abrirlos a javafx.fxml
     opens com.library.applications to javafx.fxml;
     opens com.library.controllers to javafx.fxml;
+
 }
