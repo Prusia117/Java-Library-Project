@@ -40,7 +40,7 @@ final class SQLResultMapper implements Colors {
     private static<T extends Entity> void populateEntities(ResultSet resultSet, Field[] entityFields , T entity, int j){
         try {
 
-            for (int i = 0; i < entityFields.length - 1; i++) {
+            for (int i = 0; i < entityFields.length; i++) {
                 Logger.infoLog(
                         YELLOW + "Entity Info",
                         "Entity Field => " + entityFields[i].getName() + RESET + " | " + PURPLE

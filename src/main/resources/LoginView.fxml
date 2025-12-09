@@ -65,9 +65,15 @@
                                     </ImageView>
                                 </graphic>
                             </Button>
+
                         </children>
                     </StackPane>
 
+                    <VBox alignment="CENTER">
+                        <Label
+                                fx:id = "lblAlert" style="-fx-text-fill: red;">
+                        </Label>
+                    </VBox>
                     <!-- Botón de inicio de sesión -->
                     <VBox spacing="10" alignment="CENTER">
                         <Button fx:id="btIniciarSesion"

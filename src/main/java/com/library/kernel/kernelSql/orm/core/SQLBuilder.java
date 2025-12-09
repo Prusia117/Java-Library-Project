@@ -11,7 +11,9 @@ import com.library.kernel.kernelSql.orm.entity.EntityFactory;
 import com.library.kernel.kernelSql.orm.entity.EntityMapper;
 
 import com.library.kernel.classes.*;
-import com.library.kernel.kernelSql.orm.entity.utils.EntityFactoryException;;
+import com.library.kernel.kernelSql.orm.entity.utils.EntityFactoryException;
+import static com.library.kernel.kernelSql.orm.entity.Entity.ENTITY_KEY_WORDS;
+
 /**
  * Generador de sentencias SQL básicas para entidades.
  *
@@ -126,7 +128,7 @@ final class SQLBuilder implements ISQLBuilder ,Colors {
             // Añade las columnas, omitiendo el campo 'entityRelationships'
             for (Field entityAttribute : entityAttributes) {
                 // Se omite el campo entityRelationships ya que contiene las relaciones de las tablas
-                if (!entityAttribute.getName().contentEquals("entityRelationships")) {
+                if (!ENTITY_KEY_WORDS.contains(entityAttribute.getName())) {
                     sqlColumns.append(entityAttribute.getName() + ", ");
                 }
             }
@@ -161,7 +163,7 @@ final class SQLBuilder implements ISQLBuilder ,Colors {
                                 field != null ? field : entity.getPrimaryKey()
                         )
                         .append(" = ")
-                        .append(value);
+                        .append("'" + value + "'");
             }
 
             // Añade ORDER BY por la clave primaria de manera ascendente
@@ -206,7 +208,7 @@ final class SQLBuilder implements ISQLBuilder ,Colors {
 
                 // Si la entidad tiene autoincrementable y el campo es la PK, o si es 'entityRelationships', se omite
                 if ((entity.getAutoIncrement() && entry.getKey() == entity.getPrimaryKey())
-                        || entry.getKey() == "entityRelationships") {
+                        || ENTITY_KEY_WORDS.contains(entry.getKey())) {
                     continue;
                 }
                 sqlColumns.append(entry.getKey() + ", ");
@@ -256,7 +258,8 @@ final class SQLBuilder implements ISQLBuilder ,Colors {
 
                 // Recorre el mapa y añade solo los campos cuyo valor no sea "null"
                 for (Map.Entry<String, String> entry : map.entrySet()) {
-                    if (!entry.getValue().equals("null")) {
+                    if (!entry.getValue().equals("null") ||
+                            !ENTITY_KEY_WORDS.contains(entry.getKey())) {
                         Logger.infoLog("Entity Field Value", entry.getKey() + " => " + entry.getValue());
                         sqlColumnsAndValues.append(entry.getKey() + " = '" + entry.getValue() + "', ");
                     }
