@@ -83,7 +83,7 @@ public final class EntityMapper<T extends Entity> implements Colors {
                 }
             }
 
-            return publicFields.toArray(new Field[entityFields.length - publicFields.size()]);
+            return publicFields.toArray(new Field[publicFields.size()]);
 
         } catch (IllegalArgumentException error) {
             Logger.errorLog("Entity Factory Error", error.getMessage());

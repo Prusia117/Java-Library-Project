@@ -1,5 +1,6 @@
 package com.library.controllers;
 
+import com.library.models.UserModel;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
@@ -22,11 +23,15 @@ public class LoginController {
     @FXML private ImageView iconoOjo;
     @FXML private Button btIniciarSesion;
     @FXML private ImageView imgIniciarSesion;
+    @FXML private Label lblAlert;
+
+    UserModel model;
 
     private boolean mostrando = false;
 
     @FXML
     public void initialize() {
+        model = new UserModel();
         DropShadow sombra = new DropShadow();
         sombra.setRadius(20.0);
         sombra.setColor(Color.web("#00BFFF"));
@@ -59,13 +64,31 @@ public class LoginController {
     @FXML
     private void irAInicio() {
         try {
+
+            if(txtCorreo.getText().isEmpty() || txtContrasena.getText().isEmpty())  {
+                lblAlert.setText("Credencicales Invalidas");
+                lblAlert.setVisible(true);
+                return;
+            }
+            lblAlert.setVisible(false);
+
+            boolean res = model.login(txtCorreo.getText().replace('"',' ').trim(), txtContrasena.getText().replace('"',' ').trim());
+
+
+            if(!res)  {
+                lblAlert.setText("Credencicales Invalidas");
+                lblAlert.setVisible(true);
+                return;
+            }
+
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/HomeView.fxml"));
             Parent root = loader.load();
             Stage stage = (Stage) txtCorreo.getScene().getWindow();
             Scene scene = new Scene(root, 870, 500);
             stage.setScene(scene);
             stage.setResizable(false);
-        } catch (IOException e) {
+        }
+        catch (IOException e) {
             e.printStackTrace();
         }
     }
