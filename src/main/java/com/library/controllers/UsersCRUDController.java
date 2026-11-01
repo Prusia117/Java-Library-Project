@@ -1,6 +1,7 @@
 package com.library.controllers;
 
 import com.library.entities.UserEntity;
+import com.library.kernel.framework.auth.PasswordHasher;
 import com.library.models.UserModel;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
@@ -40,8 +41,9 @@ public class UsersCRUDController {
         colCorreo.setCellValueFactory(c ->
                 new javafx.beans.property.SimpleStringProperty(c.getValue().user_mail));
 
+        // Solo se guarda el hash, así que no se muestra
         colPassword.setCellValueFactory(c ->
-                new javafx.beans.property.SimpleStringProperty(c.getValue().user_password));
+                new javafx.beans.property.SimpleStringProperty("••••••••"));
 
         cargarTabla();
 
@@ -84,7 +86,8 @@ public class UsersCRUDController {
 
         txtNombre.setText(seleccionado.user_name);
         txtCorreo.setText(seleccionado.user_mail);
-        txtPassword.setText(seleccionado.user_password);
+        // Vacío = conservar la contraseña actual al actualizar
+        txtPassword.clear();
     }
 
     // ============================================================
@@ -97,7 +100,11 @@ public class UsersCRUDController {
         UserEntity userEntity = new UserEntity();
         userEntity.user_name = txtNombre.getText();
         userEntity.user_mail = txtCorreo.getText();
-        userEntity.user_password = txtPassword.getText();
+        if (txtPassword.getText().isBlank()) {
+            alerta("Advertencia", "La contraseña es obligatoria");
+            return;
+        }
+        userEntity.user_password = PasswordHasher.hash(txtPassword.getText());
 
         boolean ok = userModel.save(
                 userEntity
@@ -124,7 +131,10 @@ public class UsersCRUDController {
 
         seleccionado.user_name = txtNombre.getText();
         seleccionado.user_mail = txtCorreo.getText();
-        seleccionado.user_password = txtPassword.getText();
+        // null hace que el UPDATE omita la columna y conserve el hash actual
+        seleccionado.user_password = txtPassword.getText().isBlank()
+                ? null
+                : PasswordHasher.hash(txtPassword.getText());
 
         boolean ok = userModel.update(seleccionado, seleccionado.user_id.toString());
 

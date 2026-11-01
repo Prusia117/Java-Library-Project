@@ -1,4 +1,4 @@
-module module {
+module com.library {
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.graphics;

@@ -39,7 +39,7 @@ public class HomeController {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Acerca de");
         alert.setHeaderText("Biblioteca Digital");
-        alert.setContentText("Sistema de gestión de biblioteca\nVersión 1.0\n\n© 2025 Todos los derechos reservados");
+        alert.setContentText("Sistema de gestión de biblioteca\nVersión 1.0\n\n© 2025 Licencia MIT");
         alert.showAndWait();
     }
 

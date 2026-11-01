@@ -7,6 +7,7 @@ import com.library.kernel.kernelSql.orm.repository.Repository;
 import com.library.entities.UserEntity;
 
 import com.library.kernel.framework.IModel;
+import com.library.kernel.framework.auth.PasswordHasher;
 
 public final class UserModel implements IModel<UserEntity>{
 
@@ -48,11 +49,7 @@ public final class UserModel implements IModel<UserEntity>{
         }
 
         UserEntity user = users.get(0);
-        if (user.user_password.equals(userPassword)) {
-            return true;
-        }
-
-        return false;
+        return PasswordHasher.verify(userPassword, user.user_password);
     }
 }
 

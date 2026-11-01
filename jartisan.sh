@@ -1,9 +1,9 @@
 #!/bin/bash
-LOG_FILE="maven.log"
-LOG_FILE2="maven.log"
-mvn clean compile >> "$LOG_FILE" 2>&1 &
+LOG_COMPILE="maven.log"
+LOG_DEPS="maven_dep.log"
+./mvnw clean compile >> "$LOG_COMPILE" 2>&1 &
 PID_COMPILE=$!
-mvn dependency:copy-dependencies >> "$LOG_FILE2" 2>&1 &
+./mvnw dependency:copy-dependencies >> "$LOG_DEPS" 2>&1 &
 PID_DEPS=$!
 
 wait $PID_COMPILE

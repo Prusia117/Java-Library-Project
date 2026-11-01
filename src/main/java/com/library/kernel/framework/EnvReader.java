@@ -4,7 +4,6 @@ import com.library.kernel.logger.Logger;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public final class EnvReader {
@@ -20,8 +19,9 @@ public final class EnvReader {
         {
             String line;
             while((line = bufferedReader.readLine()) != null){
-                if(line.startsWith(key)){
-                    return line.split("=")[1];
+                String value = parseLine(line, key);
+                if(value != null){
+                    return value;
                 }
             }
 
@@ -29,6 +29,31 @@ public final class EnvReader {
             Logger.errorLog("EnvReader Exception", e.getMessage());
         }
         return System.getenv(key);
+    }
+
+    /**
+     * Devuelve el valor de la línea si su clave coincide exactamente con {@code key}.
+     * Ignora líneas vacías y comentarios, conserva los '=' dentro del valor
+     * y quita comillas envolventes.
+     */
+    static String parseLine(String line, String key){
+        String trimmed = line.trim();
+        if(trimmed.isEmpty() || trimmed.startsWith("#")){
+            return null;
+        }
+
+        int separator = trimmed.indexOf('=');
+        if(separator == -1 || !trimmed.substring(0, separator).trim().equals(key)){
+            return null;
+        }
+
+        String value = trimmed.substring(separator + 1).trim();
+        if(value.length() >= 2
+                && (value.startsWith("\"") && value.endsWith("\"")
+                || value.startsWith("'") && value.endsWith("'"))){
+            value = value.substring(1, value.length() - 1);
+        }
+        return value;
     }
 
 }

@@ -1,24 +1,31 @@
-target/
-.vscode
-.idea/
-maven.log
+### Variables de entorno ###
 .env
-maven_dep.log
+.env.*
+!.env.example
 
+### Maven ###
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
-.kotlin
+
+### Logs ###
+*.log
+hs_err_pid*
+
+### Archivos subidos por la app en runtime (portadas y PDFs de libros) ###
+src/main/resources/img/Imagenes/*
+!src/main/resources/img/Imagenes/.gitkeep
+src/main/resources/img/Pdfs/*
+!src/main/resources/img/Pdfs/.gitkeep
+Libros/
 
 ### IntelliJ IDEA ###
-.idea/modules.xml
-.idea/jarRepositories.xml
-.idea/compiler.xml
-.idea/libraries/
+.idea/
 *.iws
 *.iml
 *.ipr
+.kotlin
 
 ### Eclipse ###
 .apt_generated
@@ -42,5 +49,6 @@ build/
 ### VS Code ###
 .vscode/
 
-### Mac OS ###
+### Sistema operativo ###
 .DS_Store
+Thumbs.db
