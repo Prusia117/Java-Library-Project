@@ -1,5 +1,7 @@
 package com.library.controllers;
 
+import javafx.application.Platform;
+import javafx.concurrent.Task;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -8,7 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
-import org.apache.pdfbox.Loader; // Importante: Clase para cargar en PDFBox 3.x
+import org.apache.pdfbox.Loader;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.rendering.PDFRenderer;
 
@@ -35,57 +37,71 @@ public class BooksController {
     public void initialize() {
         imageView = new ImageView();
         imageView.setPreserveRatio(true);
-        imageView.fitWidthProperty().bind(scrollPane.widthProperty().subtract(20));
+        imageView.fitWidthProperty().bind(scrollPane.widthProperty().subtract(40));
         pdfContainer.getChildren().add(imageView);
         updateNavigationButtons();
-
-
     }
 
-    // MÉTODO PÚBLICO PARA RECIBIR LA RUTA ---
+    // MÉTODO PÚBLICO PARA RECIBIR LA RUTA
     public void setPdfFilePath(String rutaPdf) {
-        try {
-            // Cerramos el documento anterior si existe para liberar memoria
-            if (currentDocument != null) currentDocument.close();
-
-            // 1. Lógica Híbrida: Intentar cargar como archivo local (C:\...)
-            File archivoLocal = new File(rutaPdf);
-
-            if (archivoLocal.exists()) {
-                // CASO A: Es una ruta absoluta del disco
-                System.out.println("Cargando PDF local: " + rutaPdf);
-                // Loader.loadPDF(File) es muy eficiente para archivos locales
-                currentDocument = Loader.loadPDF(archivoLocal);
-            } else {
-                // CASO B: No existe en disco, intentamos como Recurso (/img/Pdfs/...)
-                System.out.println("Buscando PDF en recursos: " + rutaPdf);
-
-                // Aseguramos que la ruta empiece con "/" para buscar en resources
-                String rutaRecurso = rutaPdf.startsWith("/") ? rutaPdf : "/" + rutaPdf;
-
-                try (InputStream stream = getClass().getResourceAsStream(rutaRecurso)) {
-                    if (stream != null) {
-                        // En PDFBox 3.0, para cargar un Stream usamos bytes
-                        currentDocument = Loader.loadPDF(stream.readAllBytes());
-                    } else {
-                        showError("PDF no encontrado", "No se encontró el archivo ni en disco ni en recursos:\n" + rutaPdf);
-                        return;
+        // Cargar el PDF en un hilo separado para evitar congelamiento
+        Task<Void> loadTask = new Task<>() {
+            @Override
+            protected Void call() throws Exception {
+                try {
+                    // Cerramos el documento anterior si existe
+                    if (currentDocument != null) {
+                        currentDocument.close();
                     }
+
+                    File archivoLocal = new File(rutaPdf);
+
+                    if (archivoLocal.exists()) {
+                        // CASO A: Ruta absoluta del disco
+                        System.out.println("Cargando PDF local: " + rutaPdf);
+                        currentDocument = Loader.loadPDF(archivoLocal);
+                    } else {
+                        // CASO B: Recurso interno
+                        System.out.println("Buscando PDF en recursos: " + rutaPdf);
+                        String rutaRecurso = rutaPdf.startsWith("/") ? rutaPdf : "/" + rutaPdf;
+
+                        try (InputStream stream = getClass().getResourceAsStream(rutaRecurso)) {
+                            if (stream != null) {
+                                currentDocument = Loader.loadPDF(stream.readAllBytes());
+                            } else {
+                                Platform.runLater(() -> 
+                                    showError("PDF no encontrado", "No se encontró el archivo: " + rutaPdf)
+                                );
+                                return null;
+                            }
+                        }
+                    }
+
+                    // Si llegamos aquí, el PDF cargó correctamente
+                    pdfRenderer = new PDFRenderer(currentDocument);
+                    totalPages = currentDocument.getNumberOfPages();
+                    currentPage = 0;
+
+                    // Renderizar en el hilo de JavaFX
+                    Platform.runLater(() -> {
+                        renderCurrentPage();
+                        lblPageInfo.setText("PDF cargado - Página 1 de " + totalPages);
+                    });
+
+                } catch (IOException e) {
+                    Platform.runLater(() -> showError("Error al leer el PDF", e.getMessage()));
+                    e.printStackTrace();
                 }
+                return null;
             }
+        };
 
-            // Si llegamos aquí, el PDF cargó correctamente
-            pdfRenderer = new PDFRenderer(currentDocument);
-            totalPages = currentDocument.getNumberOfPages();
-            currentPage = 0;
-            renderCurrentPage();
-
-        } catch (IOException e) {
-            showError("Error al leer el PDF", e.getMessage());
-            e.printStackTrace();
-        }
+        // Ejecutar la tarea en un hilo en segundo plano
+        new Thread(loadTask).start();
+        
+        // Mostrar mensaje de carga
+        lblPageInfo.setText("Cargando PDF...");
     }
-    
 
     @FXML
     protected void onPreviousPageClick() {
@@ -103,20 +119,29 @@ public class BooksController {
         }
     }
 
-
-
     private void renderCurrentPage() {
         if (pdfRenderer == null || currentDocument == null) return;
-        try {
-            // Renderizamos la página actual a una imagen (150 DPI es buena calidad)
-            BufferedImage bufferedImage = pdfRenderer.renderImageWithDPI(currentPage, 150);
-            imageView.setImage(SwingFXUtils.toFXImage(bufferedImage, null));
 
+        // Renderizar en hilo separado
+        Task<BufferedImage> renderTask = new Task<>() {
+            @Override
+            protected BufferedImage call() throws Exception {
+                return pdfRenderer.renderImageWithDPI(currentPage, 150);
+            }
+        };
+
+        renderTask.setOnSucceeded(event -> {
+            BufferedImage bufferedImage = renderTask.getValue();
+            imageView.setImage(SwingFXUtils.toFXImage(bufferedImage, null));
             lblPageInfo.setText(String.format("Página %d de %d", currentPage + 1, totalPages));
             updateNavigationButtons();
-        } catch (IOException e) {
-            showError("Error visualizando página", e.getMessage());
-        }
+        });
+
+        renderTask.setOnFailed(event -> {
+            showError("Error visualizando página", renderTask.getException().getMessage());
+        });
+
+        new Thread(renderTask).start();
     }
 
     private void updateNavigationButtons() {
@@ -128,7 +153,19 @@ public class BooksController {
     private void showError(String title, String message) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle(title);
+        alert.setHeaderText(null);
         alert.setContentText(message);
         alert.showAndWait();
+    }
+
+    // Cerrar el documento al cerrar la ventana
+    public void cleanup() {
+        try {
+            if (currentDocument != null) {
+                currentDocument.close();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -5,10 +5,11 @@ import com.library.kernel.kernelSql.orm.repository.Repository;
 import com.library.entities.BookEntity;
 import com.library.kernel.framework.IModel;
 
-public final class BookModel implements IModel{
+public final class BookModel implements IModel<BookEntity>{
 
 	Repository<BookEntity> bookRepositrory = new Repository<BookEntity>(BookEntity.class);
 
+    @Override
 	public ArrayList<BookEntity> getAll(){
 		ArrayList<BookEntity> entityList = bookRepositrory.getAll();
 		return entityList;
@@ -20,21 +21,13 @@ public final class BookModel implements IModel{
 		return entity;
 	}
 
-    public boolean save(String book_title, String book_author,Integer book_year,String book_category,String book_file_path,String book_image_path){
-        BookEntity entity = new BookEntity();
-
-        entity.book_title = book_title;
-        entity.book_author = book_author;
-        entity.book_year = book_year;
-        entity.book_category = book_category;
-        entity.book_file_path = book_file_path;
-        entity.book_image_path = book_image_path;
-
+    @Override
+    public boolean save(BookEntity entity){
         return bookRepositrory.save(entity);
     }
 
-	public boolean update(String id){
-		BookEntity entity = new BookEntity();
+    @Override
+	public boolean update(BookEntity entity, String id){
 		return bookRepositrory.update(entity, id);
 	}
 

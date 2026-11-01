@@ -8,10 +8,11 @@ import com.library.entities.UserEntity;
 
 import com.library.kernel.framework.IModel;
 
-public final class UserModel implements IModel{
+public final class UserModel implements IModel<UserEntity>{
 
     Repository<UserEntity> userRepositrory = new Repository<UserEntity>(UserEntity.class);
 
+    @Override
     public ArrayList<UserEntity> getAll(){
         ArrayList<UserEntity> entityList = userRepositrory.getAll();
         return entityList;
@@ -23,18 +24,13 @@ public final class UserModel implements IModel{
         return entity;
     }
 
-    public boolean save(String name, String mail, String password){
-        UserEntity entity = new UserEntity();
-
-        entity.user_name = name;
-        entity.user_mail = mail;
-        entity.user_password = password;
-
+    @Override
+    public boolean save(UserEntity entity){
         return userRepositrory.save(entity);
     }
 
-    public boolean update(String id){
-        UserEntity entity = new UserEntity();
+    @Override
+    public boolean update(UserEntity entity, String id){
         return userRepositrory.update(entity, id);
     }
 
@@ -43,19 +39,20 @@ public final class UserModel implements IModel{
         return userRepositrory.delete(id);
     }
 
-    public boolean login(String user_mail/*Correo*/, String user_password/*Contraseña*/) {
+    public boolean login(String userEmail/*Correo*/, String userPassword/*Contraseña*/) {
 
-        ArrayList<UserEntity> users = userRepositrory.getByField("user_mail",user_mail);
+        ArrayList<UserEntity> users = userRepositrory.getByField("user_mail",userEmail);
 
         if (users.size() == 0) {
             return false;
         }
 
         UserEntity user = users.get(0);
-        if (user.user_password.equals(user_password)) {
+        if (user.user_password.equals(userPassword)) {
             return true;
         }
 
         return false;
     }
 }
+
