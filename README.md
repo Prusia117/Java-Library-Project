@@ -4,7 +4,7 @@ Mini framework en Java puro, escrito desde cero y sin frameworks externos de per
 
 El framework incluye:
 
-- **ORM por reflexión**: mapea entidades Java a tablas y genera `SELECT`, `INSERT`, `UPDATE`, `DELETE` y `JOIN` sin anotaciones ni XML.
+- **ORM por reflexión**: mapea entidades Java a tablas y genera `SELECT`, `INSERT`, `UPDATE`, `DELETE` y `JOIN` sin anotaciones ni XML. Todas las consultas se ejecutan con `PreparedStatement`, y los nombres de columna se validan contra la entidad.
 - **Sistema de migraciones**: DSL fluido para definir tablas y restricciones, con registro de migraciones ejecutadas y rollback.
 - **Jartisan**: CLI inspirada en Laravel Artisan que genera entidades, modelos, controladores y migraciones. El código se arma en Java, sin motor de templates.
 
@@ -58,7 +58,7 @@ public final class UserEntity implements Entity {
 Repository<UserEntity> users = new Repository<>(UserEntity.class);
 
 users.getAll();                               // SELECT ... FROM T_Users ORDER BY user_id ASC;
-users.getByField("user_mail", "ana@mail.com"); // ... WHERE user_mail = '...'
+users.getByField("user_mail", "ana@mail.com"); // ... WHERE user_mail = ?  (parametrizado)
 users.save(user);                              // INSERT (omite la PK autoincremental)
 users.update(user, "7");                       // UPDATE solo con los campos no nulos
 users.delete("7");
@@ -132,11 +132,10 @@ docker compose up -d
 ./mvnw test
 ```
 
-Cubren la generación de SQL del ORM, el DSL de migraciones, el lector de `.env` y el hash de contraseñas. No necesitan base de datos.
+Cubren la generación de SQL del ORM (incluidos intentos de inyección), el DSL de migraciones, el lector de `.env` y el hash de contraseñas. No necesitan base de datos.
 
 ## Limitaciones conocidas / siguientes pasos
 
-- Los valores se concatenan en el SQL; el siguiente paso es migrar `SQLExecutor` a `PreparedStatement` con parámetros.
 - Las relaciones solo soportan `INNER JOIN`.
 - Los archivos subidos (portadas y PDFs) se guardan en `src/main/resources/img/`; en una versión empaquetada deberían ir a un directorio de datos externo.
 

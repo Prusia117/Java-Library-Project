@@ -9,7 +9,7 @@ import java.util.HashMap;
  *
  * Esta interfaz expone métodos para generar consultas SELECT, INSERT, UPDATE y DELETE,
  * así como para crear las cláusulas JOIN necesarias cuando una entidad tiene relaciones.
- * Los implementadores deben devolver las sentencias como cadenas y lanzar
+ * Los implementadores deben devolver sentencias parametrizadas ({@link SQLStatement}) y lanzar
  * {@link SQLBuilderException} ante parámetros inválidos o errores de generación.
  *
  * Nota: la responsabilidad de ejecutar las sentencias y gestionar conexiones corresponde
@@ -35,35 +35,35 @@ abstract interface ISQLBuilder {
      * @param entity Entidad sobre la que se construye la consulta (usa metadata como tableName y primaryKey).
      * @param value  Valor para la cláusula WHERE; si es {@code null} se omite la cláusula WHERE.
      * @param field  Campo a usar en la cláusula WHERE; si es {@code null} se usa la clave primaria.
-     * @return Cadena con la sentencia SELECT completa.
+     * @return Sentencia SELECT parametrizada.
      * @throws SQLBuilderException Si la entidad es nula o ocurre un error durante la construcción.
      */
-    public  String createSelectQuery(Entity entity, String value, String field) throws SQLBuilderException;
+    public SQLStatement createSelectQuery(Entity entity, String value, String field) throws SQLBuilderException;
     /**
      * Construye una sentencia INSERT para la entidad proporcionada.
      *
      * @param entity Entidad cuyos campos se convertirán en columnas y valores para INSERT.
-     * @return Cadena con la sentencia INSERT completa.
+     * @return Sentencia INSERT parametrizada.
      * @throws SQLBuilderException Si ocurre un error al generar la sentencia.
      */
-    public String createInsertQuery(Entity entity) throws SQLBuilderException;
+    public SQLStatement createInsertQuery(Entity entity) throws SQLBuilderException;
     /**
      * Construye una sentencia UPDATE para la entidad especificada.
      *
      * @param entity Entidad con los nuevos valores a persistir.
      * @param id     Identificador (valor) de la fila a actualizar.
-     * @return Cadena con la sentencia UPDATE completa.
+     * @return Sentencia UPDATE parametrizada.
      * @throws SQLBuilderException Si alguno de los parámetros es nulo o ocurre un error.
      */
-    public String createUpdateQuery(Entity entity, String id) throws SQLBuilderException;
+    public SQLStatement createUpdateQuery(Entity entity, String id) throws SQLBuilderException;
     /**
      * Construye una sentencia DELETE para la entidad y el id proporcionados.
      *
      * @param entity Entidad desde la cual se eliminará la fila (usa tableName y primaryKey).
      * @param id     Identificador (valor) de la fila a eliminar.
-     * @return Cadena con la sentencia DELETE completa.
+     * @return Sentencia DELETE parametrizada.
      * @throws SQLBuilderException Si alguno de los parámetros es nulo o inválido.
      */
-    public String createDeleteQuery(Entity entity, String id) throws SQLBuilderException;
+    public SQLStatement createDeleteQuery(Entity entity, String id) throws SQLBuilderException;
 
 }

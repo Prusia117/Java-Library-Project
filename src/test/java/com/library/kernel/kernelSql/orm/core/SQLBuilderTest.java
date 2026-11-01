@@ -4,7 +4,10 @@ import com.library.entities.UserEntity;
 import com.library.kernel.kernelSql.orm.core.utils.SQLBuilderException;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class SQLBuilderTest {
@@ -12,47 +15,81 @@ class SQLBuilderTest {
     private final SQLBuilder builder = new SQLBuilder();
 
     @Test
-    void selectAllOrdersByPrimaryKey() throws Exception {
-        assertEquals(
-                "SELECT user_id, user_name, user_mail, user_password FROM T_Users ORDER BY user_id ASC;",
-                builder.createSelectQuery(new UserEntity(), null, null));
+    void selectAllOrdersByPrimaryKey() {
+        SQLStatement stmt = builder.createSelectQuery(new UserEntity(), null, null);
+
+        assertEquals("SELECT user_id, user_name, user_mail, user_password FROM T_Users ORDER BY user_id ASC;", stmt.sql());
+        assertEquals(List.of(), stmt.params());
     }
 
     @Test
-    void selectByFieldAddsWhereClause() throws Exception {
+    void selectByFieldUsesPlaceholder() {
+        SQLStatement stmt = builder.createSelectQuery(new UserEntity(), "ana@mail.com", "user_mail");
+
         assertEquals(
                 "SELECT user_id, user_name, user_mail, user_password FROM T_Users"
-                        + " WHERE user_mail = 'ana@mail.com' ORDER BY user_id ASC;",
-                builder.createSelectQuery(new UserEntity(), "ana@mail.com", "user_mail"));
+                        + " WHERE user_mail = ? ORDER BY user_id ASC;",
+                stmt.sql());
+        assertEquals(List.of("ana@mail.com"), stmt.params());
     }
 
     @Test
-    void insertSkipsAutoIncrementPrimaryKeyAndMetadata() throws Exception {
+    void selectByIdConvertsValueToFieldType() {
+        SQLStatement stmt = builder.createSelectQuery(new UserEntity(), "7", null);
+
+        assertEquals(List.of(7), stmt.params());
+    }
+
+    @Test
+    void injectionInValueStaysAsParameter() {
+        String attack = "' OR '1'='1";
+        SQLStatement stmt = builder.createSelectQuery(new UserEntity(), attack, "user_mail");
+
+        assertFalse(stmt.sql().contains(attack));
+        assertEquals(List.of(attack), stmt.params());
+    }
+
+    @Test
+    void rejectsUnknownColumnName() {
+        assertThrows(SQLBuilderException.class,
+                () -> builder.createSelectQuery(new UserEntity(), "x", "user_mail = '' OR 1=1 --"));
+    }
+
+    @Test
+    void rejectsNonNumericId() {
+        assertThrows(SQLBuilderException.class,
+                () -> builder.createDeleteQuery(new UserEntity(), "1 OR 1=1"));
+    }
+
+    @Test
+    void insertSkipsAutoIncrementPrimaryKeyAndNulls() {
         UserEntity user = new UserEntity();
         user.user_name = "Ana";
         user.user_mail = "ana@mail.com";
-        user.user_password = "hash";
 
-        assertEquals(
-                "INSERT INTO T_Users (user_name, user_mail, user_password) VALUES ('Ana', 'ana@mail.com', 'hash');",
-                builder.createInsertQuery(user));
+        SQLStatement stmt = builder.createInsertQuery(user);
+
+        assertEquals("INSERT INTO T_Users (user_name, user_mail) VALUES (?, ?);", stmt.sql());
+        assertEquals(List.of("Ana", "ana@mail.com"), stmt.params());
     }
 
     @Test
-    void updateOnlySetsNonNullFields() throws Exception {
+    void updateOnlySetsNonNullFields() {
         UserEntity user = new UserEntity();
-        user.user_name = "Ana";
+        user.user_name = "O'Brien";
 
-        assertEquals(
-                "UPDATE T_Users SET user_name = 'Ana' WHERE user_id = 7;",
-                builder.createUpdateQuery(user, "7"));
+        SQLStatement stmt = builder.createUpdateQuery(user, "7");
+
+        assertEquals("UPDATE T_Users SET user_name = ? WHERE user_id = ?;", stmt.sql());
+        assertEquals(List.of("O'Brien", 7), stmt.params());
     }
 
     @Test
-    void deleteByPrimaryKey() throws Exception {
-        assertEquals(
-                "DELETE FROM T_Users WHERE user_id = '7';",
-                builder.createDeleteQuery(new UserEntity(), "7"));
+    void deleteByPrimaryKey() {
+        SQLStatement stmt = builder.createDeleteQuery(new UserEntity(), "7");
+
+        assertEquals("DELETE FROM T_Users WHERE user_id = ?;", stmt.sql());
+        assertEquals(List.of(7), stmt.params());
     }
 
     @Test

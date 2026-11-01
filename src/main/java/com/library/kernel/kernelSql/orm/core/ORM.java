@@ -63,7 +63,7 @@ public final class ORM<T extends Entity> implements IORMEngine<T>, Colors {
     @Override
     public ArrayList<T> selectQuery(T entity, String value, String field) throws ORMException
     {
-        String sqlStmt = null;
+        SQLStatement sqlStmt = null;
         try {
 
             if(entity == null){
@@ -72,7 +72,7 @@ public final class ORM<T extends Entity> implements IORMEngine<T>, Colors {
 
             sqlStmt = sqlBuilder.createSelectQuery(entity, value, field);
 
-            Logger.infoLog("SQL Query", sqlStmt);
+            Logger.infoLog("SQL Query", sqlStmt.sql());
             try (
                     Connection conn = getConnection();
                     ResultSet resultSet = sqlExecutor.excuteSelectQuery(conn, sqlStmt);
@@ -82,7 +82,7 @@ public final class ORM<T extends Entity> implements IORMEngine<T>, Colors {
             }
 
         } catch (Exception error) {
-            Logger.infoLog("SQL Query", sqlStmt);
+            Logger.infoLog("SQL Query", sqlStmt != null ? sqlStmt.sql() : null);
             Logger.errorLog("Unhandled SQL Exception", error.getMessage());
             throw new ORMException("Unhandled SQL exception during query execution: " + error.getMessage(), error);
         }
@@ -95,8 +95,8 @@ public final class ORM<T extends Entity> implements IORMEngine<T>, Colors {
      * @return número de filas afectadas por la operación
      * @throws ORMException si hay un error en la ejecución SQL o al obtener la conexión
      */
-    private int executeUpdate(T entity, String sqlStmt) throws ORMException {
-        Logger.infoLog("SQL Query", sqlStmt);
+    private int executeUpdate(T entity, SQLStatement sqlStmt) throws ORMException {
+        Logger.infoLog("SQL Query", sqlStmt.sql());
         try (Connection conn = getConnection()) {
             return sqlExecutor.executeUpdateStatment(conn, sqlStmt);
         } catch (SQLException | SQLExecutorException error) {
@@ -121,7 +121,7 @@ public final class ORM<T extends Entity> implements IORMEngine<T>, Colors {
     {
         try {
             // Se crea el string que almacena el sql statment de la cosnulta
-            String sqlStmt = null;
+            SQLStatement sqlStmt = null;
 
             // Si la id es null indica que es una insert de un nuevo registro
             if (id == null && entity != null) {
@@ -158,7 +158,7 @@ public final class ORM<T extends Entity> implements IORMEngine<T>, Colors {
             }
 
             // Se crea el sql statment de un delete
-            String sqlStmt = sqlBuilder.createDeleteQuery(entity, id);
+            SQLStatement sqlStmt = sqlBuilder.createDeleteQuery(entity, id);
 
             return executeUpdate(entity, sqlStmt);
 

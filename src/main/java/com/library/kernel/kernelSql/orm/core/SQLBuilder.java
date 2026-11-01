@@ -1,7 +1,10 @@
 package com.library.kernel.kernelSql.orm.core;
 
 import java.lang.reflect.Field;
+import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import com.library.kernel.logger.Logger;
@@ -19,9 +22,9 @@ import static com.library.kernel.kernelSql.orm.entity.Entity.ENTITY_KEY_WORDS;
  *
  * Esta clase construye sentencias SQL de tipo SELECT, INSERT, UPDATE y DELETE,
  * así como las cláusulas JOIN necesarias cuando una entidad tiene relaciones con
- * otras entidades. Los métodos devuelven las sentencias SQL en forma de
- * cadenas y lanzan {@link SQLBuilderException} en caso de parámetros inválidos
- * o errores durante la generación.
+ * otras entidades. Las sentencias se devuelven parametrizadas ({@link SQLStatement}):
+ * los valores nunca se concatenan en el SQL, y los nombres de columna solo pueden
+ * provenir de los campos declarados en la entidad.
  *
  * Nota: no ejecuta las sentencias, solo las construye.
  */
@@ -103,11 +106,13 @@ final class SQLBuilder implements ISQLBuilder ,Colors {
      * @param entity Entidad sobre la que se construye la consulta.
      * @param value  Valor para la cláusula WHERE (puede ser nulo para omitir WHERE).
      * @param field  Campo a usar en la cláusula WHERE (si es nulo se usa la clave primaria).
-     * @return Cadena con la sentencia SELECT completa terminada en punto y coma.
-     * @throws SQLBuilderException Si la entidad es nula o ocurre un error durante la construcción.
+     *               Debe ser uno de los campos declarados en la entidad.
+     * @return Sentencia SELECT parametrizada.
+     * @throws SQLBuilderException Si la entidad es nula, el campo no existe en la entidad
+     *                             o el valor no es compatible con el tipo del campo.
      */
     @Override
-    public String createSelectQuery(Entity entity, String value, String field)
+    public SQLStatement createSelectQuery(Entity entity, String value, String field)
             throws SQLBuilderException {
         try {
             if(entity == null){
@@ -119,6 +124,9 @@ final class SQLBuilder implements ISQLBuilder ,Colors {
 
             // StringBuilder para las columnas de la entidad actual
             StringBuilder sqlColumns = new StringBuilder();
+
+            // Valores a enlazar en la sentencia preparada
+            List<Object> params = new ArrayList<>();
 
             String[] joinsStatments = null;
 
@@ -158,20 +166,21 @@ final class SQLBuilder implements ISQLBuilder ,Colors {
 
             // Añade cláusula WHERE si se proporciona un valor
             if (value != null) {
+                // El nombre de columna no se puede parametrizar, así que se valida contra la entidad
+                Field whereField = findColumn(entityAttributes, field != null ? field : entity.getPrimaryKey());
+
                 sqlStmt.append(" WHERE ")
-                        .append(
-                                field != null ? field : entity.getPrimaryKey()
-                        )
-                        .append(" = ")
-                        .append("'" + value + "'");
+                        .append(whereField.getName())
+                        .append(" = ?");
+                params.add(toColumnType(value, whereField));
             }
 
             // Añade ORDER BY por la clave primaria de manera ascendente
             sqlStmt.append(" ORDER BY ")
                     .append(entity.getPrimaryKey())
                     .append(" ASC;");
-        
-        return sqlStmt.toString();
+
+        return new SQLStatement(sqlStmt.toString(), params);
 
         } catch (SQLBuilderException error) {
             Logger.errorLog("SQLBuilder Exception", error.getMessage());
@@ -181,13 +190,14 @@ final class SQLBuilder implements ISQLBuilder ,Colors {
 
     /**
      * Construye una sentencia INSERT para la entidad proporcionada.
+     * Los campos con valor nulo se omiten para que la base de datos aplique su valor por defecto.
      *
      * @param entity Entidad a insertar.
-     * @return Cadena con la sentencia INSERT completa terminada en punto y coma.
+     * @return Sentencia INSERT parametrizada.
      * @throws SQLBuilderException Si ocurre un error al generar la sentencia.
      */
     @Override
-    public String createInsertQuery(Entity entity)
+    public SQLStatement createInsertQuery(Entity entity)
     throws SQLBuilderException
     {
         try {
@@ -196,32 +206,40 @@ final class SQLBuilder implements ISQLBuilder ,Colors {
             // Construye la parte inicial del INSERT con el nombre de la tabla
             sqlStmt.append("INSERT INTO " + entity.getTableName() + " (");
 
-            // Mapea los campos y sus valores de la entidad
-            HashMap<String, String> map = EntityMapper.mapEntityFieldsAndAttributes(entity);
-
-            // StringBuilder para columnas y valores
+            // StringBuilder para columnas y marcadores
             StringBuilder sqlColumns = new StringBuilder();
-            StringBuilder sqlValues = new StringBuilder();
+            StringBuilder sqlPlaceholders = new StringBuilder();
+            List<Object> params = new ArrayList<>();
 
-            // Recorre el mapa y arma las listas de columnas y valores
-            for (Map.Entry<String, String> entry : map.entrySet()) {
+            // Recorre los campos de la entidad y arma las listas de columnas y valores
+            for (Field field : EntityMapper.mapEntityAttributes(entity.getClass())) {
 
-                // Si la entidad tiene autoincrementable y el campo es la PK, o si es 'entityRelationships', se omite
-                if ((entity.getAutoIncrement() && entry.getKey() == entity.getPrimaryKey())
-                        || ENTITY_KEY_WORDS.contains(entry.getKey())) {
+                // Si la entidad tiene autoincrementable y el campo es la PK, se omite
+                if (entity.getAutoIncrement() && field.getName().equals(entity.getPrimaryKey())) {
                     continue;
                 }
-                sqlColumns.append(entry.getKey() + ", ");
-                sqlValues.append("'" + entry.getValue() + "'" + ", ");
+
+                Object value = readField(entity, field);
+                if (value == null) {
+                    continue;
+                }
+
+                sqlColumns.append(field.getName() + ", ");
+                sqlPlaceholders.append("?, ");
+                params.add(value);
+            }
+
+            if (params.isEmpty()) {
+                throw new SQLBuilderException("Entity has no values to insert");
             }
 
             // Completa la sentencia INSERT eliminando la última coma y espacio
             sqlStmt.append(
                     sqlColumns.substring(0, sqlColumns.length() - 2)
                             + ") VALUES ("
-                            + sqlValues.substring(0, sqlValues.length() - 2) + ");");
+                            + sqlPlaceholders.substring(0, sqlPlaceholders.length() - 2) + ");");
 
-            return sqlStmt.toString();
+            return new SQLStatement(sqlStmt.toString(), params);
         }catch (SQLBuilderException error){
             Logger.errorLog("SQLBuilder Exception", error.getMessage());
             throw new SQLBuilderException("SQLBuilder Exception: " + error.getMessage());
@@ -229,14 +247,15 @@ final class SQLBuilder implements ISQLBuilder ,Colors {
     }
     /**
      * Construye una sentencia UPDATE para la entidad especificada y el id dado.
+     * Solo se actualizan los campos cuyo valor no es nulo.
      *
      * @param entity Entidad con los nuevos valores.
      * @param id     Identificador (valor) de la fila a actualizar.
-     * @return Cadena con la sentencia UPDATE completa terminada en punto y coma.
+     * @return Sentencia UPDATE parametrizada.
      * @throws SQLBuilderException Si alguno de los parámetros es nulo o ocurre un error.
      */
     @Override
-    public String createUpdateQuery(Entity entity, String id)
+    public SQLStatement createUpdateQuery(Entity entity, String id)
     throws SQLBuilderException
     {
         try {
@@ -250,27 +269,33 @@ final class SQLBuilder implements ISQLBuilder ,Colors {
                 // Inicia la sentencia UPDATE con el nombre de la tabla y la cláusula SET
                 sqlStmt.append("UPDATE " + entity.getTableName() + " SET ");
 
-                // Mapea los campos y valores de la entidad
-                HashMap<String, String> map = EntityMapper.mapEntityFieldsAndAttributes(entity);
+                Field[] entityAttributes = EntityMapper.mapEntityAttributes(entity.getClass());
 
-                // StringBuilder para los pares columna = valor
+                // StringBuilder para los pares columna = ?
                 StringBuilder sqlColumnsAndValues = new StringBuilder();
+                List<Object> params = new ArrayList<>();
 
-                // Recorre el mapa y añade solo los campos cuyo valor no sea "null"
-                for (Map.Entry<String, String> entry : map.entrySet()) {
-                    System.out.println(entry.getKey() + " => " + entry.getValue());
-                    if (!entry.getValue().equals("null") &&
-                            !ENTITY_KEY_WORDS.contains(entry.getKey())) {
-                        Logger.infoLog("Entity Field Value", entry.getKey() + " => " + entry.getValue());
-                        sqlColumnsAndValues.append(entry.getKey() + " = '" + entry.getValue() + "', ");
+                // Recorre los campos y añade solo los que tengan valor
+                for (Field field : entityAttributes) {
+                    Object value = readField(entity, field);
+                    if (value != null) {
+                        sqlColumnsAndValues.append(field.getName() + " = ?, ");
+                        params.add(value);
                     }
                 }
+
+                if (params.isEmpty()) {
+                    throw new SQLBuilderException("Entity has no values to update");
+                }
+
                 // Completa la sentencia eliminando la última coma y espacio, y añade la cláusula WHERE
+                Field primaryKey = findColumn(entityAttributes, entity.getPrimaryKey());
                 sqlStmt.append(
                         sqlColumnsAndValues.substring(0, sqlColumnsAndValues.length() - 2)
-                                + " WHERE " + entity.getPrimaryKey() + " = " + id + ";");
+                                + " WHERE " + primaryKey.getName() + " = ?;");
+                params.add(toColumnType(id, primaryKey));
 
-            return sqlStmt.toString();
+            return new SQLStatement(sqlStmt.toString(), params);
         }catch (SQLBuilderException error){
 
             Logger.errorLog("SQLBuilder Exception", error.getMessage());
@@ -282,20 +307,68 @@ final class SQLBuilder implements ISQLBuilder ,Colors {
      *
      * @param entity Entidad desde la cual se eliminará la fila.
      * @param id     Identificador (valor) de la fila a eliminar.
-     * @return Cadena con la sentencia DELETE completa terminada en punto y coma.
+     * @return Sentencia DELETE parametrizada.
      * @throws SQLBuilderException Si alguno de los parámetros es nulo.
      */
     @Override
-    public String createDeleteQuery(Entity entity, String id) throws SQLBuilderException
+    public SQLStatement createDeleteQuery(Entity entity, String id) throws SQLBuilderException
     {
         try {
             if (entity == null || id == null){
                 throw new SQLBuilderException("Invalid values provided");
             }
-            return new String("DELETE FROM " + entity.getTableName() + " WHERE " + entity.getPrimaryKey() + " = '" + id + "';");
+            Field primaryKey = findColumn(EntityMapper.mapEntityAttributes(entity.getClass()), entity.getPrimaryKey());
+
+            return new SQLStatement(
+                    "DELETE FROM " + entity.getTableName() + " WHERE " + primaryKey.getName() + " = ?;",
+                    List.of(toColumnType(id, primaryKey)));
         }catch (SQLBuilderException error){
             Logger.errorLog("SQLBuilder Exception", error.getMessage());
             throw new SQLBuilderException("SQLBuilder Exception: " + error.getMessage());
+        }
+    }
+
+    /**
+     * Busca la columna por nombre entre los campos de la entidad.
+     * Es la lista blanca que impide inyectar SQL a través de nombres de columna.
+     */
+    private static Field findColumn(Field[] entityAttributes, String columnName) {
+        for (Field field : entityAttributes) {
+            if (field.getName().equals(columnName)) {
+                return field;
+            }
+        }
+        throw new SQLBuilderException("Unknown column: " + columnName);
+    }
+
+    /**
+     * Lee el valor de un campo público de la entidad.
+     */
+    private static Object readField(Entity entity, Field field) {
+        try {
+            return field.get(entity);
+        } catch (IllegalAccessException error) {
+            throw new SQLBuilderException("Cannot read field " + field.getName() + ": " + error.getMessage());
+        }
+    }
+
+    /**
+     * Convierte un valor recibido como texto (ids, filtros) al tipo Java del campo,
+     * para que el driver lo envíe con el tipo correcto (por ejemplo INTEGER y no VARCHAR).
+     */
+    private static Object toColumnType(String value, Field field) {
+        Class<?> type = field.getType();
+        try {
+            if (type == Integer.class || type == int.class) return Integer.valueOf(value);
+            if (type == Long.class || type == long.class) return Long.valueOf(value);
+            if (type == Short.class || type == short.class) return Short.valueOf(value);
+            if (type == Double.class || type == double.class) return Double.valueOf(value);
+            if (type == Float.class || type == float.class) return Float.valueOf(value);
+            if (type == Boolean.class || type == boolean.class) return Boolean.valueOf(value);
+            if (type == BigDecimal.class) return new BigDecimal(value);
+            return value;
+        } catch (NumberFormatException error) {
+            throw new SQLBuilderException("Invalid value for column " + field.getName() + ": " + value);
         }
     }
 }

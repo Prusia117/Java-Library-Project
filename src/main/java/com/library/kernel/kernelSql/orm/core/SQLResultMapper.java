@@ -41,10 +41,10 @@ final class SQLResultMapper implements Colors {
         try {
 
             for (int i = 0; i < entityFields.length; i++) {
+                // No se registra el valor: puede contener datos sensibles (p. ej. hashes de contraseñas)
                 Logger.infoLog(
                         YELLOW + "Entity Info",
-                        "Entity Field => " + entityFields[i].getName() + RESET + " | " + PURPLE
-                                + "Entity Value => " + resultSet.getObject(j)
+                        "Entity Field => " + entityFields[i].getName() + RESET
                 );
                 // Se setea los valores de las filas en el objeto
                 EntityPopulator.populateEntity(entity, entityFields[i], resultSet.getObject(j));
